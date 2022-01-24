@@ -6,7 +6,7 @@ class Solution
 	int lps(string s)
 	{
 	    int M=s.length();
-	    int LPS[n]={0};
+	    int LPS[M]={0};
 	    int i=1;
 	    int len=0;
 	    
