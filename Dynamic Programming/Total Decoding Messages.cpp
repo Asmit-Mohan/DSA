@@ -32,5 +32,5 @@ class Solution
 		      int pos=0;
 		      memset(dp,-1,sizeof(dp));
 		      return solve(str,pos);
-    }
+    		}
 };
