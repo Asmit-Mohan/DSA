@@ -2,8 +2,8 @@
 
 class Solution
 {
-	public:
-	void solve(int node,stack<int>&s,vector<int>&vis,vector<int>adj[])
+    public:
+    void solve(int node,stack<int>&s,vector<int>&vis,vector<int>adj[])
     {
       vis[node]=1;
       for(auto x : adj[node])
@@ -18,7 +18,7 @@ class Solution
     
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
-	    vector<int>ans;
+	vector<int>ans;
         vector<int>vis(V,0);
         stack<int>s;
         for(int i=0;i<V;i++)
