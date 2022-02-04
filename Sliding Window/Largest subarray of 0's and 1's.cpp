@@ -10,14 +10,11 @@ class Solution
             if(A[i]==0)
             {
                 z++;
+                A[i]=-1;
             }
             else
             {
                 o++;
-            }
-            if(A[i]==0)
-            {
-                A[i]=-1;
             }
         }
         
@@ -27,26 +24,25 @@ class Solution
         }
         /*Now the problem is largest subarray with sum==0*/
         int sum=0;
-        int ans=0;
+        int ans=INT_MIN;
         int j=0;
         unordered_map<int,int> mp;
         mp[0]=0;
-        int k=0;
         
         while(j<n)
         {
             sum=sum+A[j];
-            if(mp.find(sum-k)!=mp.end())  
+            if(mp.find(sum)!=mp.end())  
             {
-                ans=max(ans,j-mp[sum-k]+1);
+                ans=max(ans,j-mp[sum]+1);
             }
-            if(mp.find(sum)==mp.end())
+            else
             {
                  mp[sum]=j+1;
             }
             j++;
         }
-        return ans;
+        return ans==INT_MIN?0:ans;
            
     }
 };
