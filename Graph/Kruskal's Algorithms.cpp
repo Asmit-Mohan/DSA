@@ -77,6 +77,7 @@ int main()
     
     for(auto it : graph)
     {
+	/*Checking that wheather both belongs to same component or not , if belongs then it will make a cycle which doesn't form MST so avoid it*/    
     	if(findParent(it.u)!=findParent(it.v))
     	{
     	    cost=cost+it.wt;
