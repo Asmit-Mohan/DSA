@@ -2,13 +2,13 @@
 
 class Solution
 {
-	public:
+    public:
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
     {
         vector<int>dis(V);
         for(int i=0;i<V;i++)
         {
-        	  dis[i]=INT_MAX;
+            dis[i]=INT_MAX;
         }
         
         queue<pair<int,int>>q;
@@ -39,13 +39,13 @@ using namespace std;
 int main()
 {
 	int n,m;
-  int source;
+        int source;
 	cin >> n >> m;
 	vector<pair<int,int> > g[n+1]; 
 	int a,b,wt;
   
 	for(int i = 0; i<m ; i++)
-  {
+        {
 		cin >> a >> b >> wt;
 		g[a].push_back(make_pair(b,wt));
 		g[b].push_back(make_pair(a,wt));
@@ -70,8 +70,8 @@ int main()
 			int nextDist = it->second;
 			if( distTo[next] > distTo[prev] + nextDist)
 			{
-          distTo[next] = distTo[prev] + nextDist;
-          pq.push(make_pair(distTo[next], next));
+			   distTo[next] = distTo[prev] + nextDist;
+			   pq.push(make_pair(distTo[next], next));
 			}
 		}
 	}
