@@ -1,8 +1,7 @@
 class Solution
 {
-	public:
-	
-	void toposort(int node,stack<int>&s,vector<int>&vis,vector<vector<int>> adj[])
+    public:
+    void toposort(int node,stack<int>&s,vector<int>&vis,vector<vector<int>> adj[])
     {
       vis[node]=1;
       for(auto x : adj[node])
@@ -23,7 +22,7 @@ class Solution
        {
        	   if(vis[i]==0)
        	   {
-    			toposort(i,s,vis,adj);
+    		toposort(i,s,vis,adj);
        	   }
        }
        int dis[V];
