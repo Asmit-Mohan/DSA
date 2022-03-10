@@ -18,7 +18,7 @@ class Solution
 	    int startX=KnightPos[0]-1;
 	    int startY=KnightPos[1]-1;
 	    
-      int endX=TargetPos[0]-1;
+            int endX=TargetPos[0]-1;
 	    int endY=TargetPos[1]-1;
 	    
 	    if(startX==endX&&startY==endY)
