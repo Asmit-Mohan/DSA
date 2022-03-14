@@ -2,9 +2,9 @@
 
 class Solution
 {
-	public:
-    vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
-    {
+        public:
+        vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
+        {
         vector<int>dis(V);
         for(int i=0;i<V;i++)
         {
@@ -39,16 +39,16 @@ using namespace std;
 int main()
 {
 	int n,m;
-  int source;
+        int source;
 	cin >> n >> m;
 	vector<pair<int,int> > g[n+1]; 
 	int a,b,wt;
   
 	for(int i = 0; i<m ; i++)
-  {
-      cin >> a >> b >> wt;
-      g[a].push_back(make_pair(b,wt));
-      g[b].push_back(make_pair(a,wt));
+        {
+	    cin >> a >> b >> wt;
+	    g[a].push_back(make_pair(b,wt));
+	    g[b].push_back(make_pair(a,wt));
 	}
 	cin >> source;
   
@@ -70,8 +70,8 @@ int main()
 			int nextDist = it->second;
 			if( distTo[next] > distTo[prev] + nextDist)
 			{
-          distTo[next] = distTo[prev] + nextDist;
-          pq.push(make_pair(distTo[next], next));
+          		    distTo[next] = distTo[prev] + nextDist;
+          		    pq.push(make_pair(distTo[next], next));
 			}
 		}
 	}
