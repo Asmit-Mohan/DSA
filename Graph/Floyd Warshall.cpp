@@ -1,9 +1,9 @@
 class Solution
 {
-  public:
-	void shortest_distance(vector<vector<int>>&matrix)
-	{
-	   int INF=1e9+10; 
+   public:
+   void shortest_distance(vector<vector<int>>&matrix)
+   {
+       int INF=1e9+10; 
        int n=matrix.size();
        
        for(int i=0;i<n;i++)
@@ -38,7 +38,7 @@ class Solution
              }
           }    
        }
-	  }
+    }
 };
 
 /* LUV */
