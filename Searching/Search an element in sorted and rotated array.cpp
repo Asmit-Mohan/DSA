@@ -20,7 +20,7 @@ int binary(vector<int> arr,int l,int r,int k)
 }
 int solve(vector<int> a, int n)
 {
-	int l=0;
+    int l=0;
     int r=n-1;
     while(l<r)
     {
