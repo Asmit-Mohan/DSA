@@ -28,6 +28,7 @@ void dfs(int src, vector<int>&vis, vector<int> adj[])
                     continue;
                 }
                 adj[i].push_back(x);
+                adj[x].push_back(i);
             }
         }
         
