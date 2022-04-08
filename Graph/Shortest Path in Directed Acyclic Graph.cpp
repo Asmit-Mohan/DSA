@@ -22,7 +22,7 @@ class Solution
        {
        	   if(vis[i]==0)
        	   {
-    		toposort(i,s,vis,adj);
+    		toposort(i,s,vis,adj);  
        	   }
        }
        int dis[V];
@@ -49,3 +49,12 @@ class Solution
        return dis;     /* If any dis[i] == INT_MAX print "Node not accessable else print dis[i]*/
     }
 };
+/* Why we have used here Topo Sort ?
+
+Topological sort ensures that we are picking up nodes that come first while travelling from the source, 
+this, in turn, will ensure that every node will have at least one condition that it can be reached from the source.
+
+Processing the vertices in topological order ensures that by the time you get to a vertex, 
+you've already processed all the vertices that can precede it.
+
+*/
