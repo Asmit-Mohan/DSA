@@ -2,35 +2,39 @@
 
 class Solution
 {
-        public:
-        vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
-        {
+    public:
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
+    {
         vector<int>dis(V);
+        queue<int>q;
+        q.push(src);
+        
         for(int i=0;i<V;i++)
         {
-        	  dis[i]=INT_MAX;
+            dis[i]=INT_MAX;
         }
         
-        queue<pair<int,int>>q;
-        q.push({src,0});
         dis[src]=0;
         
         while(!q.empty())
         {
-        	pair<int,int> node=q.front();
-        	q.pop();
-        	for(auto it : adj[node.first])
-        	{
-        		if(dis[it[0]]>dis[node.first]+it[1])
-        		{
-        			dis[it[0]]=dis[node.first]+it[1];
-        			q.push({it[0],it[1]});
-        		}
-        	}
+            int node=q.front();
+            q.pop();
+            for(auto it : adj[node])
+            {
+                int child=it[0];
+                int weight=it[1];
+                if(dis[child]>dis[node]+weight)
+                {
+                    q.push(child);
+                    dis[child]=dis[node]+weight;
+                }
+            }
         }
         return dis;
     }
 };
+
 
 /*Approach 2*/
 
