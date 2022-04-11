@@ -53,3 +53,46 @@ class Solution
         return ans;
     }
 };
+
+/* Approach 3 */
+
+class Solution
+{
+public:
+int total=0;
+
+void count(Node* root)
+{
+    if(root!=NULL)
+    {
+        count(root->left);
+        total++;
+        count(root->right);
+    }
+}
+
+int temp=0;
+
+void solve(Node* root,int &ans,int k)
+{
+    if(root!=NULL)
+    {
+        solve(root->left,ans,k);
+        temp++;
+        if(temp==k)
+        {
+            ans=root->data;
+        }
+        solve(root->right,ans,k);
+    }
+}
+
+    int kthLargest(Node *root, int k)
+    {
+        int ans=INT_MIN;
+        count(root);
+        k=total-k+1;
+        solve(root,ans,k);
+        return ans;
+    }
+};
