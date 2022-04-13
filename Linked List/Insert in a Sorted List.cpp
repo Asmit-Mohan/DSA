@@ -4,37 +4,32 @@ class Solution
     Node *sortedInsert(struct Node* head, int data)
     {
         Node* temp = new Node(data);
-        if(head->next==NULL)
-        {
-            if(head->data>data)
-            {
-                temp->next=head;
-                head->next=NULL;
-                head=temp;
-            }
-            else
-            {
-                head->next=temp;
-                temp->next=NULL;
-            }
-        }
-        else if(head->data>=data)
+        Node* curr=head;
+        
+        if(data<=head->data)
         {
             temp->next=head;
-            head=temp;
+            return temp;
         }
         else
         {
-            Node* ptr=head;
-            Node* preptr;
-            while(ptr!=NULL&&ptr->data<data)
+            Node* prev=NULL;
+            while(curr!=NULL&&data>curr->data)
             {
-                preptr=ptr;
-                ptr=ptr->next;
+                prev=curr;
+                curr=curr->next;
             }
-            preptr->next=temp;
-            temp->next=ptr;
+            if(curr==NULL)
+            {
+                prev->next=temp;
+                temp->next=NULL;
+            }
+            else
+            {
+                prev->next=temp;
+                temp->next=curr;
+            }
+            return head;
         }
-        return head;
     }
 };
