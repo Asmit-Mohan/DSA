@@ -1,3 +1,5 @@
+/* Naive Approach Time :- O(N^2) */
+
 class Solution
 {
 public: 
@@ -19,4 +21,31 @@ public:
             }
         }
     }
+};
+
+/* Efficient Approach Time:- O(N) */ 
+
+class Solution
+{
+public:
+    void sortList(Node** head)
+    {
+       Node* prev = *head;
+       Node* curr = *head->next;
+    
+       while (curr != NULL)
+       {
+           if (prev->data>curr->data)
+           {
+               prev->next = curr->next;
+               curr->next = *head;
+               *head = curr;
+               curr = prev;
+           }
+           else
+           {
+               prev = curr;
+           }
+           curr = curr->next;
+       }
 };
