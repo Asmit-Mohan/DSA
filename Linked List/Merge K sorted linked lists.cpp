@@ -1,3 +1,5 @@
+/* Naive Approach */
+
 class Solution
 {
   public:
@@ -25,4 +27,37 @@ class Solution
          ans->next=NULL;
          return res->next;
     }
+};
+
+/* Efficient Approach */
+
+#define pair pair<int, Node*>
+class Solution
+{
+    public:
+    Node * mergeKLists(Node *arr[], int K)
+    {
+           priority_queue<pair, vector<pair>,greater<pair>> pq;
+           for(int i=0;i<K;++i)
+           {    
+               int data = arr[i]->data;
+               pq.push({data,arr[i]});
+           }
+      
+           Node* ans= new Node(-1);
+           Node* temp = ans;
+           while(!pq.empty())
+           {
+               Node* t = pq.top().second;
+               pq.pop();
+               temp->next = t;
+               temp= temp->next;
+               
+               if(t->next)
+               {
+                   pq.push({t->next->data,t->next});
+               }
+           }
+           return ans->next;
+     }
 };
