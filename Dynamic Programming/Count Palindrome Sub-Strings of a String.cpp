@@ -31,48 +31,47 @@ int CountPS(char arr[], int n)
 
 /*DP Approach Time :- O(N^2) Space :- O(N^2) */
 
-#include <bits/stdc++.h>
-using namespace std;
-int dp[1001][1001];
-
-bool isPal(string s, int i, int j)
+class Solution
 {
-      if (i > j)
-      {
-        return 1;
-      }
-      if (dp[i][j] != -1)
-      {
+public:
+bool isPal(int i,int j,string& s,vector<vector<int> >& dp)
+{
+    if(i>=j)
+    {
+        return dp[i][j]=1;
+    }
+    if(dp[i][j] != -1)
+    {
         return dp[i][j];
-      }
-      if (s[i] != s[j])
-      {
-         return dp[i][j] = 0;
-      }
-      return dp[i][j] = isPal(s, i + 1, j - 1);
-}
-
+    }
+    if(s[i] != s[j])
+    {
+        return dp[i][j] = 0;
+    }
+    return dp[i][j] = isPal(i+1,j-1,s,dp);   
+}    
+    
 int countSubstrings(string s)
 {
-    memset(dp, -1, sizeof(dp));
-    int n = s.length();
-    int count = 0;
-    for (int i = 0; i < n; i++)
+    if(s.length()==1)
     {
-        for (int j = i + 1; j < n; j++)
+        return 1;
+    }
+    
+    int n = s.size();
+    int count = 0;
+    vector<vector<int>> dp(n,vector<int>(n,-1));
+    
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i;j<n;j++)
         {
-            if (isPal(s, i, j))
+            if(isPal(i,j,s,dp))
             {
-              count++;
+                count++;
             }
         }
     }
     return count;
 }
-
-int main()
-{
-    string s = "geek";
-    cout << countSubstrings(s);
-    return 0;
-}
+};
