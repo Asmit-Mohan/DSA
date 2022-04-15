@@ -1,25 +1,26 @@
 class Solution
 {
   public:
-	int minDifference(int arr[], int n) 
-	{ 
-	    int sum=0;
-	    for(int i=0;i<n;i++)
+     int minDifference(int arr[], int n) 
+     { 
+	int sum=0;
+	for(int i=0;i<n;i++)
         {
-            sum=sum+arr[i];
+           sum=sum+arr[i];
         }
         int t[n+1][sum+1];
-        for(int i=0;i<=n;i++)
+        
+	for(int i=0;i<=n;i++)
         {
             for(int j=0;j<=sum;j++)
             {
-                if(j==0)
-                {
-                    t[i][j]=1;
-                }
-                else if(i==0)
+                if(i==0)
                 {
                     t[i][j]=0;
+                }
+                else if(j==0)
+                {
+                    t[i][j]=1;
                 }
             }
         }
@@ -48,5 +49,5 @@ class Solution
             }
         }
         return ans;
-	  }
+    }
 };
