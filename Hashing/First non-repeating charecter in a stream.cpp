@@ -1,8 +1,8 @@
 class Solution
 {
-	public:
-	string FirstNonRepeating(string A)
-	{
+     public:
+     string FirstNonRepeating(string A)
+     {
      unordered_map<char,int>mp;
      queue<char>q;
      string ans="";
@@ -31,5 +31,5 @@ class Solution
          }
      }
      return ans;
-	}
+   }
 };
