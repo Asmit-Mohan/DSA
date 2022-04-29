@@ -54,46 +54,58 @@ class Solution
     }
 };
 
-
-/*Heap Efficient approach*/
+/* Heap Efficient Approach */
 
 class Solution
 {
     public:
     string rearrangeString(string str)
     {
-        priority_queue<pair<int,char>> pq;
-        int hash[256]={0};
-        int count=str.length();
-        string ans="";
-        for(int i=0;i<str.length();i++)
+        string ans = "";
+        unordered_map<char,int> mp;
+        priority_queue<pair<int,char> > pq;
+        
+        for(auto x : str)
         {
-            hash[str[i]]++;
+            mp[x]++;
         }
-        for(int i=0;i<256;i++)
+        
+        for(auto x : mp)
         {
-            if(hash[i]>0)
+            pq.push({x.second,x.first});
+        }
+        
+        while(pq.size()>1)
+        {
+            pair<int,char> temp1 = pq.top();
+            pq.pop();
+            pair<int,char> temp2 = pq.top();
+            pq.pop();
+            
+            ans += temp1.second;
+            ans += temp2.second;
+            
+            if(--temp1.first>0)
             {
-                pq.push({hash[i],i});
+               pq.push(temp1); 
+            }
+            
+            if(--temp2.first>0)
+            {
+               pq.push(temp2); 
             }
         }
-        if(pq.size()==1&&count>1)
+        
+        if(pq.size())
         {
-            return "-1";
-        }
-        pair<int,char> prev={-1,'#'};
-        while(count--)
-        {
-            if(pq.top().first==0)
+            if(pq.top().first == 1)
+            {
+                ans += pq.top().second;
+            }
+            else
             {
                 return "-1";
             }
-            int fre=pq.top().first;
-            char letter=pq.top().second;
-            ans+=letter;
-            pq.pop();
-            pq.push(prev);
-            prev={fre-1,letter};
         }
         return ans;    
     }
