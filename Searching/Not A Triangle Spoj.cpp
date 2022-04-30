@@ -8,7 +8,7 @@ using namespace std;
 
 int total(int n,int r)
 {
-	   long long int up=1;
+       long long int up=1;
        long long int down=1;
         
        if(r==0||r==n)
@@ -31,8 +31,7 @@ int total(int n,int r)
 
 int solve(ll nums[],int n)
 {
-	    int ans=0;
-     
+	int ans=0;
         sort(nums,nums+n);
  
         if(n==3)
@@ -90,7 +89,7 @@ int main()
 	return 0;
 }
 
-/* Binary Search */
+/* Approach Binary Search */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -122,7 +121,7 @@ int solve(int num,int arr[],int size)
 			return 0;
 		}
 	}
-   return size-low;	
+   	return size-low;	
 }
 
 int main()
@@ -149,6 +148,6 @@ int main()
 			}
 		}
 		cout<<count<<endl;
-    }
-	return 0;
+        }
+   return 0;
 }
