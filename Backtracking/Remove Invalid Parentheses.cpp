@@ -1,6 +1,3 @@
-
-
-
 class Solution
 {
 public:
@@ -37,10 +34,6 @@ int getMinRemoval(string s)
 }
 void solve (string s,int mnr)
 {
-    if(mnr < 0)
-    {
-        return;
-    }
     if(mnr == 0)
     {
         int mna = getMinRemoval(s);
@@ -59,13 +52,14 @@ void solve (string s,int mnr)
         string left = s.substr(0,i);   /* Copy i charecter starting from 0*/
         string right = s.substr(i+1);  /* Copy string after i+1 */
         string t = left+ right ;
-         if(ans.find(t)==ans.end())
-         {
-               ans.insert(t);
-               solve(t,mnr-1);
-         }
+        if(ans.find(t)==ans.end())
+        {
+           ans.insert(t);
+           solve(t,mnr-1);
+        }
     }
 }
+    
 vector<string> removeInvalidParentheses(string s)
 {
     int mnr=getMinRemoval(s);
@@ -74,5 +68,5 @@ vector<string> removeInvalidParentheses(string s)
 }
 };
 
-//mnr:- Minimum number of removal 
+// mnr:- Minimum number of removal 
 // mna:- min number of removal now availble when mnr becomes zero
