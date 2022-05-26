@@ -1,3 +1,44 @@
+/* Approach 1 :- Recursion */
+
+class Solution
+{
+public:
+       int longestSubstring(string s, int k)
+       {
+        if(s.size() == 0 || k > s.size())
+        {
+            return 0;
+        }
+        if(k == 0)
+        {
+            return s.size();
+        }
+        unordered_map<char,int>mp;
+        
+        for(auto x : s)
+        {
+            mp[x]++;
+        }
+        
+        int idx =0;
+        while(idx <s.size() && mp[s[idx]] >= k)
+        {
+            idx++;
+        }
+           
+        if(idx == s.size())
+        {
+            return s.size();
+        }
+           
+        int left  =  longestSubstring(s.substr(0,idx),k);
+        int right =  longestSubstring(s.substr(idx+1),k);    
+        return max(left, right);
+    }
+};
+
+/* Approach 2 :- Sliding Window */
+
 class Solution
 {
 public:
@@ -9,7 +50,7 @@ public:
         {
             mp[s[i]]++;
         }
-        int count = mp.size();   /*count of unique charecters*/
+        int count = mp.size();  
         for(int itr = 1; itr <= count ; itr++)
         {
             int i = 0;
