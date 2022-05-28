@@ -4,41 +4,41 @@ class Solution /* Time: O(n^2*k), Space: O(n*k)*/
 {
 public:
     int solve(int e, int f, vector<vector<int>>& dp)
-	  {
+    {
         if(f == 0 || f == 1)
         {
           return f;
         }
         if(e == 1)
-		    {
-			    return f;
+        {
+	   return f;
         }
         if(dp[e][f] != -1)
-		    {
-			    return dp[e][f];
+	{
+	   return dp[e][f];
         }
         int mn = INT_MAX;
         
         for(int i=1; i<=f; i++)
-		    {
+	{
             int left = 0;
             if(dp[e-1][i-1] != -1)
             {
-				        left = dp[e-1][i-1];
+		left = dp[e-1][i-1];
             }
-			      else
-			      {
+	    else
+	    {
                 left = solve(e-1, i-1, dp);
                 dp[e-1][i-1] = left;
             }
             
-			      int right=0;
+	    int right=0;
             if(dp[e][f-i] != -1)
             {
-				      right = dp[e][f-i];
+		right = dp[e][f-i];
             }
-			      else
-			      {
+	    else
+	    {
                 right = solve(e, f-i, dp);
                 dp[e][f-i] = right;
             }
@@ -50,7 +50,7 @@ public:
     }
     
     int superEggDrop(int e, int f)
-	  {
+    {
         vector<vector<int>> dp(f+1, vector<int>(e+1, -1));
         return solve(e, f, dp);
     }
