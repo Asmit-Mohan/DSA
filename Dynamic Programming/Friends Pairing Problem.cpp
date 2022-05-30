@@ -1,6 +1,7 @@
 class Solution
 {
     public:
+    int mod=pow(10,9)+7;
     long long int solve(int n,vector<int>&dp)
     {
         if(n==1)
@@ -15,7 +16,7 @@ class Solution
         {
             return dp[n];
         }
-        return dp[n] = solve(n-1,dp) + (n-1)*solve(n-2,dp);  
+        return dp[n] = (solve(n-1,dp) + (n-1)*solve(n-2,dp))%mod;  
     }
     
     int countFriendsPairings(int n) 
