@@ -67,7 +67,7 @@ public:
     vector<int> postorderTraversal(TreeNode* root)
     {
         vector<int> ans;
-		if(root==NULL)
+	if(root==NULL)
         {
             return ans;
         }
@@ -75,20 +75,20 @@ public:
 		stack<TreeNode*>s;
 		s.push(root);
 		while(!s.empty())
-        {
+                {
 			curr = s.top();
 			s.pop();
 			ans.push_back(curr->val);
 			if(curr->left)
-            {
-                s.push(curr->left);
-            }
-            if(curr->right)
-            {
-                s.push(curr->right);
-            }
-		}
+			{
+			   s.push(curr->left);
+			}
+		        if(curr->right)
+		        {
+			   s.push(curr->right);
+		        }
+	        }
 		reverse(ans.begin(),ans.end());
 		return ans;
-    }
+     }
 };
