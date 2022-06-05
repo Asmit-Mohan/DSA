@@ -1,4 +1,82 @@
-/*Recursive*/
+/* Leetcode Question Iterative --> Striver */
+
+class Solution
+{
+public:
+    void solve(TreeNode* root, unordered_map<TreeNode*,TreeNode*>&mp)
+    {
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            TreeNode* temp=q.front();
+            q.pop();
+            if(temp->left)
+            {
+                mp[temp->left]=temp;
+                q.push(temp->left);
+            }
+            if(temp->right)
+            {
+                mp[temp->right]=temp;
+                q.push(temp->right);
+            }
+        }
+    }
+    
+    vector<int> distanceK(TreeNode* root, TreeNode* target, int k)
+    {
+       vector<int>ans;
+       unordered_map<TreeNode*,TreeNode*>parent;
+       solve(root,parent);
+       unordered_map<TreeNode*,bool>visited;
+       queue<TreeNode*>q;
+       int curr_level=0;
+        
+       q.push(target);
+       visited[target]=true;
+       while(!q.empty())
+       {
+           int size=q.size();
+           if(curr_level==k)
+           {
+               break;
+           }
+           else
+           {
+               curr_level++;
+           }
+           while(size--)
+           {
+               TreeNode* front=q.front();
+               q.pop();
+               if(front->left&&!visited[front->left])
+               {
+                   q.push(front->left);
+                   visited[front->left]=true;
+               }
+               if(front->right&&!visited[front->right])
+               {
+                   q.push(front->right);
+                   visited[front->right]=true;
+               }
+               if(parent[front]&&!visited[parent[front]])
+               {
+                   q.push(parent[front]);
+                   visited[parent[front]]=true;
+               }
+           }
+       }
+       while(!q.empty())
+       {
+           ans.push_back(q.front()->val);
+           q.pop();
+       }
+       return ans; 
+    }
+};
+
+/* GFG Question Recursive */
 
 void kdistance(struct Node *root, int k,vector<int>& v)
 {
@@ -23,7 +101,7 @@ vector<int> Kdistance(struct Node *root, int k)
    return vec;
 }
 
-/*Iterative*/
+/* GFG Question Iterative */
 
 vector<int> Kdistance(struct Node *root, int k)
 {
