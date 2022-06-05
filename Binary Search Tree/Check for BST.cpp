@@ -1,3 +1,4 @@
+/* Brute Force Approach */
 class Solution
 {
     public:
@@ -54,5 +55,39 @@ class Solution
          {
              return 0;
          }
+    }
+};
+
+/* Optimised Code --> Striver Time :- O(N) Space :- O(1) + Auxiliary Stack Space */
+
+class Solution
+{
+public:
+    bool solve(TreeNode* root,long minRange,long maxRange)
+    {
+          if(root==NULL)
+          {
+              return true;
+          }
+          if(root->val>=maxRange||root->val<=minRange)
+          {
+              return false;
+          }
+          bool temp1 = solve(root->left,minRange,root->val);
+          bool temp2 = solve(root->right,root->val,maxRange);
+          
+          if(temp1&&temp2)
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+    }
+    
+    bool isValidBST(TreeNode* root)
+    {
+        return solve(root,LONG_MIN,LONG_MAX);    
     }
 };
