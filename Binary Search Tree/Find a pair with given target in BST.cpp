@@ -1,4 +1,4 @@
-/* Approach 1 */
+/* Approach 1 Time :- O(N) Space:- O(N) */
 
 class Solution
 {
@@ -29,7 +29,7 @@ void find(Node* root,int target ,unordered_set<int> &s,bool &ans)
     }
 };
 
-/* Approach 2 */
+/* Approach 2 Time :- O(N) Space:- O(N) */
 
 class Solution
 {
