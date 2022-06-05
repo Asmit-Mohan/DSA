@@ -160,30 +160,30 @@ public:
     int maxNode, minNode, maxSize;    
     NodeValue(int minNode, int maxNode, int maxSize)
 	{
-        this->maxNode = maxNode;
-        this->minNode = minNode;
-        this->maxSize = maxSize;
-    }
+             this->maxNode = maxNode;
+             this->minNode = minNode;
+             this->maxSize = maxSize;
+        }
 };
 
 class Solution
 {
     private:
     NodeValue solve(Node* root)
-	{
+    {
         if (root==NULL)
-		{
+	{
             return NodeValue(INT_MAX, INT_MIN, 0);
         }
         auto left  =  solve(root->left);
         auto right =  solve(root->right);
        
         if (left.maxNode < root->data && root->data < right.minNode)
-		{
-		    int value1 = min(root->data, left.minNode);
-		    int value2 = max(root->data, right.maxNode);
-		    int value3 = left.maxSize + right.maxSize + 1;
-            return NodeValue(value1, value2, value3);
+	{
+	      int value1 = min(root->data, left.minNode);
+	      int value2 = max(root->data, right.maxNode);
+	      int value3 = left.maxSize + right.maxSize + 1;
+              return NodeValue(value1, value2, value3);
         }
         return NodeValue(INT_MIN, INT_MAX, max(left.maxSize, right.maxSize));
     }
