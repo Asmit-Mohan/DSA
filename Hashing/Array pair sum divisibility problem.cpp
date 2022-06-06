@@ -1,3 +1,4 @@
+/* Leetcode Question */
 class Solution
 {
 public:
@@ -27,5 +28,33 @@ public:
             }
         }
         return true;
+    }
+};
+
+/* GFG Question Count Pairs Sum Divisible By K */
+
+class Solution
+{
+    public:
+    long long countKdivPairs(int arr[], int n, int K)
+    {
+        unordered_map<int,int>mp;
+        long long ans=0;
+        for(int i=0;i<n;i++)
+        {
+            int key=arr[i];
+            int remain=arr[i]%K;
+            
+            if(remain==0 && mp.find(0)!=mp.end())
+            {
+                ans+=mp[0];
+            }
+            else if(mp.find(K-remain)!=mp.end())
+            {
+                ans+=mp[K-remain];
+            }
+            mp[remain]++;
+        }
+        return ans;
     }
 };
