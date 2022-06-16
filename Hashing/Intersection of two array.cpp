@@ -45,25 +45,25 @@ class Solution
 
 class Solution
 {
-public:
+        public:
 	vector<int> intersect(std::vector<int> &nums1, std::vector<int> &nums2)
 	{
-		vector<int> ans;
-		unordered_map<int, int> mp;
+	   vector<int> ans;
+	   unordered_map<int, int> mp;
         
-		    for (auto x : nums1)
+        for (auto x : nums1)
         {
             mp[x]++;
         }
         
         for (auto x : nums2)
-		    {
+        {
             if (mp.find(x) != mp.end() && mp[x] > 0)
             {
               ans.push_back(x);
               mp[x]--;
             }
-		   }
-		   return ans;
-	  }
+        }
+       return ans; 
+    }
 };
