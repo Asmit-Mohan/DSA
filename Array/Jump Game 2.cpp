@@ -3,19 +3,20 @@ class Solution
 public:
     int jump(vector<int>& nums)
     {
-        int c = 0;
-        int pos = 0;
-        int des = 0;
+        int n=nums.size();
+        int step=0;
+        int current=0;
+        int maxreach=0;
         
-        for(int i=0;i<arr.size()-1;i++)
+        for(int i=0;i<n-1;i++)
         {
-            des = max(des,i + arr[i]);            
-            if(pos == i)
+            maxreach=max(maxreach,i+nums[i]);
+            if(i==current)
             {
-                c++;
-                pos = des;
+                step++;
+                current=maxreach;
             }
         }
-        return c;
+        return step;
     }
 };
