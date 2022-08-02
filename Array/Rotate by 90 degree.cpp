@@ -34,4 +34,5 @@ void rotate(vector<vector<int> >& matrix)
         {
             swap(matrix[i][j],matrix[j][i]);
         }
+    }
 }
