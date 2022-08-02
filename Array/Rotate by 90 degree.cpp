@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
-using namespace std;
-void rotate (vector<vector<int> >& matrix);
+/* Approach 1 */
+
 void rotate(vector<vector<int> >& matrix)
 {
     int n=matrix.size();
@@ -19,28 +18,20 @@ void rotate(vector<vector<int> >& matrix)
         }
     }
 }
-int main()
+
+/* Approach 2 */
+
+void rotate(vector<vector<int> >& matrix)
 {
-    int t;
-    cin>>t; 
-    while(t--)
+    for(int i=0;i<matrix.size();i++)
     {
-        int n;
-        cin>>n; 
-        vector<vector<int> > matrix(n);
-        for(int i=0; i<n; i++)
-        {
-            matrix[i].resize(n);
-            for(int j=0; j<n; j++)
-                cin>>matrix[i][j]; 
-        }
-        rotate(matrix);
-        for (int i = 0; i < n; ++i)
-        {
-            for(int j=0; j<n; j++)
-                cout<<matrix[i][j]<<" ";
-            cout<<"\n";
-        }
+        reverse(matrix[i].begin(),matrix[i].end());
     }
-    return 0;
+    
+    for(int i=0;i<matrix.size();i++)
+    {
+        for(int j=i+1;j<matrix[0].size();j++)
+        {
+            swap(matrix[i][j],matrix[j][i]);
+        }
 }
