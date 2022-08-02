@@ -34,22 +34,26 @@ class Solution
 public:
     int pivotIndex(vector<int>& nums)
     {
-        int total = 0;
-        int n = nums.size();
-        int preSum = 0;
-        for(int num : nums)
-        {
-            total = total+num;
-        }
-        for(int i=0; i<n; i++)
-        {
-            if(preSum == total - nums[i])
-            {
-                return i;
-            }
-            preSum = preSum+nums[i];
-            total = total-nums[i];
-        }
-        return -1;
+       int sum=0;
+        
+       for(int i=0;i<nums.size();i++)
+       {
+           sum=sum+nums[i];
+       }
+       
+       int temp=0;
+        
+       for(int i=0;i<nums.size();i++)
+       {
+           if(temp==sum-temp-nums[i])
+           {
+               return i;
+           }
+           else
+           {
+               temp=temp+nums[i];
+           }
+       }
+       return -1;
     }
 };
