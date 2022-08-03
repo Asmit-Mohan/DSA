@@ -1,9 +1,12 @@
+/* Time and Space Complexity :- O(N*N*N) /
+
 int LCSof3 (string A, string B, string C, int n1, int n2, int n3)
 {
-	  int m=n1;
+    int m=n1;
     int n=n2;
     int o=n3;
     int t[m+1][n+1][o+1];
+    
     for (int i=0; i<=m; i++)
     {
         for (int j=0; j<=n; j++)
