@@ -1,3 +1,46 @@
+/* Approach 1 Time :- O(M*N) Space :- O(M*N) + O(N) */
+
+class Solution
+{
+public:
+    int max_length=0;
+    
+    int solve(int n, int m, string text1, string text2, vector<vector<int>>& dp)
+    {
+        if(n==0 or m==0)
+        {
+            return 0;
+        }
+        if(dp[n][m]!=-1)
+        {
+            return dp[n][m];
+        }
+        if(text1[n-1]==text2[m-1])
+        {
+            dp[n][m]=1+solve(n-1, m-1, text1, text2, dp);
+        }
+        else
+        {  
+           dp[n][m]=0;
+        }
+        
+       solve(n-1, m, text1, text2, dp);
+       solve(n, m-1, text1, text2, dp);
+       ans=max(ans, dp[n][m]);
+       return dp[n][m];
+    }
+    
+    int longestCommonSubstring(string text1, string text2)
+    {
+        int n = text1.size();
+        int m = text2.size();
+        vector<vector<int>> dp(n+1, vector<int>(m+1, -1));
+        return solve(n, m, text1, text2, dp);
+    }
+};
+
+/* Approach 2 Time :- O(M*N) Space :- O(M*N) */
+
 class Solution
 {
     public:
