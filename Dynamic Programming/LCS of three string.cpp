@@ -1,4 +1,4 @@
-/* Time and Space Complexity :- O(N*N*N) /
+/* Time and Space Complexity :- O(N*N*N) */
 
 int LCSof3 (string A, string B, string C, int n1, int n2, int n3)
 {
