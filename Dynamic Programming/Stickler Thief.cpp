@@ -1,6 +1,8 @@
+/* Time :- O(N) and Space :- O(N)  */
+
 /*Approach 1*/
 
-lass Solution
+class Solution
 {
     public:
     int dp[10001];
@@ -28,6 +30,8 @@ lass Solution
          return solve(n-1,arr);
     }
 };
+
+/* Time :- O(N) and Space :- O(N)  */
  
 /*Approach 2*/
 
