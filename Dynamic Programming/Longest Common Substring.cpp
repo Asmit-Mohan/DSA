@@ -3,8 +3,8 @@
 class Solution
 {
 public:
-    int max_length=0;
     
+    int ans=0;
     int solve(int n, int m, string text1, string text2, vector<vector<int>>& dp)
     {
         if(n==0 or m==0)
@@ -30,12 +30,11 @@ public:
        return dp[n][m];
     }
     
-    int longestCommonSubstring(string text1, string text2)
+    int longestCommonSubstr(string text1, string text2,int n,int m)
     {
-        int n = text1.size();
-        int m = text2.size();
         vector<vector<int>> dp(n+1, vector<int>(m+1, -1));
-        return solve(n, m, text1, text2, dp);
+        solve(n, m, text1, text2, dp);
+        return ans;
     }
 };
 
