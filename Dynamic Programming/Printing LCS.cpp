@@ -1,3 +1,5 @@
+/* Time :- O(M*N) Space :- O(M*N) */
+
 vector<int> longestCommonSubsequence(vector<int> a, vector<int> b)
 {
     int m=a.size();
