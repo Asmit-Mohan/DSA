@@ -1,3 +1,5 @@
+/* Tabulation Approach Time :- O(N^2) and Space :- O(N^2) */
+
 class Solution
 {
 public:
@@ -18,8 +20,8 @@ public:
         sum=sum/2;
         int w=sum;
         int dp[n+1][w+1];
-       for(int i=0;i<n+1;i++)
-       {
+        for(int i=0;i<n+1;i++)
+        {
            for(int j=0;j<w+1;j++)
            {
                if(i==0)
@@ -48,4 +50,55 @@ public:
        }
        return dp[n][w];
       }
+};
+    
+/* Memorisation Approach Time :- O(N^2) and Space :- O(N^2) + O(N) Auxialiry Stack */
+    
+class Solution
+{
+public:
+   int solve(vector<int>arr, int sum, int n, vector<vector<int>>&dp)
+   {
+        if(sum==0)
+        {
+           return 1;
+        }      
+        if(n==0)
+        {
+           return 0;
+        }
+        if(dp[n][sum]!=-1)
+        {
+           return dp[n][sum];
+        }
+        if(arr[n-1]<=sum)
+        {  
+          dp[n][sum] = solve(arr, sum-arr[n-1],n-1,dp) || solve(arr,sum,n-1,dp);
+        }
+        else
+        {
+          dp[n][sum] = solve(arr,sum,n-1,dp);
+        }
+        return dp[n][sum];
+   }
+    
+    bool canPartition(vector<int>& arr)
+    {
+        int n=arr.size();
+        int sum=0;
+        for(int i=0;i<n;i++)
+        {
+            sum+=arr[i];
+        }
+        if(sum%2!=0)
+        {
+            return 0;
+        }
+        else
+        {
+          sum=sum/2;
+          vector<vector<int>>dp(arr.size()+1, vector<int>(sum+1,-1));
+          return solve(arr,sum,arr.size(),dp);       
+      }
+    }
 };
