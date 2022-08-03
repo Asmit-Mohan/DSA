@@ -1,4 +1,4 @@
-/*Approach 1*/
+/*Approach 1 Time :- O(m*n) Space :- O(m*n) + O(n) */
 
 class Solution
 {
@@ -42,7 +42,7 @@ class Solution
     }
 };
 
-/*Approach 2*/
+/* Approach 2 Time :- O(m*n) Space :- O(m*n) */
 
 class Solution{
 public:
