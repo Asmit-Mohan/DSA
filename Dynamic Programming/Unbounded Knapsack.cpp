@@ -1,3 +1,5 @@
+/* Approach 1 Time :- O(N*W) Space :-  O(N*W) */
+
 class Solution
 {
 public:
@@ -29,5 +31,37 @@ public:
             }
         }
         return t[N][W];
+    }
+};
+
+/* Approach 2 Time :- O(N*W) Space :-  O(N*W) + O(N)  */
+
+class Solution
+{
+public:
+    int solve(int w, int wt[], int val[], int n, vector<vector<int>> &dp)
+    {
+        if(n==0 or w==0)
+        {
+            return dp[n][w] = 0;
+        }
+        
+        if(dp[n][w] != -1)
+        {
+            return dp[n][w];
+        }
+        
+        if(wt[n-1] > w)
+        {
+            return dp[n][w] = solve(w, wt, val, n-1, dp);
+        }
+        
+        return dp[n][w] = max(val[n-1] + solve(w-wt[n-1] , wt, val, n, dp),solve(w, wt, val, n-1, dp));
+    }
+    
+    int knapSack(int n, int w, int val[], int wt[])
+    {
+        vector<vector<int>> dp(n+1, vector<int>(w+1, -1));
+        return solve(w, wt, val, n, dp);
     }
 };
