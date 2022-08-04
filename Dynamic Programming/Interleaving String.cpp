@@ -1,4 +1,4 @@
-/*Approach 1 (Recursion) (TLE) */
+/* Approach 1 (Recursion) (TLE) Time :- O(2^(m+n)) Space :- O(m+n) */
 
 class Solution
 {
@@ -24,44 +24,55 @@ class Solution
     }
 };
 
-/*Approach 2 (Memorisation) */
+/*Approach 2 (Memorisation) Time :- O(m*n) Space :- O(m*n) */
 
 class Solution
 {
 public:
-     bool solve(string a, string b, string c, int dp[500][500])
-     {
-        if(dp[a.length()][b.length()]!=-1)
+    
+    int dp[250][250];
+    bool solve(string s1,string s2,string s3)
+    {
+        if(s1.length()==0&&s2.length()==0&&s3.length()==0) 
         {
-            return dp[a.length()][b.length()];
+            return 1;
+        }
+        if(s3.length()==0)
+        {
+            return 0;
+        }
+        if(dp[s1.length()][s2.length()]!=-1)
+        {
+            return dp[s1.length()][s2.length()];
         }
         
-        if(a.length()==0 and b.length()==0 and c.length()==0)
-        {
-            return true;
-        }
+        bool can1 = !s1.empty()&&s1[0]==s3[0]&&solve(s1.substr(1),s2,s3.substr(1));
+        bool can2 = !s2.empty()&&s2[0]==s3[0]&&solve(s1,s2.substr(1),s3.substr(1));
         
-        if(c.length()==0)
-        {
-            return false;
-        }
-        
-        bool ans1 = a.length() and a[0]==c[0] and solve(a.substr(1),b,c.substr(1),dp);
-        bool ans2 = b.length() and b[0]==c[0] and solve(a,b.substr(1),c.substr(1),dp);
-        
-        return dp[a.length()][b.length()] = ans1 or ans2; 
-        
+        return dp[s1.length()][s2.length()] = can1 or can2;
     }
     
-    bool isInterleave(string A, string B, string C)
+    bool isInterleave(string s1, string s2, string s3)
     {
-        int dp[500][500];   
-        memset(dp,-1,sizeof(dp));
-        return solve(A,B,C,dp);
+         int a=s1.length();
+         int b=s2.length();
+         int c=s3.length();
+        
+         if(a==0&&b==0&&c==0)
+         {
+             return 1;
+         }
+         if((a+b)!=c)
+         {
+             return 0;
+         }
+        
+         memset(dp,-1,sizeof(dp));
+         return solve(s1,s2,s3);
     }
 };
 
-/*Approach 3 (DP) */
+/* Approach 3 (DP) Time :- O(M*N) Space :- O(M*N) */
 
 class Solution
 {
