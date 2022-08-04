@@ -1,8 +1,10 @@
+/* Time :- O(N*N) Space :- O(N) */
+
 class Solution
 {
-	public:
-	int LongestBitonicSequence(vector<int>nums)
-	{
+    public:
+    int LongestBitonicSequence(vector<int>nums)
+    {
         int n=nums.size();
         int lis[n];
         memset(lis,0,sizeof(lis));
@@ -48,5 +50,5 @@ class Solution
             }
         }
         return res;
-	}
+    }
 };
