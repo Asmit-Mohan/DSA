@@ -1,4 +1,4 @@
-/* Time :- O(N) Space :- O(N) */
+/* Time :- O(N*N) Space :- O(N) */
 
 bool comp(string &s1,string &s2)
 {
