@@ -1,4 +1,4 @@
-/* Binomial Coffcient Approach */ /*Intution :- Nth Catalan number is equal to (2ncn)/(n+1) */
+/* Binomial Coffcient Approach Time :- O(N) Space :- O(1) */ /* Intution :- Nth Catalan number is equal to (2ncn)/(n+1) */
 
 class Solution
 {
@@ -29,23 +29,23 @@ unsigned long int binomialCoefficient(int n,int i)  /* Calculation of 2ncn */
     }
 };
 
-/* DP Approach */
+/* DP Approach Time :- O(N*N) Space :- O(N) */
 
 class Solution
 {
     public:
     int numTrees(int n) 
     {
-        long long int dp[n+1]={0};
-        long long int mod=pow(10,9)+7;
+        long long int dp[21]={0};
         dp[0]=1;
         dp[1]=1;
+        
         for(int i=2;i<n+1;i++)
         {
             for(int j=0;j<i;j++)
             { 
-                long long res=((dp[j]*dp[i-j-1])%mod);
-                dp[i]=(dp[i]+res)%mod;
+                long long res=(dp[j]*dp[i-j-1]);
+                dp[i]=(dp[i]+res);
             }
         }
         return dp[n];
