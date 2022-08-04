@@ -1,4 +1,4 @@
-/*Memeoristion*/
+/* Memorization Time :- O(M*N) Space :- O(M*N) + O(N) */
 class Solution
 {
 public:
@@ -8,23 +8,23 @@ public:
         
         if(n == 0)
         {
-        	return m ;
+           return m ;
 	}
         if(m == 0)
         {
-        	return n;
+           return n;
         }
         if(m == 0 && n ==0 )
         {
-        	return 0;
+           return 0;
         }
         if(dp[n][m] != -1)
         {
-        	return dp[n][m];
+            return dp[n][m];
         }
         if(word1[n-1] == word2[m-1])
         {
-        	return solve(word1,word2,n-1,m-1);
+            return solve(word1,word2,n-1,m-1);
         }
         
        // insert a character ans recur from n to m-1
@@ -44,41 +44,41 @@ public:
 };
 
 
-/*DP*/
+/* DP Time :- O(M*N) Space :- O(M*N) */
 
 class Solution
 {
 public:
     int minDistance(string s, string t)
     {
-    int m=s.length();
-    int n=t.length();
-    int dp[m+1][n+1];
-    for (int i = 0; i <= m; i++)
-    {
-        for (int j = 0; j <= n; j++)
-        {
-            if (i == 0)
-            {
-                dp[i][j] = j;
-            }
-            else if (j == 0)
-            {
-                dp[i][j] = i; 
-            }
-           
-            else if (s[i - 1] == t[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1];
-            }
-            else
-            {
-                int temp1=min(dp[i][j-1],dp[i-1][j]);
-                temp1=min(temp1,dp[i-1][j-1]);
-                dp[i][j]=1+temp1;
-            }
-    }
-    }
+	    int m=s.length();
+	    int n=t.length();
+	    int dp[m+1][n+1];
+	    for (int i = 0; i <= m; i++)
+	    {
+		for (int j = 0; j <= n; j++)
+		{
+		    if (i == 0)
+		    {
+			dp[i][j] = j;
+		    }
+		    else if (j == 0)
+		    {
+			dp[i][j] = i; 
+		    }
+
+		    else if (s[i - 1] == t[j - 1])
+		    {
+			dp[i][j] = dp[i - 1][j - 1];
+		    }
+		    else
+		    {
+			int temp1=min(dp[i][j-1],dp[i-1][j]);
+			temp1=min(temp1,dp[i-1][j-1]);
+			dp[i][j]=1+temp1;
+		    }
+	      }
+     }
     return dp[m][n];
-    }
+   }
 };
