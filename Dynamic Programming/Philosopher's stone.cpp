@@ -1,3 +1,6 @@
+/* Time Complexity :- O(m*n) Space Complexity :- O(m*n) + O(n) */
+
+
 /* Approach 1 Recursion + Memo */
 
 #include<bits/stdc++.h>
@@ -64,7 +67,7 @@ int main()
 	return 0;
 }
 
-/* Approach 2 DP */
+/* Approach 2 DP Time Complexity :- O(m*n) Space Complexity :- O(m*n) */
 
 #include<bits/stdc++.h>
 using namespace std;
