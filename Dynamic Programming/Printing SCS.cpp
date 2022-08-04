@@ -1,3 +1,5 @@
+/* Time and Space both as  O(m*n) */
+
 class Solution
 {
 public:
