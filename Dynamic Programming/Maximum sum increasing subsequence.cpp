@@ -1,8 +1,10 @@
+/* Time :- O(N*N) Space :- O(N) */
+
 class Solution
 {
-	public:
-	int maxSumIS(int arr[], int n)  
-	{  
+   public:
+   int maxSumIS(int arr[], int n)  
+   {  
         int dp[10001]={0};
         int res=INT_MIN;
         
@@ -31,5 +33,5 @@ class Solution
               res=max(res,dp[i]);
         }
         return res;
-	}  
+   }  
 };
