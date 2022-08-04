@@ -1,3 +1,28 @@
+/* Approach 1 Time :- O(N) Space :- O(N) */
+
+class Solution
+{
+    public:
+    int countFriendsPairings(int n) 
+    { 
+        vector<int>dp(n+1,-1);
+        dp[0]=0;
+        dp[1]=1;
+        dp[2]=2;
+        
+        for(int i=3;i<=n;i++)
+        {
+            int res1 = dp[i-1];
+            int res2 = (i-1)*dp[i-2];
+            
+            dp[i] = (res1 + res2);
+        }
+        return dp[n];
+    }
+};
+
+/* Approach 2 Time :- O(N) Space :- O(N) + O(N) */
+
 class Solution
 {
     public:
