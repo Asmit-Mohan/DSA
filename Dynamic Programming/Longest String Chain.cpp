@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 bool comp(string &s1,string &s2)
 {
     return s1.size()<s2.size();
