@@ -1,4 +1,4 @@
-/* Approach 1 Tabulation Method */
+/* Approach 1 Tabulation Method Time :- O(N*N) Space :- O(N*N) */
 
 class Solution
 {
@@ -46,7 +46,7 @@ public:
 
 /* Because if dp[i][j]==0 then it will not form a square of all one --> Codebix video */
 
-/* Approach 2 Memorisation */
+/* Approach 2 Memorization Method Time :- O(N*N) Space :- O(N*N) */
 
 class Solution
 {
