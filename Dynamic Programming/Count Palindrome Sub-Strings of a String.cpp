@@ -34,44 +34,40 @@ int CountPS(char arr[], int n)
 class Solution
 {
 public:
-bool isPal(int i,int j,string& s,vector<vector<int> >& dp)
-{
-    if(i>=j)
+    int dp[1001][1001];
+    bool isPalin(int i,int j,string &str)
     {
-        return dp[i][j]=1;
-    }
-    if(dp[i][j] != -1)
-    {
-        return dp[i][j];
-    }
-    if(s[i] != s[j])
-    {
-        return dp[i][j] = 0;
-    }
-    return dp[i][j] = isPal(i+1,j-1,s,dp);   
-}    
-    
-int countSubstrings(string s)
-{
-    if(s.length()==1)
-    {
-        return 1;
-    }
-    
-    int n = s.size();
-    int count = 0;
-    vector<vector<int>> dp(n,vector<int>(n,-1));
-    
-    for(int i=0;i<n;i++)
-    {
-        for(int j=i;j<n;j++)
+        if(i>=j)
         {
-            if(isPal(i,j,s,dp))
+            return dp[i][j]=1;
+        }
+        if(dp[i][j]!=-1)
+        {
+            return dp[i][j];
+        }
+        if(str[i]!=str[j])
+        {
+            return dp[i][j]=0;
+        }
+        return dp[i][j]=isPalin(i+1,j-1,str);
+    }
+    
+    int countSubstrings(string str)
+    {
+        int count=0;
+        int n=str.length();
+        memset(dp,-1,sizeof(dp));
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i;j<n;j++)
             {
-                count++;
+                if(isPalin(i,j,str))
+                {
+                    count++;
+                }
             }
         }
+        return count;
     }
-    return count;
-}
 };
