@@ -1,6 +1,6 @@
-/* Approach 1 Recursive + Memorisation TLE */
+/* Approach 1 Recursive + Memorisation, Time: O(E*F*F), Space: O(E*F) --> TLE On LC */
 
-class Solution /* Time: O(n^2*k), Space: O(n*k)*/
+class Solution
 {
 public:
     int solve(int e, int f, vector<vector<int>>& dp)
@@ -56,7 +56,7 @@ public:
     }
 };
 
-/* Approach 2 Optimised Approach BS + DP */
+/* Approach 2 Optimised Approach BS + DP Time :- O(E*logf) Space :- O(E*F) */
 
 class Solution
 {
