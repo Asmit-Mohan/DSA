@@ -2,34 +2,41 @@
 
 class Solution
 {
-    static bool cmp(vector<int>& a, vector<int>& b)
+public:
+    static int comp(vector<int>&a,vector<int>&b)
     {
-        if(a[0]==b[0])
-        {
-            return a[1] > b[1];
-        }
-        return a[0] < b[0];
+       return (a[0]<b[0])||(a[0]==b[0]&&a[1]>b[1]);
     }
     
-    public:
-    int maxEnvelopes(vector<vector<int>>& arr)
+    int LIS(vector<int>&temp)
     {
-        int n = arr.size();
-        sort(arr.begin(), arr.end(), cmp);
-        vector<int> lis;
+        int n=temp.size();
+        vector<int>v;
+        v.push_back(temp[0]);
         
-        for(int i = 0;i<arr.size();i++)
-        {   
-            int idx = lower_bound(lis.begin(), lis.end(), arr[i][1]) - lis.begin();
-            if(idx >= lis.size())
+        for(int i=1;i<n;i++)
+        {
+            if(v.back()<temp[i])
             {
-                lis.push_back(arr[i][1]);
+                v.push_back(temp[i]);
             }
             else
             {
-                lis[idx] = arr[i][1];
+                int idx = lower_bound(v.begin(),v.end(),temp[i])-v.begin();
+                v[idx]=temp[i];
             }
         }
-        return lis.size();
+        return v.size();
+    }
+    
+    int maxEnvelopes(vector<vector<int>>& arr)
+    {
+        sort(arr.begin(),arr.end(),comp);
+        vector<int>temp;
+        for(int i=0;i<arr.size();i++)
+        {
+            temp.push_back(arr[i][1]);
+        }
+        return LIS(temp);
     }
 };
