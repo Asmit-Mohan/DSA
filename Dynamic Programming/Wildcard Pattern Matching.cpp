@@ -1,4 +1,4 @@
-/* Approach 1 Recursion + Memorisation */ 
+/* Approach 1 Recursion + Memorisation Time :- O(N*M) Space :- O(N*M) +O(N+M) */ 
 
 class Solution
 {
@@ -53,7 +53,7 @@ public:
     }
 };
 
-/* Approach 2 Tabulation DP */
+/* Approach 2 Tabulation DP Time :- O(N*M) Space :- O(N*M) */
 
 class Solution
 {
@@ -106,7 +106,7 @@ public:
     }
 };
 
-/* Approach 3 Space Optimisation --> The Most Optimised Approach */
+/* Approach 3 Space Optimisation --> The Most Optimised Approach Time :- O(N*M) Space :- O(M) */
 
 class Solution
 {
