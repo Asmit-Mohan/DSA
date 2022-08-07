@@ -1,13 +1,16 @@
+/* Time :- O(N*N) Space:- O(N*N) */ 
+
 class Solution
 {
-	public:
-		int LongestRepeatingSubsequence(string s1)
-		{
-		string s2;
-		s2=s1;
-		int m=s1.length();
-		int n=s2.length();
-		int dp[m+1][n+1];
+public:
+int LongestRepeatingSubsequence(string s1)
+{
+	string s2;
+	s2=s1;
+	
+	int m=s1.length();
+	int n=s2.length();
+	int dp[m+1][n+1];
         for(int i=0;i<m+1;i++)
         {
             for(int j=0;j<n+1;j++)
@@ -36,6 +39,6 @@ class Solution
                 }
             }        
         }
-           return dp[m][n];
+       return dp[m][n];
     }
 };
