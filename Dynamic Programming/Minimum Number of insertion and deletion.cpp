@@ -1,15 +1,17 @@
+/* Time :- O(N*N) Space:- O(N*N) */ 
+
 class Solution
 {
-	public:
-	int minOperations(string s1, string s2) 
-	{ 
-	   int m=s1.length();
-	   int n=s2.length();
-	   int dp[m+1][n+1];
+   public:
+   int minOperations(string s1, string s2) 
+   { 
+	int m=s1.length();
+	int n=s2.length();
+	int dp[m+1][n+1];
         for(int i=0;i<m+1;i++)
-        {
-            for(int j=0;j<n+1;j++)
-            {
+	{
+             for(int j=0;j<n+1;j++)
+             {
                  if(i==0)
                  {
                      dp[i][j]=0;
@@ -18,7 +20,7 @@ class Solution
                  {
                      dp[i][j]=0;           
                  }
-            }        
+             }        
         }
         for(int i=1;i<m+1;i++)
         {
