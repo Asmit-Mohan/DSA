@@ -1,54 +1,7 @@
-/* Approach 1 */
-
 class Solution
 {
 public:
-    void dfs(int s, int n, vector<vector<int>>& isConnected, vector<bool>&visited)
-    {
-        visited[s] = true;
-        vector<int>adj;
-        for(int i=0; i<n; i++ )
-        {
-            int x =  isConnected[s][i];  
-            if(x == 1)
-            {
-                 adj.push_back(i);
-            }
-        }
-        
-        for(auto x: adj)
-        {
-            if(!visited[x])
-            {
-                dfs(x, n, isConnected, visited);
-            }
-        }
-    }
     
-    int findCircleNum(vector<vector<int>>& isConnected)
-    {
-        
-        int n = isConnected.size();
-        vector<bool>visited(n, false);
-        int count = 0;
-        
-        for(int i=0; i<n; i++)
-        {
-            if(!visited[i])
-            {
-                count++;
-                dfs(i, n, isConnected, visited);
-            }
-        }
-        return count;
-    }
-};
-
-/* Approach 2 */
-
-#include<bits/stdc++.h>
-using namespace std;
-
 void solve(int node,vector<int>&vis,vector<int>adj[])
 {
       vis[node]=1;
@@ -77,22 +30,23 @@ int dfsOfGraph(int V, vector<int> adj[])
         return ans;
 }
     
-int main()
-{
-        int V, E;
-        cin >> V >> E;
-        vector<int> adj[V+1];
-
-        for (int i = 0; i < E; i++)
+    int findCircleNum(vector<vector<int>>& arr)
+    {
+        int n=arr.size();
+        
+        vector<int>adj[n+1];
+        
+        for(int i=0;i<n;i++)
         {
-            int u, v;
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+            for(int j=0;j<n;j++)
+            {
+                if(arr[i][j]==1&&i!=j)
+                {
+                    adj[i+1].push_back(j+1);
+                    adj[j+1].push_back(i+1);
+                }
+            }
         }
-        
-        int ans=dfsOfGraph(V, adj);
-        cout<<ans<<endl;
-        
-    return 0;
-}
+        return dfsOfGraph(n, adj);
+    }
+};
