@@ -1,3 +1,5 @@
+/* Time :-  O(N*Log(max(arr[i]))) Space:- O(N*N) */ 
+
 class Solution
 {
 public:
