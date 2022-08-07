@@ -1,11 +1,11 @@
+/* Time :- O(N*N) Space:- O(N*N) */ 
+
 class Solution 
 {
 public:
-    int longestPalindromeSubseq(string s)
+    int longestPalindromeSubseq(string x)
     {
-    string x,y;
-    x=s;
-    y=x;
+    string y=x;
     reverse(y.begin(),y.end());
     int m=x.length();
     int n=y.length();
