@@ -1,16 +1,17 @@
+/* Time :- O(N*N) Space:- O(N*N) */ 
+
 class Solution
 {
 public:
-int countMin(string str)
+int countMin(string x)
 {
-    string x,y;
-    x=str;
-    y=x;
+    string y=x;
+    
     reverse(y.begin(),y.end());
     int m=x.length();
     int n=y.length();
     int t[m+1][n+1];
-     for(int i=0;i<m+1;i++)
+    for(int i=0;i<m+1;i++)
     {
         for(int j=0;j<n+1;j++)
         {
