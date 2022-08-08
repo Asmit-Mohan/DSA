@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
     public:
@@ -7,7 +9,7 @@ class Solution
          int i=0;
          int j=0;
          int sum=0;
-         vector<int>v;
+         vector<int>v; /* OF fixed size of 2 that is why constant space */
          
          while(j<N)
          {
