@@ -1,52 +1,49 @@
+/* Time :- O(N) Space :- O(Number of unique charecter in str) */
+
 class Solution
 {
     public:
-    string findSubString(string str)
+    int findSubString(string str)
     {
-           int i=0;
-           int j=0;
-           int n=str.size();
-           set<char>s;
-           for(int i=0;i<str.length();i++)
-           {
-               s.insert(str[i]);
-           }
-           int unique=s.size();
+       unordered_map<char,int>mp;  
+       for(auto x : str)
+       {
+           mp[x]++;
+       }
+       
+       int i=0;
+       int j=0;
+       int unique=mp.size();
+       int ans=INT_MAX;
+       mp.clear();
+       
+       while(j<str.length())
+       {
+           mp[str[j]]++;
            
-           int k=0;
-           unordered_map<char,int>mp;
-           int window=INT_MAX;
-           
-           while(j<n)
+           if(mp.size()==unique)
            {
-               mp[str[j]]++;
-               if(mp.size()==unique)
+               while(i<=j&&mp.size()==unique)
                {
-                   while(k<=j&&mp.size()==unique)
+                   if(mp[str[i]]==1)
                    {
-                       int temp=mp[str[k]]-1;
-                       if(temp==0)
-                       {
-                           if(window>(j-k+1))
-                           {
-                               window=j-k+1;
-                           }
-                           break;
-                       }
-                       else
-                       {
-                           mp[str[k]]--;
-                           k++;
-                       }
+                       int window=j-i+1;
+                       ans=min(ans,window);
+                       break;
                    }
-                   j++;
+                   else
+                   {
+                       mp[str[i]]--;
+                       i++;
+                   }
                }
-               else
-               {
-                   j++;
-               }
+               j++;
            }
-           string ans=str.substr(k,window);
-           return ans;
+           else
+           {
+               j++;
+           }
+       }
+       return ans;
     }
 };
