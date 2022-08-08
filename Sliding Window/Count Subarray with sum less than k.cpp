@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 int Solution::solve(vector<int> &A, int B)
 {
     int i=0,j=0;
