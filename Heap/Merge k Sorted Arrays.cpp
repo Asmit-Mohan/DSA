@@ -1,4 +1,6 @@
-/* Naive Approach */
+/* Naive Approach */ 
+
+/* Time :- O(k*K*logk) Space :- O(K*K) */
 
 class Solution
 {
@@ -23,7 +25,9 @@ vector<int> mergeKArrays(vector<vector<int>> arr, int k)
 }
 };
 
-/* Efficient Approach */
+/* Efficient Approach */ 
+
+/* Time :- O(k*logk) Space :- O(K) */
 
 #define pi pair<int,pair<int,int>>;
 
