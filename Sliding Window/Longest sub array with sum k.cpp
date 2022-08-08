@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -16,15 +18,17 @@ class Solution
             {
                 ans=max(ans,j-mp[sum-k]+1);
             }
-            /*if sum got then size of subarray is current index - index of last element of previous subarray*/
+            
+            /* If sum got then size of subarray is current index - index of last element of previous subarray */
+            
             if(mp.find(sum)==mp.end())
             {
                  mp[sum]=j+1;
             }
             j++;
-            /*if not then store sum as key and in pair position of last element of that subarray*/
+            
+            /* If not then store sum as key and in pair position of last element of that subarray */
         }
-        
         return ans;
     } 
 };
