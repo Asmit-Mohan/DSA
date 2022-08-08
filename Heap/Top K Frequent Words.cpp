@@ -1,3 +1,5 @@
+/* Time :- O(Nlogk) Space :- O(N) */
+
 class comp
 {
 public:
