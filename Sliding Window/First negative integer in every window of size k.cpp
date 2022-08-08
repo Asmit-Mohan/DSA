@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(K) */
+
 vector<long long> printFirstNegativeInteger(long long int A[],long long int N, long long int K)
 {
     vector<long long>v;
