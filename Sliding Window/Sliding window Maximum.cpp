@@ -35,10 +35,10 @@ public:
 class Solution
 {
 public:
-	vector<int> maxSlidingWindow(vector<int>& nums, int k)
+    vector<int> maxSlidingWindow(vector<int>& nums, int k)
     {
-		vector<int> ans;
-		priority_queue<pair<int,int>> pq;
+	vector<int> ans;
+	priority_queue<pair<int,int>> pq;
         int j=0;
         
         while(j<k)
@@ -47,20 +47,19 @@ public:
             j++;
         }
         
-		ans.push_back(pq.top().first);
-
-		while(j<nums.size())
+	ans.push_back(pq.top().first);
+	while(j<nums.size())
         {
-			pq.push({nums[j],j});
-			while(!pq.empty() && pq.top().second < j-k+1)
-            {
-                pq.pop();
-            }
-			ans.push_back(pq.top().first);
-            j++;
-		}
-		return ans;
+	      pq.push({nums[j],j});
+	      while(!pq.empty() && pq.top().second < j-k+1)
+              {
+                  pq.pop();
+              }
+	     ans.push_back(pq.top().first);
+             j++;
 	}
+	return ans;
+    }
 };
 
 /* Approach 3 */
