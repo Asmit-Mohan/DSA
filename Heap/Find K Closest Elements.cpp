@@ -1,3 +1,5 @@
+/* Time:- O(Nlogk) Space :- O(K) */
+
 class Solution
 {
 public:
