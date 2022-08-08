@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(K) */
+
 class Solution
 {
   public:
