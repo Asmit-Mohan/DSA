@@ -1,4 +1,5 @@
-/*Brute Force*/
+/* Approach 1 --> Brute Force Efficient O(N) :- Time O(1) :- Space */
+
 class Solution
 {
 public:
@@ -39,7 +40,8 @@ public:
 };
 
 
-/*2 pointer*/
+/* Approach :- 2 pointer O(N) :- Time O(1) :- Space */
+
 class Solution
 {
 public:
