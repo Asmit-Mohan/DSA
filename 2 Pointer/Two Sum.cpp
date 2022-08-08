@@ -1,3 +1,5 @@
+/* Time :- O(Nlogn) --> Sorting Space :- O(N) */
+
 class Solution
 {
 public:
@@ -30,7 +32,6 @@ public:
               
               if(sum==target)
               {
-                  ans.clear();
                   ans.push_back(v[l].second);
                   ans.push_back(v[r].second);
                   break;
