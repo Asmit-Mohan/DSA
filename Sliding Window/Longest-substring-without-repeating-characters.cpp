@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
 public:
@@ -15,11 +17,7 @@ public:
         while(j<s.length())
         {    
             m[s[j]]++;   
-            if(m.size()>j-i+1)
-            {
-                j++;
-            }
-            else if(m.size()==j-i+1)
+            if(m.size()==j-i+1)
             {
                 maxi=max(maxi,j-i+1);
                 j++;
