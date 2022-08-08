@@ -1,4 +1,4 @@
-/* Approach 1 */
+/* Approach 1 --> Time O(N) Space O(N) */
 
 class Solution
 {
@@ -30,7 +30,40 @@ public:
     }
 };
 
-/* Approach 2 */
+/* Approach 2 Time :- O(Nlogk) Space :- O(K) */
+
+class Solution
+{
+public:
+	vector<int> maxSlidingWindow(vector<int>& nums, int k)
+    {
+		vector<int> ans;
+		priority_queue<pair<int,int>> pq;
+        int j=0;
+        
+        while(j<k)
+        {
+            pq.push({nums[j],j});
+            j++;
+        }
+        
+		ans.push_back(pq.top().first);
+
+		while(j<nums.size())
+        {
+			pq.push({nums[j],j});
+			while(!pq.empty() && pq.top().second < j-k+1)
+            {
+                pq.pop();
+            }
+			ans.push_back(pq.top().first);
+            j++;
+		}
+		return ans;
+	}
+};
+
+/* Approach 3 */
 
 class Solution
 {
