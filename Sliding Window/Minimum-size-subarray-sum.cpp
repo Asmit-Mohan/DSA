@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
 public:
@@ -32,6 +34,6 @@ public:
         {
             return 0;
         }
-         return ans;
+        return ans;
     }
 };
