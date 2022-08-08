@@ -1,36 +1,57 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
 public:
     int minOperations(vector<int>& nums, int x)
     {
-       int target=0;
-       int i=0;
-       int j=0;
-       int sum=0;
+        int i=0;
+        int j=0;
+        int sum=0;
         
-       for(auto x : nums)
-       {
-           target+=x;
-       }
+        for(int k=0;k<nums.size();k++)
+        {
+            sum=sum+nums[k];
+        }
         
-        target=target-x;
-        int ans=INT_MAX;
+        if(sum==x)
+        {
+            return nums.size();
+        }
+        
+        if(sum<x)
+        {
+            return -1;
+        }
+        
+        sum=sum-x;
+        
+        int temp=0;
+        int ans=INT_MIN;
         
         while(j<nums.size())
         {
-            sum=sum+nums[j];
-            while(sum>target&&j>=i)
+            temp=temp+nums[j];
+            if(temp==sum)
             {
-                sum=sum-nums[i];
-                i++;
+                int window=j-i+1;
+                ans=max(ans,window);
             }
-            if(sum==target)
+            else if(temp>sum)
             {
-                int temp=nums.size()-(j-i+1);
-                ans=min(ans,temp);
+                while(temp>sum)
+                {
+                    temp=temp-nums[i];
+                    i++;
+                }
+                if(temp==sum)
+                {
+                    int window=j-i+1;
+                    ans=max(ans,window);
+                }
             }
             j++;
         }
-        return ans==INT_MAX?-1:ans;
+        return ans==INT_MIN?-1:nums.size()-ans;
     }
 };
