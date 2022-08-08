@@ -1,3 +1,5 @@
+/* Time :- O(N*N) Space :- O(1) */
+
 class Solution
 {
 	public:
@@ -5,7 +7,7 @@ class Solution
 	{
 	     sort(arr,arr+n);
 	     long long count=0;
-	     for(long i=0;i<n-2;i++)
+	     for(long i=0;i<n-1;i++)
 	     {
     	         long long l=i+1;
     	         long long r=n-1;
