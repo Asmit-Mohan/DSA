@@ -1,25 +1,37 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
   public:
-    vector <int> countDistinct (int A[], int n, int k)
+    vector <int> countDistinct (int arr[], int n, int k)
     {
-    unordered_map<int,int> mp;
-    for(int i = 0; i < k; i++)  //First window
-    {
-        mp[arr[i]]++;
-    }
-    vector<int> res;
-    res.push_back(mp.size());
-    for(int i = k; i < n; i++)
-    {
-        mp[arr[i - k]]--;         //decrease  count of any respective key
-        if(mp[arr[i - k]] == 0)  //If no duplicate cases are count is zero earlier 1 in above step
+        unordered_map<int,int>mp;
+        vector<int>ans;
+        int i=0;
+        int j=0;
+        
+        while(j<n)
         {
-            mp.erase(arr[i - k]);  //remove that element
+           mp[arr[j]]++;
+           if(j-i+1==k)
+           {
+               ans.push_back(mp.size());
+               if(mp[arr[i]]==1)
+               {
+                   mp.erase(arr[i]);
+               }
+               else
+               {
+                   mp[arr[i]]--;
+               }
+               i++;
+               j++;
+           }
+           else
+           {
+               j++;
+           }
         }
-        mp[arr[i]]++;              //add futher element
-        res.push_back(mp.size()); 
-    }
-    return res;
+        return ans;
     }
 };
