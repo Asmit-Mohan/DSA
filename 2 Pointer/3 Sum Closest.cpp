@@ -1,3 +1,5 @@
+/* Time :- O(N*N) Space :- O(1) */
+
 class Solution
 {
 public:
@@ -24,7 +26,7 @@ public:
                   }
                   if(abs(target-sum)==abs(target-ans))
                   {
-                      ans=max(ans,sum);
+                      ans=min(ans,sum);
                   }
                   if(target>sum)
                   {
