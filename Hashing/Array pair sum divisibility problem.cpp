@@ -1,28 +1,27 @@
+/* Time :- O(N) Space :- O(K) --> Only remainder space */
+
 /* Leetcode Question */
+
 class Solution
 {
 public:
     bool canArrange(vector<int>& arr, int k)
     {
-         unordered_map<int,int>mp;
+        unordered_map<int,int> mp;
         
-         for(auto x : arr)
-         {
-             int temp = ((x%k)+k)%k;
-             mp[temp]++;
-         }
-         
-        for(auto x:arr)
+        for(int i=0;i<arr.size();i++)
         {
-            int rem=(x%k + k)%k;
-            if(rem==0)                         
-            { 
-                if(mp[rem] % 2 ==1)
-                {
-                    return false;
-                }
-            }         
-            else if(mp[rem] != mp[k - rem])
+            mp[(arr[i]%k+k)%k]++;     /* In case of negative arr[i] */
+        }
+        
+        for(int remain=0;remain<k;remain++)
+        {
+            if(remain!=0 && mp[remain]!=mp[k-remain])
+            {
+                return false;
+            }
+            
+            if(remain==0&&(mp[remain]%2!=0))
             {
                 return false;
             }
@@ -31,7 +30,10 @@ public:
     }
 };
 
+
 /* GFG Question Count Pairs Sum Divisible By K */
+
+/* Time :- O(N) Space :- O(K) --> Only remainder space */
 
 class Solution
 {
