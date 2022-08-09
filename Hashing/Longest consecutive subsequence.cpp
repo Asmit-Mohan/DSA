@@ -1,4 +1,5 @@
-/*Approach 1  -->Efficient Approach*/
+/* Approach 1  --> Efficient Approach Time :- O(N) Space :- O( Maximum of arr[i] ) */
+
 class Solution
 {
     public:
@@ -26,7 +27,9 @@ class Solution
       return maxi;
     }
 };
-/*Approach 2 Less Efficient*/
+
+/* Approach 2 Less Efficient Time :- O(Nlogn) Space :- O(1) */
+
 class Solution
 {
 public:
