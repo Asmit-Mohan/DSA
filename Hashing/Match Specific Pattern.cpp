@@ -1,3 +1,5 @@
+/* Time :- O(N*K) Space :- O(N) */
+
 bool solve(string txt,string pat)
 {
     unordered_map<char,char>mp;
@@ -7,7 +9,7 @@ bool solve(string txt,string pat)
     }
     else
     {
-        for(int i=0;i<pat.length();i++)
+        for(int i=0;i<pat.length();i++) --> O(K)
         {
             if(mp.find(pat[i])==mp.end())
             {
@@ -28,7 +30,7 @@ bool solve(string txt,string pat)
 vector<string> findMatchedWords(vector<string> arr,string s)
 {
    vector<string>ans;
-   for(int i=0;i<arr.size();i++)
+   for(int i=0;i<arr.size();i++) --> O(N) 
    {
        if(solve(arr[i],s))
        {
