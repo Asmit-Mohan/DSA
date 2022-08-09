@@ -1,3 +1,5 @@
+/* Time:- O(Nlogn) Space :- O(26) */
+
 /*General hashing approach*/
 
 class Solution
@@ -95,7 +97,6 @@ class Solution
                pq.push(temp2); 
             }
         }
-        
         if(pq.size())
         {
             if(pq.top().first == 1)
