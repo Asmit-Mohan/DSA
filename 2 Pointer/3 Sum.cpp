@@ -1,4 +1,6 @@
-/*Approach 1 :- very least efficient*/
+/* Time :- O(N*N) Space :- O(N) */
+
+/* Approach 1 :- very least efficient */
 class Solution
 {
 public:
@@ -7,7 +9,7 @@ vector<vector<int>> threeSum(vector<int>& nums)
         set<vector<int>>ans;
         int n=nums.size();
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < n-2; i++)
+        for (int i = 0; i < n-1; i++)
         {
             int l = i+1;
             int r = n-1;
