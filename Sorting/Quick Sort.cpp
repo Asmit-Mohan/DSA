@@ -50,5 +50,7 @@ class Solution
 2. It is an in-place sorting algorithm.
 3. It is preferred over merge sort [Not in case of linked list] as space is O(1) only.
 4. More optimised version is randomised quick sort.
+5. Recurrence :- T(n) = 2T(n/2) + O(n) [Average and Best Case]
+6. Recurrence :- T(n) = T(n-1)  + O(n) [ Worst Case ]
 
 */
