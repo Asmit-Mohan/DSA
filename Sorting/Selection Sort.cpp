@@ -1,3 +1,5 @@
+/* Time :- O(N*N) Space :- O(1) */
+
 class Solution
 {
     public:
@@ -13,7 +15,10 @@ class Solution
                     idx=j;
                 }
             }
-            swap(arr[idx],arr[i]);
+            if(idx!=i)
+            {
+                swap(arr[idx],arr[i]);
+            }
         }
     }
      
@@ -22,3 +27,5 @@ class Solution
        select(arr,n);
     }
 };
+
+/* Key points :- The default implementation is not stable. However it can be made stable. It is in-place algo since it does not require extra space */
