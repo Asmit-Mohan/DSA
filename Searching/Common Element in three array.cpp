@@ -1,10 +1,10 @@
-/*Approach 1 (STL)*/
+/* Approach 1 (STL) Time :- O(m+n) Space :- O(m+n) */
 
 class Solution
 {
-   public: 
+       public: 
        vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
-        {
+       {
               set<int>s1,s2,s3;
               vector<int>v;
               for(int i=0;i<n1;i++)
@@ -25,16 +25,16 @@ class Solution
                       s3.insert(C[i]);
                   }
               }
-                set<int>::iterator itr;
-                for (itr=s3.begin(); itr != s3.end(); itr++)
-                {
-                    v.push_back(*itr);
-                }
+              set<int>::iterator itr;
+              for (itr=s3.begin(); itr != s3.end(); itr++)
+              {
+                  v.push_back(*itr);
+              }
               return v;
         }
 };
 
-/*Approach 2 (Binary Search)*/
+/*Approach 2 (Binary Search) --> Time :- suppose min of n1,n2,n3 is n1 -->  O(n1*[log(n2)+log(n3)]) Space :- O(min(n1,n2,n3)) */
 
 class Solution
 {
