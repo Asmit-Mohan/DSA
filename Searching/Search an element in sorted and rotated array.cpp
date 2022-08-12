@@ -1,156 +1,77 @@
-/* For GeeksForGeeks */
+/* Time :- O(logn) Space :- O(1) */
 
-int binary(vector<int> arr,int l,int r,int k)
-{
-    int mid=l+(r-l)/2;
-    while(l<r)
-    {
-        if(arr[mid]==k)
-        {
-            return mid;
-        }
-        else if(arr[mid]>k)
-        {
-            r=mid-1;
-        }
-        else
-        {
-            l=mid+1;
-        }
-    }
-    return 0;
-}
-int solve(vector<int> a, int n)
-{
-    int l=0;
-    int r=n-1;
-    while(l<r)
-    {
-        int mid=l+((r-l)/2);
-        if(a[mid]>a[r])
-        {
-           l=mid+1;  //It means r is near rotated sorted point
-        }
-        else
-        {
-           r=mid; //r is greater then all element next to r will be grater then move to mid
-        }
-    }
-    return l;
-}
-
-int Search(vector<int> vec, int K)
-{
-     int idx=solve(vec,vec.size());
-     if(K==vec[idx])
-     {
-         return idx;
-     }
-     
-     if(K==vec[vec.size()-1])
-     {
-         return vec.size()-1;
-     }
-     
-     int ans1=binary(vec,idx,vec.size()-1,K);
-     int ans2=binary(vec,0,idx-1,K);
-     
-     if(ans1==0)
-     {
-         return ans2;
-     }
-     else if(ans2==0)
-     {
-         return ans1;
-     }
-     else
-     {
-         return -1;
-     }
-}
-
-/* For Leetcode Approach 1 */
+/* Approach 1 */
 
 class Solution
 {
 public:
- int findMinEle(vector<int>& nums)
- {
-        int n=nums.size();
-        int start=0;
-        int end=n-1;
-        if(nums[start]<nums[end])
-        {
-            return 0;
-        }
-        while(start<=end)
-        {
-            int mid=start + (end-start)/2;
-            int next=(mid+1)%n;
-            int prev=(mid+n-1)%n;
-            if(nums[mid]<=nums[prev] && nums[mid]<=nums[next])
-            {
-                return mid;
-            }
-            else if(nums[mid]<nums[end])
-            {
-                end=mid-1;
-            }
-            else if(nums[mid]>nums[end])
-            {
-                start=mid+1;
-            }
-        }
-        return 0;
-    }
-    
-    int binarySearch(vector<int>& arr, int target,int i,int j)
+    int bSearch(vector<int>nums,int target,int low,int high)
     {
-        int start=i;
-        int end=j;
-        while(start<=end)
+        while(low<=high)
         {
-            int mid=start + (end-start)/2;
-            if(arr[mid]==target)
+            int mid=low+(high-low)/2;
+            if(nums[mid]==target)
             {
                 return mid;
             }
-            else if(arr[mid]>target)
+            else if(nums[mid]>target)
             {
-                end=mid-1;
+                high=mid-1;
             }
-            else if(arr[mid]<target)
+            else
             {
-                start=mid+1;
+                low=mid+1;
             }
         }
         return -1;
     }
     
+    int findMin(vector<int>arr, int n)
+    {
+        int low=0;
+        int high=n-1;
+        int mid;
+        
+        while(low<high)
+        {
+            mid=low+(high-low)/2;
+            if(arr[mid]>arr[high])
+            {
+                low=mid+1;
+            }
+            else
+            {
+                high=mid;
+            }
+        }
+        return low;
+    }
+    
     int search(vector<int>& nums, int target)
     {
-        int n=nums.size();
-        int minEle=findMinEle(nums);
+        if(nums.size()==1)
+        {
+            return nums[0]==target?0:-1;
+        }
         
-        int a=binarySearch(nums,target,0,minEle-1);
-        int b=binarySearch(nums,target,minEle,n-1);
+        int min=findMin(nums,nums.size());
+        if(nums[min]==target)
+        {
+            return min;
+        }
         
-        if(a==-1 && b==-1)
+        int idx1=bSearch(nums,target,0,min-1);
+        int idx2=bSearch(nums,target,min+1,nums.size()-1);
+        
+        if(idx1==-1&&idx2==-1)
         {
             return -1;
         }
-        else if(a==-1)
-        {
-            return b;
-        }
-        else
-        {
-            return a;
-        }
+        return idx1==-1?idx2:idx1;
     }
 };
 
-/* For Leetcode Approach 2 */
+/* Approach 2 */
 
 class Solution
 {
