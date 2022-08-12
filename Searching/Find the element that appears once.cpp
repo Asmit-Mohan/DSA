@@ -1,4 +1,4 @@
-/* Approach 1 N*(LOGN) */
+/* Approach 1 :- N*(LOGN) Space :- O(1) */
 
 class Solution
 {
@@ -71,17 +71,17 @@ public:
     }
 };
 
-/* Efficient Approach :- Log(N) */
+/* Efficient Approach :- Log(N) Space :- O(1) */
 
 class Solution
 {
 public:	
-	int search(int A[], int N)
+   int search(int A[], int N)
+   {
+	if(N==1)
 	{
-	    if(N==1)
-	    {
-	        return A[0];
-	    }
+	    return A[0];
+	}
         else if(A[0]!=A[1])
         {
             return A[0];
