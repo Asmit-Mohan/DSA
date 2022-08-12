@@ -1,23 +1,21 @@
 class Solution
 {
     public:
-    int solve(int check)
+    int solve(int n)
     {
-        int count=0;
         int i=1;
+        int quotient=1;
+        int ans=0;
         
-        while(1)
+        while(quotient>0)
         {
-            int quotient=check/pow(5,i);
-            if(quotient==0)
-            {
-                break;
-            }
-            count=count+quotient;
+            quotient = n/pow(5,i);
+            ans = ans + quotient;
             i++;
         }
-        return count;
+        return ans; 
     }
+    
     int findNum(int n)
     {
         int low=1;
@@ -28,19 +26,16 @@ class Solution
         {
             int mid=low+(high-low)/2;
             int temp=solve(mid);
-            if(temp==n)
+            if(temp>=n)
             {
                 ans=mid;
                 high=mid-1;
             }
-            else if(temp<n)
+            else
             {
                 low=mid+1;
             }
-            else
-            {
-                high=mid-1;
-            }
         }
+        return ans;
     }
 };
