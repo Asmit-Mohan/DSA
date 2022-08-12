@@ -1,3 +1,5 @@
+/* Time :- O(Logn) Space :- O(1) */
+
 class Solution
 {
 public:
