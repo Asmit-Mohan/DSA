@@ -1,3 +1,7 @@
+/* Approach 1 --> Using Hashmap to count the frequency --> Time :- O(N) Space :- O(N) */
+
+/* Approach 2 --> Using Binary Search Time :- O(logn) Space :- O(1) */
+
 class Solution
 {
 public:	
@@ -42,6 +46,6 @@ public:
 	            high++;
 	        }
 	        return high-low-1;
-	      }
-     }
+	    }
+       }
   };
