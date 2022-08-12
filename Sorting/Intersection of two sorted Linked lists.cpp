@@ -1,4 +1,4 @@
-/*Approach 1*/
+/*Approach 1 Time :- O(m+n) Space :- O(m) */
 
 Node* findIntersection(Node* head1, Node* head2)
 {
@@ -10,7 +10,7 @@ Node* findIntersection(Node* head1, Node* head2)
              s.insert(temp->data);
              temp=temp->next;
          }
-        temp=head1;
+         temp=head1;
          while(temp!=NULL)
          {
              if (s.find(temp->data) != s1.end())
@@ -20,17 +20,17 @@ Node* findIntersection(Node* head1, Node* head2)
              temp=temp->next;
          }
          
-Node*p = NULL;
-for(int i=v.size()-1;i>=0;i--)
-{
-    Node* ans = new Node(v[i]);
-    ans->next = p;
-    p = ans;
-}
-return p;
+         Node*p = NULL;
+         for(int i=v.size()-1;i>=0;i--)
+         {
+             Node* ans = new Node(v[i]);
+             ans->next = p;
+             p = ans;
+         }
+         return p;
 }
 
-/*Efficient Approach 2*/
+/*Efficient Approach 2 Time :- O(m+n) Space :- O(number of common nodes) */
 
 Node* findIntersection(Node* temp1, Node* temp2)
 {
