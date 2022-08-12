@@ -1,3 +1,4 @@
+/* Time :- O(log N [Base 2] * log N [Base 5]) Space :- O(1) */
 class Solution
 {
     public:
