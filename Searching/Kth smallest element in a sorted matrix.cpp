@@ -1,4 +1,4 @@
-/*Approach 1 :- Not Optimised*/
+/* Approach 1 Time :- O(N*N*logk) Space :- O(k) */
 
 int kthSmallest(int mat[MAX][MAX], int n, int k)
 {
@@ -17,7 +17,7 @@ int kthSmallest(int mat[MAX][MAX], int n, int k)
        return pq.top();
 }
 
-/*Optimised Approach Using Binary Search*/
+/* Approach 2 Time :- O(N*logn) Space :- O(1) */
 
 int solve(int val,int mat[][MAX], int n)
 {
