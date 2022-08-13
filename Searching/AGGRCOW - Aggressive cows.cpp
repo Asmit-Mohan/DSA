@@ -1,3 +1,7 @@
+/* Time :- O(Nlogn) Space :- O(1) */
+
+/* Same question on leetcode --> 1552 */
+
 class Solution
 {
 public:
