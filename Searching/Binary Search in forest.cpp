@@ -1,3 +1,5 @@
+/* Time :- O(nlogn) Space :- O(1) */
+
 class Solution
 {
     public:
@@ -8,7 +10,7 @@ class Solution
     	{
     	    if(arr[i]>h)
     	    {
-    		sum=sum+(arr[i]-h);
+    		   sum=sum+(arr[i]-h);
     	    }
     	}
     	return sum;
@@ -25,17 +27,17 @@ class Solution
     	     int temp=solve(mid,arr,n);
     	     if(temp==m)
     	     {
-    		return mid;
+    		    return mid;
     	     }
     	     else if(temp>m)
     	     {
-    		low=mid+1;
+    		    low=mid+1;
     	     }
     	     else
     	     {
-    		high=mid-1;
+    		    high=mid-1;
     	     }
     	}
         return -1;
-      }
+     }
 };
