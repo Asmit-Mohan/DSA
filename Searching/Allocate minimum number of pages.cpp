@@ -1,3 +1,5 @@
+/* Time :- O(Nlogn) Space :- O(1) */
+
 class Solution 
 {
     public:
@@ -13,7 +15,7 @@ class Solution
                 stAvail++;
                 sum=arr[i];
             }
-            if(stAvail>student) /*ie. if student required is more than current available ,as per current alloction then false*/
+            if(stAvail>student)     /* ie. if student required is more than current available ,as per current alloction then false */
             {
                 return 0;
             }
