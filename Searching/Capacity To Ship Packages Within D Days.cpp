@@ -1,3 +1,5 @@
+/* Time :- O(Nlogn) Space :- O(1) */
+
 class Solution
 {
   public:
@@ -10,8 +12,8 @@ class Solution
             sum=sum+arr[i];
             if(sum>boatCap)
             {
-                days++;      /*we require more days*/
-                sum=arr[i];  /*next element will start with this new added boat*/
+                days++;         /* we require more days */
+                sum=arr[i];    /* next element will start with this new added boat */
             }
             if(days>dayAvail)
             {
@@ -23,20 +25,23 @@ class Solution
     
     int leastWeightCapacity(int arr[], int n, int days)
     {
-        int l=*max_element(arr,arr+n);    /*Beacuse maximum element cannot be accomodated if boat size < maximum of array*/
         int r=0;
+      
         for(int i=0;i<n;i++)
         {
-            r=r+arr[i];        /*to ship all element in one trip require sum of all*/
+            r=r+arr[i];                   /* to ship all element in one trip require sum of all */
         }
+      
         int res=-1;
+        int l=*max_element(arr,arr+n);    /* Beacuse maximum element cannot be accomodated if boat size < maximum of array */
+        
         while(l<=r)
         {
             int mid=l+((r-l)/2);
             if(canShip(arr,n,days,mid))
             {
                 res=mid;
-                r=mid-1;     // To find more optimised solution
+                r=mid-1;     /* To find more optimised solution */
             }
             else
             {
