@@ -1,4 +1,4 @@
-/*Approach 1 (Naive) Time :- O(r*c) Space :- O(r*c) */
+/* Approach 1 Brute Force Time :- O(r*c) Space :- O(r*c) */
 
 class Solution
 {   
@@ -19,7 +19,7 @@ public:
 };
 
 
-/*Approach 2 (Binary Search) Time :- O(R*Log(C)) Space :- O(1) */
+/* Approach 2 (Binary Search) Time :- O(R*Log(C)) Space :- O(1) */
 
 class Solution
 {   
@@ -28,7 +28,7 @@ public:
     {
         int low=0;
         int high=v.size()-1;
-        while(low<=high)    /*O(Logc)*/
+        while(low<=high)       /*O(Logc)*/
         {
             int mid=(low+high)>>1;
             if(v[mid]<=res)
@@ -51,7 +51,7 @@ public:
         {
             int mid=(low+high)>>1;
             int sum=0;
-            for(int i=0;i<matrix.size();i++)   /*O(R)*/
+            for(int i=0;i<matrix.size();i++)       /*O(R)*/
             {
                 sum=sum+solve(mid,matrix[i]);
             }
