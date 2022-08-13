@@ -1,3 +1,5 @@
+/* Time :- O(Nlogn) Space :- O(1) */
+
 #include<bits/stdc++.h>
 using namespace std;
 int solve(int a[],int i,int n,int temp)
