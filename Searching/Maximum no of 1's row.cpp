@@ -1,4 +1,4 @@
-/*Approach 1 (Naive) Time :- O(n*m) Space :- O(1) */
+/* Approach 1 (Brute Force) Time :- O(n*m) Space :- O(1) */
 
 class Solution
 {
@@ -32,7 +32,7 @@ class Solution
     }
 };
 
-/*Approach 2 Time :- O(N*Logm) Space :- O(1) */
+/* Approach 2 (Binary Search) Time :- O(N*Logm) Space :- O(1) */
 
 class Solution
 {
