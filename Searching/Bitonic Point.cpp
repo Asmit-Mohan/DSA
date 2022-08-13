@@ -1,20 +1,20 @@
 class Solution
 {
 public:
-	int findMaximum(int a[], int n)
-	{
-	    int l=0;
+  int findMaximum(int a[], int n)
+  {
+	int l=0;
         int r=n-1;
         while(l<=r)
         {
             int mid=l+((r-l)/2);
             if(a[mid]>a[mid+1]&&a[mid]>a[mid-1]&&mid!=n-1)
             {
-                  return a[mid];
+                return a[mid];
             }
             else if(a[mid]>a[mid-1]&&mid==n-1)
             {
-                  return a[mid];
+                return a[mid];
             }
             else if(a[mid]<a[mid+1])
             {
@@ -25,5 +25,5 @@ public:
                 r=mid-1;
             }
         }
-	  }
+    }
 };
