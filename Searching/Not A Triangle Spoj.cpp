@@ -1,6 +1,6 @@
-/* Two Pointer Approach  */
+/* Good Approach because SPOJ accepted and simple as well as small */
 
-Approach :- Total Number of selection of three lines out of given n lines - Total number of valid triangles 
+/* Approach :- Total Number of selection of three lines out of given n lines - Total number of valid triangles */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -74,16 +74,16 @@ int main()
 		cin>>n;
 		if(n==0)
 		{
-			break;
+		    break;
 		}
 		else
 		{
-			ll arr[n];
-			for(int i=0;i<n;i++)
-			{
-				cin>>arr[i];
-			}
-			cout<<total(n,3)-solve(arr,n)<<endl;
+		    ll arr[n];
+		    for(int i=0;i<n;i++)
+		    {
+			cin>>arr[i];
+		    }
+		     cout<<total(n,3)-solve(arr,n)<<endl;
 		}
 	}
 	return 0;
@@ -102,7 +102,7 @@ int solve(int num,int arr[],int size)
 {
 	if(low==high && arr[low]<=num)
 	{
-		return 0;
+	      return 0;
 	}
 	while(low<high)
 	{
