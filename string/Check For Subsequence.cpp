@@ -1,3 +1,5 @@
+/* Time :- O(N) where N is length of string B && Space :- O(1) */
+
 class Solution
 {
     public:
@@ -7,6 +9,7 @@ class Solution
         int j=0;
         int temp=A.length();
         int count=0;
+        
         while(i<A.length()&&j<B.length())
         {
             if(A[i]==B[j])
