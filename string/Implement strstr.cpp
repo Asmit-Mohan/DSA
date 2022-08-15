@@ -1,3 +1,5 @@
+/* Time :- O(|S|*|X|) Space :- O(1) */
+
 /*Approach 1*/
 
 bool solve(int idx,string s,string x)
