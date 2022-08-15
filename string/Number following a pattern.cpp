@@ -39,28 +39,28 @@ string findMinNumberPattern(string str)
     int dCount = 0; 
 	
     while (i < str.length())
-	  {
+    {
         char ch = str[i];
         if (i == 0 && ch == 'I')
-		    {
+        {
             ans += to_string(cur);
             cur++;
         }
-		    if (ch == 'D')
-		    {
+        if (ch == 'D')
+        {
             dCount++;
         }
  
         int j = i + 1;
         while (j < str.length()&& str[j] == 'D')
-		    {
+	{
             dCount++;
             j++;
         }
  
         int k = dCount; 
         while (dCount >= 0)
-		    {
+        {
             ans += to_string(cur + dCount);
             dCount--;
         }
