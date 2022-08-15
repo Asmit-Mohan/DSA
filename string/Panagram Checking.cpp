@@ -3,7 +3,7 @@ class Solution
   public:
     bool checkPangram (string &str)
     {
-        set<char>s;
+        unordered_set<char>s;
         for(int i=0;i<str.size();i++)
         {
             if(str[i]>='a'&&str[i]<='z'||str[i]>='A'&&str[i]<='Z')
