@@ -1,5 +1,9 @@
-/*Logic :- To keep tracking which arr[i] is longest subsequence of given string S ie. largest word when minimum number of deletion which is only possible,
-  when longest subsequence is considered*/
+/*
+    Logic :- To keep tracking which arr[i] is longest subsequence of given string S ie. largest word when minimum number of deletion which is only possible,
+    when longest subsequence is considered.
+*/
+
+/* Time :- O(N*|S|) Space :- O(|S|) */
 
 class Solution
 {
