@@ -3,8 +3,6 @@ class Solution
   public:
     string secFrequent (string arr[], int n)
     {
-       string preStr="";
-       string postStr="";
        int preFre=INT_MIN;
        int postFre=INT_MIN;
        
@@ -18,17 +16,22 @@ class Solution
        {
            if(x.second>postFre)
            {
-               preStr=postStr;
                preFre=postFre;
-               postStr=x.first;
                postFre=x.second;
            }
            else if(x.second>preFre)
            {
                preFre=x.second;
-               preStr=x.first;
            }
        }
-       return preStr;
+       
+       for(auto x : mp)
+       {
+           if(x.second==preFre)
+           {
+               return x.first;
+           }
+       }
+       return "";
     }
 };
