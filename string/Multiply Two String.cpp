@@ -22,10 +22,10 @@ public:
       
        for(int i = 0; i < m + n; i++)
        {
-          if(ans[i] !='0')
-		      {
-		         return ans.substr(i);
-		      }
+          if(ans[i] !='0') 
+	  {
+	      return ans.substr(i);
+          }
        }
        return "0"; 
     }
