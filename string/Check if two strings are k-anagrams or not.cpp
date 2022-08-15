@@ -1,30 +1,47 @@
+/* Time :- O(|str1|) Space :- O(26) */
+
 class Solution
 {
   public:
     bool areKAnagrams(string str1, string str2, int k)
     {
-        if(str1.length()!=str2.length())
+        int n1 = str1.length();
+        int n2 = str2.length();
+        
+        if(n1 != n2)
         {
-            return 0;
+            return false;
         }
-        int count=0;
-        int hash[26]={0};
-        for(int i=0;i<str1.length();i++)
+        
+        unordered_map<char, int>mp;
+        int count = 0;
+        
+        for(int i = 0; i < n1; i++)
         {
-            hash[str1[i]-'a']++;
-            hash[str2[i]-'a']--;
+            mp[str1[i]]++;
         }
-        for(int i=0;i<26;i++)
+        
+        for(int i = 0; i < n1; i++)
         {
-           count=count+abs(hash[i]);
+            if(mp.find(str2[i]) == mp.end())
+            {
+                count++;
+            }
+            else
+            {
+                if(--mp[str2[i]] == 0)
+                {
+                    mp.erase(str2[i]);
+                }
+            }
         }
-        if(k>=count/2)
+        if(count <= k)
         {
-            return 1;
+            return true;
         }
         else
         {
-            return 0;
+            return false;
         }
     }
 };
