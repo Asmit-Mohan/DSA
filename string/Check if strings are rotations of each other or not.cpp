@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 /*Approach 1*/
 
 class Solution
