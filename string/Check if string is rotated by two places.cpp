@@ -1,3 +1,7 @@
+/* Time :- O(N) Space :- O(N) */
+
+/* Approach 1 */
+
 class Solution
 {
     public:
@@ -48,5 +52,37 @@ class Solution
         {
             return 1;
         }
+    }
+};
+
+/* Approach 2 */
+
+class Solution
+{
+    public:
+    bool isRotated(string str1, string str2)
+    {
+       int n=str1.length();
+       int m=str2.length();
+       if(m!=n)
+       {
+           return 0;
+       }
+
+       string s=str1.substr(2,m-2)+str1.substr(0,2);
+       
+       if(s==str2)
+       {
+           return 1;
+       }
+       
+       s=str1.substr(m-2,2)+str1.substr(0,m-2);
+       
+       if(s==str2)
+       {
+           return 1;
+       }
+       
+       return 0;
     }
 };
