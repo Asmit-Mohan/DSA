@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -7,6 +9,7 @@ class Solution
         vector<string>res;
         string ans;
         int fre=-1;
+        
         for(int i=0;i<n;i++)
         {
             mp[arr[i]]++;
@@ -20,7 +23,7 @@ class Solution
             }
             else if(x.second==fre)
             {
-                int comp = ans.compare(x.first);
+                int comp = ans.compare(x.first);   /* Time Complexity :- O(min(n,m)) where n and m are sizes of ans and x.first respectively */
                 if(comp>0)
                 {
                     ans=x.first;
