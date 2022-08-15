@@ -1,3 +1,5 @@
+/* Time :- O( logn[Base10] ) Space :- O( logn[Base10] * 10 ) */
+
 class Solution
 {
   public:
