@@ -1,6 +1,8 @@
+/* Time :- O(n) */
+
 void print(list<int> &A)
 {
-	if(A.empty())
+    if(A.empty())
 	{
         cout << -1 << "\n";
         return;
@@ -9,49 +11,54 @@ void print(list<int> &A)
     {
         cout << x << " ";
     }
-    cout << "\n";
+    cout << "\n";	
 }
-/*remove element from 
-back of list A*/
+
+/* Time :- O(1) */
+
 void remove_from_back(list<int> &A)
 {
    A.pop_back();
 }
-/*remove element from 
-front of list A*/
+
+/* Time :- O(1) */
+
 void remove_from_front(list<int> &A)
 {
    A.pop_front();
 }
 
-/*inserts an element x at 
-the back of the list A */
+/* Time :- O(1) */
+
 void add_to_list(list<int> &A,int x)
-{
-   A.push_back(x);
+{ 
+    A.push_back(x);
 }
 
-/*sort the list A in ascending order*/
+/* Time :- O(nlogn) */
+
 void sort_list(list<int> &A)
 {
-	A.sort();
+    A.sort();
 }
 
-/*reverses the list A*/
+/* Time :- O(N) */
+
 void reverse_list(list<int> &A)
 {
-	A.reverse();
+    A.reverse();
 }
 
-/*returns the size of the list  A */
+/* Time :- O(1) */
+
 int size_of_list(list<int> &A)
 {
-	return A.size();
+    return A.size();
 }
 
-/*inserts an element x at 
-the front of the list A*/
+/* Time :- O(1) */
+
 void add_from_front(list<int> &A,int x)
 {
-	A.emplace_front(x);
+    A.emplace_front(x);	
 }
