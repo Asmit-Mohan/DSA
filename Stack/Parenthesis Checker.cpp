@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -10,7 +12,6 @@ class Solution
                 {
                     st.push(s[i]);
                 }
-                
                 else if(!s.empty()&&s[i]==')'&&st.top()=='(')
                 {
                     st.pop();
