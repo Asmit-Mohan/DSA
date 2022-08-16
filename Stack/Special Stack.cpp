@@ -1,3 +1,5 @@
+/* Time :- O(N) for getMin else O(1) for all other function && Space :- O(1) */
+
 void push(stack<int>& s, int a)
 {
 	s.push(a);
@@ -32,17 +34,15 @@ int pop(stack<int>& s)
 	return s.top();
 	s.pop();
 }
-#include<bits/stdc++.h>
 int getMin(stack<int>& s)
 {
+    int mn=s.top();
     int n=s.size();
-    int arr[n];
     for(int i=0;i<n;i++)
     {
         int temp=s.top();
-        arr[i]=temp;
+        mn=min(mn,temp);
         s.pop();
     }
-    sort(arr,arr+n);
-    return arr[0];
+    return mn;
 }
