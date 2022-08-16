@@ -1,13 +1,15 @@
+/* Time :- O(n) for pop() and O(1) for push() && Space :- O(1) */
+
 void StackQueue :: push(int x)
 {
      s1.push(x);
 }
 int StackQueue :: pop()
 {
-      if(s1.empty())
-      {
-          return -1;
-      }
+        if(s1.empty())
+        {
+            return -1;
+        }
         while(!s1.empty())
         {
             s2.push(s1.top());
