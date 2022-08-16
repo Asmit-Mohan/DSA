@@ -1,4 +1,6 @@
-void solve(stack<int>&s,int temp)
+/* Time :- O(N*N) Space :- O(N) [Time :- O(N) for sort function and O(N) for insert function]*/
+
+void insert(stack<int>&s,int temp)
 {
     if(s.empty()||temp>=s.top())
     {
@@ -7,7 +9,7 @@ void solve(stack<int>&s,int temp)
     }
     int first=s.top();
     s.pop();
-    solve(s,temp);
+    insert(s,temp);
     s.push(first);
 }
 
@@ -20,6 +22,6 @@ void SortedStack :: sort()
    int temp=s.top();
    s.pop();
    sort();
-   solve(s,temp);
+   insert(s,temp);
    return;
 }
