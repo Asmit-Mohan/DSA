@@ -1,3 +1,5 @@
+/* Time Complexity :- O(row*col) Space Complexity :- O(col) */ 
+
 class Solution
 {
 public:
@@ -82,30 +84,25 @@ public:
     
     int maximalRectangle(vector<vector<char>>& matrix)
     {
-        int m=matrix.size();
-        if(m==0)
-        {
-            return 0;
-        }
+        int row=matrix.size();
+        int col=matrix[0].size();
+        int ans=INT_MIN;
+        vector<int>hist(col,0);
         
-        int n=matrix[0].size();
-        vector<int> hist(n,0);
-        int ans=-1;
-        
-        for(int i=0; i<m; i++)
+        for(int i=0;i<row;i++)
         {
-            for(int j=0; j<n; j++)
+            for(int j=0;j<col;j++)
             {
-                if(matrix[i][j]=='0')
+                if(matrix[i][j]!='0')
                 {
-                    hist[j]=0;
+                    hist[j] = hist[j] + 1;
                 }
                 else
                 {
-                    hist[j]+=1;
+                    hist[j]=0;
                 }
             }
-            ans=max(ans,MAH(hist,n));
+            ans=max(ans,MAH(hist,col));
         }
         return ans;
     }
