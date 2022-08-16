@@ -1,3 +1,5 @@
+/* Time :- O(n) Space :- O(n) */
+
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -7,6 +9,7 @@ int main()
 	unordered_set<string>s;
 	stringstream ss(str);
 	string word;
+	
 	while(ss>>word)
 	{
 		s.insert(word);
