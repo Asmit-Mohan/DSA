@@ -1,3 +1,5 @@
+/* Time :- O(1) Space :- O(1) For all 4 operations */
+
 void twoStacks :: push1(int x)
 {
     if(top1<top2)
