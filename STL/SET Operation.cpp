@@ -1,3 +1,5 @@
+/* Time :- O(nlogn) Space :- O(1) */
+
 set<int> setInsert(int arr[],int n)
 {
     set<int>s;
@@ -7,6 +9,9 @@ set<int> setInsert(int arr[],int n)
     }
     return s;
 }
+
+/* Time :- O(n) Space :- O(1) */
+
 void setDisplay(set<int>s)
 {
     set<int>::iterator it;
@@ -16,6 +21,9 @@ void setDisplay(set<int>s)
     }
     cout<<endl;
 }
+
+/* Time :- O(n) Space :- O(1) */
+
 void setErase(set<int>&s,int x)
 {
     if(s.erase(x))
