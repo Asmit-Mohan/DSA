@@ -1,4 +1,5 @@
-/*Approach :- 1 O(n) space and O(n) time */
+/* Approach :- 1 O(n) space and O(n) time */
+
 int countRev (string s)
 {
    stack<char>st;
@@ -32,7 +33,7 @@ int countRev (string s)
   return count1+count2;     
 }
 
-/*Efficient Approach time O(n) and constant space*/
+/* Efficient Approach time O(n) and space O(1) */
 
 int countRev(string s)
 {
@@ -60,4 +61,3 @@ int countRev(string s)
    }
    return ans+count/2;
 }
-
