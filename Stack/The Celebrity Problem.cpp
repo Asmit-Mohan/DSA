@@ -1,4 +1,6 @@
-/*A1:- O(N) space and O(N) Time*/
+/* Approach 1 :- O(N) Time and O(N) Space */  
+
+/* For Furthur more approaches visit :- https://www.geeksforgeeks.org/the-celebrity-problem */
 
 class Solution 
 {
@@ -40,27 +42,46 @@ class Solution
     }
 };
 
-/*A2:- O(N) Time and constant space*/
+/* Approach 2 :- O(N) Time O(1) Space */
+
 class Solution 
 {
     public:
-    int celebrity(vector<vector<int> >& M, int n) 
+    int celebrity(vector<vector<int> >& arr, int n) 
     {
-      int can;
-      for(int i=0;i<n;i++)
-      {
-          if(M[can][i]==1)
-          {
-              can=i;
-          }
-      }
-      for(int i=0;i<n;i++)
-      {
-          if(can!=i and (M[can][i]==1 or M[i][can]==0))
-          {
-              return -1;
-          }
-      }
-      return can;
+        int can=0;
+        for (int i=1;i<n;i++)
+        {
+            if (arr[can][i]==1)
+            {
+                arr[can][can]=1;
+                can=i;
+            }
+            else
+            {
+                arr[i][i]=1;
+            }
+        }
+        
+        for (int i=0;i<n;i++)
+        {
+            if (arr[i][i]==0)
+            {
+                int flag=0;
+                for (int j=0;j<n;j++)
+                {
+                    if (j!=i && arr[j][i]==0)
+                    {
+                        flag=1;
+                        break;
+                    }
+                }
+                if (flag==0)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 };
