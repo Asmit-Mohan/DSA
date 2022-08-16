@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
 public:
@@ -6,6 +8,7 @@ public:
         vector<int> right;
         vector<int> left;
         stack<pair<int, int>> l,r;
+        
         for(int i=0;i<heights.size();i++)  /*NSL*/
         {
             if(l.size()==0)
