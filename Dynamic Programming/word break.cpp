@@ -1,4 +1,4 @@
-/* Time :- O(More than N*N) Space :- O(N) */
+/* Time :- O(N*N) Space :- O(N) */
 
 class Solution
 {
@@ -7,7 +7,7 @@ public:
     {
         int n=A.length();
         int dp[n+1]={0};
-        set<string>s(B.begin(),B.end());
+        unordered_set<string>s(B.begin(),B.end());
         
         dp[0]=1;  /*Empty charecter case, will always present in dictionary B*/
         
