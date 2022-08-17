@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 Node *removeDuplicates(Node *head)
 {
     Node* temp=head;
