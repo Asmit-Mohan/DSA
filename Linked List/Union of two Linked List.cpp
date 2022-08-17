@@ -1,8 +1,11 @@
+/* Time :- O[max(Nlogn, Mlogm)]  Space :- O(n+m) */
+
 struct Node* makeUnion(struct Node* head1, struct Node* head2)
 {
-    set<int,greater<int>>s;
-    Node* ptr1 = head1;
-    Node* ptr2 = head2;
+    set<int>s;
+    Node*ptr1 = head1;
+    Node*ptr2 = head2;
+    
     while(ptr1||ptr2)
     {
         if(ptr1)
@@ -16,12 +19,14 @@ struct Node* makeUnion(struct Node* head1, struct Node* head2)
             ptr2 = ptr2 -> next;
         }
     }
-    Node* p = NULL;
-    for(auto i = s.begin();i!=s.end();i++)
+    
+    struct Node* ans = new struct Node(-1);
+    struct Node* temp = ans;
+    
+    for(auto x : s)
     {
-        Node* temp = new Node(*i);
-        temp->next = p;
-        p = temp;
+        temp -> next = new struct Node(x);
+        temp = temp->next;
     }
-    return p;
+    return ans->next;;
 }
