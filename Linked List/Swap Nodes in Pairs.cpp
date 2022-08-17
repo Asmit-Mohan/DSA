@@ -1,20 +1,52 @@
+/* Time :- O(N) Space :- O(1) Iterative Method */
+
 class Solution
 {
 public:
-    void solve(ListNode* first,ListNode* second)
-    {
-        swap(first->val,second->val);
-        if(second->next&&second->next->next)
-        {
-            solve(second->next,second->next->next);
-        }
-    }
     ListNode* swapPairs(ListNode* head)
     {
-        if(head&&head->next)
+        ListNode* root = head;
+        ListNode* nextN = NULL;
+        ListNode* prev = NULL;
+        
+        while (root != NULL && root->next != NULL)
         {
-            solve(head,head->next);
+            nextN = root->next;    
+            root->next = nextN->next;
+            nextN->next = root;            
+            
+            if (prev != NULL)
+            {
+                prev->next = nextN;
+            }
+            else
+            {
+                head = nextN;
+            }
+            prev = root;
+            if (root->next != NULL)
+            {
+                root = root->next;
+            }
         }
         return head;
+    }
+};
+
+/* Recursion :- O(N) Space :- O(1) */
+
+class Solution
+{
+public:
+    ListNode* swapPairs(ListNode* head)
+    {
+        if(head == NULL || head->next == NULL)
+        {
+            return head;
+        }
+        ListNode *res = head->next;
+        head->next = swapPairs(head->next->next);
+        res->next = head;
+        return res;
     }
 };
