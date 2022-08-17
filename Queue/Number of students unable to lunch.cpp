@@ -1,33 +1,38 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
 public:
-    int countStudents(vector<int>& st, vector<int>& snd)
+    int countStudents(vector<int>& st, vector<int>& sand)
     {
-        int i=0,j=0;
-        queue<int> q;
-        while(i!=st.size() && j!=snd.size())
+        int i=0;
+        int j=0;
+        queue<int>q;
+        
+        while(i<st.size()&&j<sand.size())
         {
-            if(st[i]==snd[j])
+            if(st[i]==sand[j])
             {
                 i++;
                 j++;
             }
-            else 
+            else
             {
                 q.push(st[i]);
                 i++;
             }
         }
         
-        if(i==st.size() && j==snd.size())
+        if(i==st.size()&&j==sand.size())
         {
-            return 0; 
+            return 0;
         }
+        
         int count=0;
-        while(j!=snd.size())
+        
+        while(j!=sand.size())
         {
-            
-            if(q.front()==snd[j])
+            if(q.front()==sand[j])
             {
                 q.pop();
                 j++;
@@ -37,7 +42,7 @@ public:
             {
                 q.push(q.front());
                 q.pop();
-                ++count;
+                count++;
             }
             if(count==q.size())
             {
