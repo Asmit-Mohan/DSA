@@ -1,28 +1,25 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
     Node * removeDuplicates( Node *head) 
     {
         unordered_set<int>s;
-        vector<int>v;
         Node* ptr=head;
+        Node* ans = new Node(-1);
+        Node* temp = ans;
+        
         while(ptr!=NULL)
         {
             if(s.find(ptr->data)==s.end())
             {
                 s.insert(ptr->data);
-                v.push_back(ptr->data);
+                temp->next = new Node(ptr->data);
+                temp=temp->next;
             }
             ptr=ptr->next;
         }
-        
-        Node* p=NULL;
-        for(int i=v.size()-1;i>=0;i--)
-        {
-            Node* temp = new Node(v[i]);
-            temp->next=p;
-            p=temp;
-        }
-        return p;
+        return ans->next;
     }
 };
