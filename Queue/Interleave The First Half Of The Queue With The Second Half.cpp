@@ -1,6 +1,8 @@
+/* Time :- O(N) Space :- O(N) */
+
 void interLeaveQueue(queue < int > & q) 
 {
-    queue<int>q1;
+    	queue<int>q1;
 	queue<int>q2;
 	int n=q.size()/2;
 	while(n--)
