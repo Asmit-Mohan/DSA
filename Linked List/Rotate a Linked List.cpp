@@ -1,4 +1,7 @@
+/* Time :- O(N) Space :- O(1) */
+
 /* GFG Question Solution */
+
 class Solution
 {
     public:
@@ -22,6 +25,8 @@ class Solution
         return head;
     }
 };
+
+/* Time :- O(N) Space :- O(1) */
 
 /* Leetcode Question Solution*/
 
