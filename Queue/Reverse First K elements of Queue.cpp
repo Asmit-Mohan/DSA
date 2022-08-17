@@ -1,22 +1,26 @@
+/* Time :- O(N) Space :- O(K) */
+
 queue<int> modifyQueue(queue<int> q, int k)
 {
-    int n=q.size();
-    vector <int> v;
+    stack<int>s;
+    int size=q.size();
+    
     for(int i=0;i<k;i++)
     {
-        v.push_back(q.front());
+        s.push(q.front());
         q.pop();
     }
-    reverse(v.begin(),v.end());
-    for(int i=k;i<n;i++)
+    while(!s.empty())
     {
-        v.push_back(q.front());
+        q.push(s.top());
+        s.pop();
+    }
+    size=size-k;
+    
+    while(size--)
+    {
+        q.push(q.front());
         q.pop();
     }
-    queue<int> q1;
-    for(int i=0;i<v.size();i++)
-    {
-        q1.push(v[i]);
-    }
-    return q1;
+    return q;
 }
