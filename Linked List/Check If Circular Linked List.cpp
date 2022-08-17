@@ -1,17 +1,24 @@
+/* Time :- O(N) Space :- O(1) */
+
 bool isCircular(Node *head)
 {
-    if(head->next==head)
+    if(head->next==NULL)
     {
-        return 1;
+        return 0;
     }
-    Node* temp=head->next;
-    while(temp!=NULL&&temp!=head)
+    if(head->next->next==head)
     {
-        if(temp->next==head)
+        return true;
+    }
+    
+    Node* temp = head->next;
+    while(temp->next!=head)
+    {
+        if(temp->next==NULL)
         {
-            return 1;
+            return 0;
         }
         temp=temp->next;
     }
-    return 0;
+    return 1;
 }
