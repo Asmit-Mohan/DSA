@@ -24,19 +24,21 @@ vector<string> generate(int N)
     return ans;
 }
 
-/*Queue Approach*/
+/*Queue Approach Time :- O(N) Space :- O(N) */
 
 vector<string> generate(int N)
 {
-vector<string> result;
-queue<string> q;
-q.push("1");
-for (int i = 0; i < N; i++)
-{
-    result.push_back(q.front());
-    q.push(q.front()+"0");
-    q.push(q.front()+"1");
-    q.pop();
-}
-return result;
+    queue<string>q;
+    vector<string>ans;
+    q.push("1");
+    
+    while(ans.size()!=N)
+    {
+        string front=q.front();
+        ans.push_back(front);
+        q.pop();
+        q.push(front+"0");
+        q.push(front+"1");
+    }
+    return ans;
 }
