@@ -1,4 +1,4 @@
-/*Brute Approach*/
+/* Brute Approach Time :- O(Nlogn) Space :- O(N) */
 
 string solve(int n)
 {
