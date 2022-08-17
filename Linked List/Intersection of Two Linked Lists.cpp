@@ -1,33 +1,37 @@
+/* Time :- O(m+n) Space :- O[ min(n,m) --> worst case ] */
+
 class Solution
 {
 public:
 Node* findIntersection(Node* head1, Node* head2)
 {
     unordered_set<int>s;
-    vector<int>res;
-    Node*ptr1 = head1;
-    Node*ptr2 = head2;
-    while(ptr2!=NULL)
+    vector<int>v;
+    Node* r1=head1;
+    Node* r2=head2;
+    
+    while(r2!=NULL)
     {
-        s.insert(ptr2->data);
-        ptr2 = ptr2 -> next;
+        s.insert(r2->data);
+        r2=r2->next;
     }
-    while(ptr1!=NULL)
+    while(r1!=NULL)
     {
-        if(s.find(ptr1->data)!=s.end())
+        if(s.find(r1->data)!=s.end())
         {
-            res.push_back(ptr1->data);
+            v.push_back(r1->data);
         }
-        ptr1=ptr1->next;
+        r1=r1->next;
     }
-    Node* ptr=NULL;
-    reverse(res.begin(),res.end());  /*Or Iterate from reverse to avoid this reverse function and reduce time complexity*/
-    for(int i=0;i<res.size();i++)
+    Node* ans = new Node(-1);
+    Node* res=ans;
+    
+    for(int i=0;i<v.size();i++)
     {
-        Node *temp = new Node(res[i]);
-        temp->next=ptr;
-        ptr=temp;
+        Node* temp=new Node(v[i]);
+        ans->next=temp;
+        ans=ans->next;
     }
-    return ptr;
+    return res->next;
 }
 };
