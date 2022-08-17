@@ -1,4 +1,4 @@
-/*Approach 1*/
+/* Approach 1 Time :- O(N) Space :- O(1) */
 
 class Solution
 {
@@ -16,7 +16,7 @@ class Solution
     }
 };
 
-/*Approach 2*/
+/* Approach 2 Time :- O(N) Space :- (1) [ Not in one pass ] */
 
 class Solution
 {
