@@ -1,30 +1,4 @@
-/*Approach 1 :- O(N) time and O(N) Space*/
-
-class Solution
-{
-public:
-    int getDecimalValue(ListNode* head)
-    {
-        ListNode* ptr=head;
-        vector<int>v;
-        int res=0;
-        while(ptr!=NULL)
-        {
-            v.push_back(ptr->val);
-            ptr=ptr->next;
-        }
-        int n=v.size();
-        int i=0;
-        for(int j=n-1;j>=0;j--)
-        {
-            res=res+(v[j]*pow(2,i));
-            i++;
-        }
-        return res;
-    }
-};
-
-/*Approach 2 :- Without Vector Little bit time efficient*/
+/* Approach 1 :- O(N) time and O(1) Space */
 
 class Solution
 {
@@ -33,24 +7,28 @@ public:
     {
         int size=0;
         int ans=0;
-        ListNode* node = head;
-        while(node!=nullptr)
+        ListNode* temp = head;
+        
+        while(temp!=NULL)
         {
             size++;
-            node=node->next;
+            temp=temp->next;
         }
         size--;
-        ListNode* temp = head;
-        while(temp!=nullptr)
+        
+        ListNode* ptr = head;
+        
+        while(ptr!=NULL)
         {
-            ans+=(temp->val)*(int)pow(2,size--);
-            temp=temp->next;
+            ans+=(ptr->val)*(int)pow(2,size--);
+            ptr=ptr->next;
         }
         return ans;
     }
 };
 
-/*Approach 3 :- Constant Space and Time Efficient*/
+/* Approach 2 :- O(N) time and O(1) Space [ In-Pass Solution ] */
+
 class Solution
 {
 public:
@@ -59,7 +37,7 @@ public:
         int ans = 0;
         while(head != NULL)
         {
-            ans <<= 1;
+            ans <<= 1;              /* Left shift operators are used to multiply by 2 and right shift for division by 2 */
             ans = ans+head->val;
             head = head->next;
         }
