@@ -1,60 +1,70 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
 public:
-    int length(ListNode* head)
+    ListNode* prev;
+    
+    ListNode* reverse(ListNode* head)
     {
-        int n = 0;
-        while (head)
+        if(head==NULL)
         {
-            head = head->next;
-            n++;
+           return NULL;
         }
-        return n;
+        if(head->next==NULL)
+        {
+           return head;
+        }
+       
+        ListNode* temp = reverse(head->next);
+        head->next->next=head;
+        head->next=NULL;
+        
+        return temp;
+    }
+    
+    ListNode* findMid(ListNode* head)
+    {
+            ListNode* slow=head;
+            ListNode* fast=head;
+            while(fast!=NULL&&fast->next!=NULL)
+            {
+                prev=slow;
+                slow=slow->next;
+                fast=fast->next->next;
+            }
+            prev->next=NULL; 
+            return slow;
     }
     
     void reorderList(ListNode* head)
     {
-        int n = length(head);
-        queue<ListNode*> q;
-        stack<ListNode*> s;
-        
-        ListNode* curr = head;
-        for (int i = 0; i < n / 2; i++)
+        if(head->next==NULL)
         {
-            q.push(curr);
-            curr = curr->next;
+            return;
         }
         
-        if (n % 2 == 1)
-        {
-            q.push(curr);
-            curr = curr->next;
-        }
-    
-        while (curr!=NULL)
-        {
-            s.push(curr);
-            curr = curr->next;
-        }
-
-        ListNode* prev =new ListNode(0);
-        for (int i = 0; i < n; i++)
-        {
-            ListNode* temp = NULL;
-            if (i % 2 == 0)
-            {
-                temp = q.front();
-                q.pop();
-            }
-            else
-            {
-                temp = s.top();
-                s.pop();
-            }
-            prev->next = temp;
-            prev = temp;
-        }
+        ListNode* second = findMid(head);
+        second=reverse(second);
+        ListNode* first = head;
+        ListNode* ans = new ListNode(-1);
         
-        prev->next = NULL;
+        ListNode* temp1;
+        ListNode* temp2;
+        
+        while(first!=NULL&&second!=NULL)
+        {
+            temp1=first->next;
+            temp2=second->next;
+            
+            ans->next=first;
+            ans=ans->next;
+            
+            ans->next=second;
+            ans=ans->next;
+            
+            first=temp1;
+            second=temp2;
+        }
     }
 };
