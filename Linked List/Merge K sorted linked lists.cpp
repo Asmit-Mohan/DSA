@@ -29,7 +29,7 @@ class Solution
     }
 };
 
-/* Efficient Approach Time :- O(k*logk) Space :- O(k) */
+/* Efficient Approach Time :- O(n*logk) Space :- O(k) */
 
 #define pair pair<int,Node*>
 
