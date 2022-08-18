@@ -1,4 +1,4 @@
-/*Approach 1 :- Recursive O(N) Time and O(N) Recursive Space*/
+/* Approach 1 :- Recursive O(N) --> Time and O(N) --> Recursive Space */
 
 class Solution
 {
@@ -19,7 +19,7 @@ class Solution
     }
 };
 
-/*Approach 2 :- Iterative O(N) Time and O(1) Constant Space*/
+/* Approach 2 :- Iterative O(N) --> Time and O(1) --> Constant Space */
 
 class Solution
 {
