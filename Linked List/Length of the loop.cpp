@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 int countNodesinLoop(struct Node *head)
 {
         struct Node* slow=head;
@@ -30,8 +32,7 @@ int countNodesinLoop(struct Node *head)
         }
 }
 
-
 /*Intution behind the code*/
 
-//first find wheather loop exists or not
-//if exists then move slow from slow to fast again to count num of nodes as initially both are at same position
+// first find wheather loop exists or not
+// if exists then move slow from slow to fast again to count num of nodes as initially both are at same position
