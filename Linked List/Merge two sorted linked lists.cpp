@@ -1,38 +1,37 @@
-Node* sortedMerge(Node* head1, Node* head2)  
-{  
-   Node* ans = new Node(0);
-   Node* res=ans;
-   while(head1!=NULL&&head2!=NULL)
-   {
-       if(head1->data>head2->data)
-       {
-           Node* temp = new Node(head2->data);
-           ans->next=temp;
-           head2=head2->next;
-       }
-       else
-       {
-           Node* temp = new Node(head1->data);
-           ans->next=temp;
-           head1=head1->next;
-       }
-       ans=ans->next;
-   }
-   while(head1!=NULL)
-   {
-       Node* temp = new Node(head1->data);
-       ans->next=temp;
-       head1=head1->next;
-       ans=ans->next;
-   }
-   while(head2!=NULL)
-   {
-       Node* temp = new Node(head2->data);
-       ans->next=temp;
-       head2=head2->next;
-       ans=ans->next;
-   }
-   
-   ans->next=NULL;
-   return res->next;
-}
+/* Time :- O[min(l1,l2)] Space :- O(1) */
+
+class Solution
+{
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
+    {
+        ListNode* ans = new ListNode(-1);
+        ListNode* res = ans;
+        
+        while(l1!=NULL && l2!=NULL)
+        {
+            if(l1->val > l2->val)
+            {
+                ans->next = l2;
+                l2 = l2->next;
+            }
+            else
+            {
+                ans->next = l1;
+                l1 = l1->next;
+            }
+            ans = ans->next;
+        }
+        
+        if(l1!=NULL)
+        {
+            ans->next = l1;
+        }
+        if(l2!=NULL)
+        {
+            ans->next = l2;
+        }
+        ans = NULL;
+        return res->next;
+    }
+};
