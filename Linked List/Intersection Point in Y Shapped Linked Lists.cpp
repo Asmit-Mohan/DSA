@@ -1,32 +1,32 @@
-/*Approach 1 :- Hashing*/
-/*In Taking Space*/
+/* Approach 1 :- Time :- O(m+n) Space :- O(m) */
 
 class Solution
 {
         public:
         ListNode *getIntersectionNode(ListNode *head1, ListNode *head2)
         {
-        map<ListNode*,bool>mp;
-        ListNode*temp=head1;
-        while(temp!=NULL)
-        {
-            mp[temp]=true;
-            temp=temp->next;
-        }
-        temp=head2;
-        while(temp!=NULL)
-        {
-            if(mp[temp])
-            {
-                return temp; 
-            }
-            temp=temp->next;    
-        }
-        return NULL;
+                map<ListNode*,bool>mp;
+                ListNode*temp=head1;
+                while(temp!=NULL)
+                {
+                    mp[temp]=true;
+                    temp=temp->next;
+                }
+                temp=head2;
+                while(temp!=NULL)
+                {
+                    if(mp[temp])
+                    {
+                        return temp; 
+                    }
+                    temp=temp->next;    
+                }
+                return NULL;
         }
 };
 
-/*Approach 2 :- No Space*/
+/* Approach 2 :- Time :- O(m+n) Space :- O(1) */
+
 class Solution
 {
         public:
@@ -71,7 +71,7 @@ class Solution
 };
 
 
-/*Approach 3 :- Very Short*/
+/* Approach 3 :- Very Short */
 
 class Solution
 {
