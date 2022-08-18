@@ -1,3 +1,9 @@
+/* Approach 1 Time :- O(N) Space :- O(1) [In One Pass Solution] */
+
+
+
+/* Approach 2 Time :- O(N) Space :- O(1) */
+
 class Solution
 {
 public:
