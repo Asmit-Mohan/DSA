@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 int getNthFromLast(Node *head, int n)
 {
     Node* temp=head;
