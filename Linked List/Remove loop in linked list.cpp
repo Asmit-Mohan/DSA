@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
     public:
@@ -14,17 +16,21 @@ class Solution
                 break;
             }
         }
+        
         if(slow!=fast)
         {
             return;         /*No cycle case*/
         }
+        
         slow=head;
         while(slow!=fast)
         {
             slow=slow->next;
             fast=fast->next;
         }
+        
         /*Now Slow will be pointing at starting point of the loop*/
+        
         slow=slow->next;
         while(slow->next!=fast)
         {
