@@ -1,4 +1,4 @@
-/*Approach 1*/
+/* Approach 1 Time :- O(N) Space :- O(1) */
 
 Node* deleteMid(Node* head)
 {
@@ -27,7 +27,7 @@ Node* deleteMid(Node* head)
         return head;
 }
 
-/*Approach 2*/
+/* Approach 2 Time :- O(N) Space :- O(1) [In One Pass] */
 
 Node* deleteMid(Node* head)
 {
