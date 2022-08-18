@@ -1,7 +1,9 @@
+/* Time Complexity :- O[ min(length_of_l1, length_of_l2) ] , Space Complexity:- O[ max(length_of_l1, length_of_l2) + 1 ] */
+
 class Solution
 {
 public:
-	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
     {
        ListNode* head1=l1;
        ListNode* head2=l2;
