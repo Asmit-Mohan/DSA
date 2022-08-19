@@ -1,12 +1,6 @@
-/* 
-   Time complexity :- O((2^2N)*N) almost -> [2^2N] :- 
-   
-   (a) O(2^2N) :- for all possible paranthesis.
-   (b) O(N) :- Put generated output into the res vector.
-   
-   Space complexity :- O((2^2N)*N) to store 2^2N comb of size N , where 2^N is (N+N)^N = ( close + open)^N 
-   
-*/
+/* Time :- O(2^n) Space :- O(2^n) */
+
+/* Refer To LUV Video for Time complexity analysis of any recursive function */
 
 class Solution
 {
