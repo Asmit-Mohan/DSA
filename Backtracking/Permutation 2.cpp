@@ -11,9 +11,7 @@ public:
                     return;
                 }
                 for(int i = 0; i < nums.size(); i++)
-                {
-                    /*That means if it equal to previous one and previous one is used then current one is duplicate of it so skip it*/
-                    
+                {   
                     if(i>0&&nums[i]==nums[i-1]&&flag[i-1]==true) 
                     {
                         continue;
