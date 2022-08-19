@@ -1,3 +1,5 @@
+/* Time :- O(k*Ncr) Space :- O(N) */
+
 class Solution
 {
 public:
