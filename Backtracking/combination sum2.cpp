@@ -15,7 +15,7 @@ public:
 
         for (int i = pos; i < nums.size(); i++)
         {
-            if(i!=pos&&nums[i]==nums[i-1])
+            if(i>pos&&nums[i]==nums[i-1])
             {
                 continue;
             }
