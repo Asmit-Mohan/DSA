@@ -1,3 +1,5 @@
+/* Time :- O(logn) Space :- O(logn) --> Divide and Conquer Approach */
+
 class Solution
 {
     public:
@@ -18,7 +20,7 @@ class Solution
        {
            return (temp)%mod;
        }
-       if(R%2!=0) 
+       else
        {
            return (N*temp)%mod;
        }
