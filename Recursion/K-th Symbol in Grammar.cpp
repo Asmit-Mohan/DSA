@@ -1,3 +1,9 @@
+/* Time :- O(N) Space :- O(1) */
+
+/* Time Complexity analysis :- https://assets.leetcode.com/users/images/c65ae1a8-521b-44b4-bfe1-bd360ff64907_1657449403.9865541.jpeg */ 
+
+/* T(N) = T(N-1) + 1 */
+
 class Solution
 {
 public:
