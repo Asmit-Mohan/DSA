@@ -1,33 +1,35 @@
 class Solution
 {
     public:
-    void solve(int x,int y,string op,int n,vector<vector<int>> &m,vector<string>&ans)
+    void solve(vector<vector<int>>&arr,int i,int j,string op,vector<string> &ans,int n)
     {
-        if(x==n-1&&y==n-1)
+        if(i<0||j<0||i>=n||j>=n||arr[i][j]==0)
+        {
+            return;
+        }
+        if(i==n-1&&j==n-1)
         {
             ans.push_back(op);
             return;
         }
-        if(x>=0&&y>=0&&x<=n-1&&y<=n-1&&m[x][y]==1)
-        {
-            m[x][y]=0;
-            solve(x,y-1,op+'L',n,m,ans);
-            solve(x,y+1,op+'R',n,m,ans);
-            solve(x-1,y,op+'U',n,m,ans);
-            solve(x+1,y,op+'D',n,m,ans);
-            m[x][y]=1;
-        }
-        return;
+        arr[i][j]=0;
+        
+        solve(arr,i,j+1,op+'R',ans,n);
+        solve(arr,i-1,j,op+'U',ans,n);
+        solve(arr,i+1,j,op+'D',ans,n);
+        solve(arr,i,j-1,op+'L',ans,n);
+        
+        arr[i][j]=1;
     }
-    vector<string> findPath(vector<vector<int>> &m, int n)
+    vector<string> findPath(vector<vector<int>> &arr, int n)
     {
-       vector<string>ans;
-       if(m[0][0]==0||m[n-1][n-1]==0)
-       {
-           return ans;
-       }
-       string op;
-       solve(0,0,op,n,m,ans);
-       return ans;
+        string op="";
+        vector<string>ans;
+        if(arr[0][0]==0||arr[n-1][n-1]==0)
+        {
+            return ans;
+        }
+        solve(arr,0,0,op,ans,n);
+        return ans;
     }
 };
