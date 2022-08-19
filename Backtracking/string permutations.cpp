@@ -1,3 +1,5 @@
+/* Time :- O(N!*N) Space :- O(N) [Temp Vector] + O(N) [Visited array] + O(N) [ASS] */
+
 void solve(vector<string>&ans,string in,string op,vector<bool>&flag)
     {
         if(op.length() == in.length())
