@@ -1,4 +1,4 @@
-/*Recursive Approach*/
+/* Approach 1 :- Recursion */
 
 class Solution
 {
@@ -32,12 +32,12 @@ public:
     }
 };
 
-/*Backtracking Approach*/
+/* Approach 2 :- Backtracking */
 
 class Solution
 {
 public:
-void solve(vector<int>&nums,int n,int pos,vector<int>&cur, vector<vector<int>>&result)
+    void solve(vector<int>&nums,int n,int pos,vector<int>&cur, vector<vector<int>>&result)
     {
         if (cur.size() == n)   //leaf node
         {
@@ -46,7 +46,7 @@ void solve(vector<int>&nums,int n,int pos,vector<int>&cur, vector<vector<int>>&r
         }
         for (int i = pos; i < nums.size(); i++)
         {
-            if(i != pos && nums[i] == nums[i-1])  // when duplicate and not 1st of dup. list -->Optimisation step
+            if(i != pos && nums[i] == nums[i-1])  // when duplicate and not 1st of dup. list --> Optimisation step
             {
                 continue;
             }
