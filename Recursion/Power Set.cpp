@@ -1,3 +1,7 @@
+/* Time :- O[n*(2^n)] Space :- O[n*(2^n)] */
+
+/* Solve function time complexity is O(N) beacuse of erase function and solve function is called O(2^n) times so overall time is --> O[n*(2^n)] */
+
 class Solution
 {
 	public:
