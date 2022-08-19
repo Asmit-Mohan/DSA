@@ -1,10 +1,10 @@
-/*Using Recursion*/
+/* Using Recursion */
 
 class Solution
 {
 public:
      void solve(string &s, int i)
-    {
+     {
         if(i == 0 || s.length() == 0)
         {
             return;
@@ -14,7 +14,7 @@ public:
             s.erase(i-1,2);
         }
         solve(s,i-1);
-    }
+     }
     string removeDuplicates(string s)
     {
          solve(s, s.length() - 1);
@@ -22,7 +22,7 @@ public:
     }
 };
 
-/*Using Stack :-*/
+/* Using Stack :- O(N) Space :- O(N) */
 
 class Solution
 {
