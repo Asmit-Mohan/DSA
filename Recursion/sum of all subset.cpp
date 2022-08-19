@@ -1,16 +1,18 @@
+/* Time :- O(2^N) Space :- O(2^N) */
+
 class Solution
 {
 public:
     void solve(vector<int>&nums,vector<int> &v ,int i,int sum)
     {
-    if(i==nums.size())
-    {
-        v.push_back(sum);
-        return;
-    }
-    solve(nums , v , i+1 , sum);
-    sum=sum+nums[i];
-    solve(nums , v , i+1 , sum);
+        if(i==nums.size())
+        {
+            v.push_back(sum);
+            return;
+        }
+        solve(nums , v , i+1 , sum);
+        sum=sum+nums[i];
+        solve(nums , v , i+1 , sum);
     }
     
     vector<int> subsetSums(vector<int> arr, int N)
