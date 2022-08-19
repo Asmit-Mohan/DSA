@@ -1,3 +1,5 @@
+/* Time :- O(2^n) Space :- (n*2^n) */
+
 class Solution
 {
 	public:
@@ -11,20 +13,23 @@ class Solution
 	        }
 	        return;
 	    }
+		
 	    string op1=op;
 	    string op2=op;
+		
 	    op2.push_back(s[0]);
 	    s.erase(s.begin()+0);
+		
 	    solve(s,op1,ans);
 	    solve(s,op2,ans);
 	    return;
 	}
 	vector<string> AllPossibleStrings(string s)
 	{
-		 string op="";
-		 vector<string>ans;
-		 solve(s,op,ans);
-		 sort(ans.begin(),ans.end());
-		 return ans;
+		string op="";
+		vector<string>ans;
+		solve(s,op,ans);
+		sort(ans.begin(),ans.end());
+		return ans;
 	}
 };
