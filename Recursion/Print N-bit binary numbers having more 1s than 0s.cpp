@@ -1,3 +1,7 @@
+/* Time :- O(2^n) Space :- O[n*(2^n)] */
+
+/* Solve function time complexity is O(1) and solve function is called O(2^n) times so overall time is --> O(2^n) */
+
 class Solution
 {
 public:	
