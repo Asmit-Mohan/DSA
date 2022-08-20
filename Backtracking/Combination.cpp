@@ -1,4 +1,6 @@
-/* Time :- O(k*NCK) Space :- O(N) */
+/* Time :- O(K*NCK) Space :- O(N) */
+
+/* For Loop runs for O(K) times and solve function is executed for O(Ncr) times so overall complexity is :- O(K*NCK) */
 
 class Solution
 {
