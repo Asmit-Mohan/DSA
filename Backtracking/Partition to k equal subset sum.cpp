@@ -1,58 +1,64 @@
 class Solution
 {
-public:
-    bool canPartitionKSubsets(vector<int>& nums, int k)
+    public:
+    bool solve(vector<int>&nums,vector<int>&visited,int idx,int sum,int target,int k)
     {
-        long long sum=0;
-        for(int i=0;i<nums.size();i++)
-        {
-            sum=sum+nums[i];
-        }
-        if(k>sum)
-        {
-            return false;
-        }
-        if (sum % k != 0)
-        {
-            return false;
-        }
-        vector<bool> visited(nums.size(), false);
-        return helper(nums, k, sum / k, 0, 0, visited);
-    }
-    
-    bool helper(vector<int>& nums, int k, int target, int start, int curSum, vector<bool>& visited)     {
-        
-        if (k == 1)
+        if(k==0)
         {
             return true;
         }
-        if (curSum > target)
+        if(sum>target)
+        {
+            return false;
+        }
+        if(sum==target)
+        {
+            return solve(nums,visited,0,0,target,k-1);
+        }
+        
+        for(int i=idx;i<nums.size();i++)
+        {
+            if(visited[i]==0)
+            {
+                if(sum+nums[i]<=target)
+                {
+                    visited[i]=1;
+                    if(solve(nums,visited,i+1,sum+nums[i],target,k))
+                    {
+                        return true;
+                    }
+                    visited[i]=0;
+                }
+                if(sum ==0 || sum + nums[i]>target)
+                {
+                    return false;
+                }
+                while(i+1<nums.size() && nums[i]==nums[i+1])
+                {
+                    i++;
+                }
+            }
+        }
+        return false;
+    }
+    bool canPartitionKSubsets(vector<int>& nums, int k)
+    {
+        int sum=0;
+        int n=nums.size();
+        vector<int>visited;
+        
+        for(auto it : nums)
+        {
+            sum= sum + it;
+        }
+        if(nums.size()<k || sum%k)
         {
             return false;
         }
         
-        if (curSum == target)
-        {
-            return helper(nums, k - 1, target, 0, 0, visited);  
-        }
-        
-        for (int i = start; i < nums.size(); i++)
-        {
-            if (curSum + nums[i] > target)
-            {
-                continue;
-            }
-            if (visited[i])
-            {
-                continue;
-            }
-            visited[i] = true;
-            if (helper(nums, k, target, i + 1, curSum + nums[i], visited))
-            {
-                return true;
-            }
-            visited[i] = false;
-        }
-        return false;
+        visited.resize(n,0);
+        int target=sum/k;
+        sort(nums.begin(),nums.end());
+        return solve(nums,visited,0,0,target,k);
     }
 };
