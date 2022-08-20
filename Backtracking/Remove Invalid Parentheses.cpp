@@ -49,8 +49,8 @@ void solve (string s,int mnr)
         {
             continue;
         }
-        string left = s.substr(0,i);   /* Copy i charecter starting from 0*/
-        string right = s.substr(i+1);  /* Copy string after i+1 */
+        string left = s.substr(0,i);  
+        string right = s.substr(i+1);  
         string t = left+ right ;
         if(ans.find(t)==ans.end())
         {
