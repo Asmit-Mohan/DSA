@@ -2,21 +2,12 @@
 
 class Solution
 {
-public:
-    string addStrings(string num1, string num2)
+    public:
+    string findSum(string num1, string num2)
     {
-        if(num1=="0")
-        {
-            return num2;
-        }
-        if(num2=="0")
-        {
-            return num1;
-        }
-        
         if(num2.size()>num1.size())
         {
-            return addStrings(num2,num1);  /* Assuming num1 always greater or equal */
+            return findSum(num2,num1);  /* Assuming num1 always greater or equal */
         }
         
         reverse(num1.begin(),num1.end());
@@ -48,7 +39,12 @@ public:
         {
             ans.push_back(carry+'0');
         }
+        
         reverse(ans.begin(),ans.end());
-        return ans;
+        while(ans[0]=='0'&&ans.size())
+        {
+            ans.erase(ans.begin());
+        }
+        return ans.size()==0?"0":ans;        
     }
 };
