@@ -1,4 +1,4 @@
-/* Time :- O(k*Ncr) Space :- O(N) */
+/* Time :- O(k*NCK) Space :- O(N) */
 
 class Solution
 {
