@@ -1,3 +1,5 @@
+/* Approach 1 Brute Force Generate all string */
+
 class Solution
 {
     public:
@@ -30,5 +32,51 @@ class Solution
             return "";
         }
         return all[k - 1];
+    }
+};
+
+/* Approach 2 Optimal */
+
+class Solution
+{
+public:
+    void solve(int n, int &k, string temp, char prev, string &ans)
+    {
+        if(n==0)
+        {
+            k--;
+            ans = temp;
+            return;
+        }
+
+        if(prev != 'a')
+        {
+            solve(n - 1, k, temp + 'a', 'a', ans);
+        }
+
+        if(k && prev != 'b')
+        {
+            solve(n - 1, k, temp + 'b', 'b', ans);
+        }
+
+        if(k && prev != 'c')
+        {
+            solve(n - 1, k, temp + 'c', 'c', ans);       
+        }
+    }
+
+    string getHappyString(int n, int k)
+    {
+
+        string ans;
+        solve(n, k, "", '\0', ans);
+        if(k>0)
+        {
+            return "";
+        }
+        else
+        {
+            return ans;
+        }
     }
 };
