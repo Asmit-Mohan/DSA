@@ -1,19 +1,18 @@
 class Solution
 {
-    vector<string>ph{"","", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public:
-    void solve(string digits, int i, string &op, vector<string>& ans)
+    void solve(string &digits, int i, vector<string>&phone , string &op, vector<string>& ans)
     {
         if (op.size() == digits.size())
         {
             ans.push_back(op);
             return;
         }
-        string word = ph[digits[i]-'0'];
+        string word = phone[digits[i]-'0'];
         for (int j = 0; j < word.size(); j++)
         {
             op = op+word[j];
-            solve(digits, i+1, op, ans);
+            solve(digits, i+1, phone, op, ans);
             op.pop_back();
         }
     }
@@ -25,7 +24,8 @@ class Solution
             return ans;    
         }
         string op="";
-        solve(digits, 0, op, ans);
+        vector<string>ph{"","", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        solve(digits, 0, ph, op, ans);
         return ans;
     }
 };
