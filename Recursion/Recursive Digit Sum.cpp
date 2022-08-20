@@ -1,3 +1,5 @@
+/* Time :- O(logn) Space :- O(logn) */
+
 long long int solve(long long int num)
 {
     if(num<=9)
