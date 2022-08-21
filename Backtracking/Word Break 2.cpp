@@ -1,3 +1,8 @@
+/* 
+    Time Complexity  :-  O[(N^2)*n] where N = |s| and n = length of dictionary
+    Space Complexity :-  O(N^2)
+*/
+
 class Solution
 {
 public:
