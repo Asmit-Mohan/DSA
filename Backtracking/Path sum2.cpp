@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) , Since solve function time and space is O(1) and it is called O(N) times */
+
 class Solution 
 {
 public:
