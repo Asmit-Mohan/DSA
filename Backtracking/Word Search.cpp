@@ -1,3 +1,8 @@
+/*
+      Time  Complexity  :-  O[N * M * (4^L)] where N = No. of rows in board, M = No. of columns in board, L = Length of word.
+      Space Compelxity :-  O(L), L is length of word.
+*/
+
 class Solution
 {
 public:
