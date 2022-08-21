@@ -1,49 +1,36 @@
+/* Time :- O[k*(2^n)] Space :- O(k*x) where k is average length of array whose sum is target */
+
 class Solution
 {
-public:
-    void solve(vector<int>nums, int pos,int target,vector<int>temp,vector<vector<int>>&result)
+    public: 
+    void solve(int ind, int target, vector<int> &arr, vector<vector<int>> &ans, vector<int>&temp)
     {
-        if(target<0)
+        if(target==0)
         {
+            ans.push_back(temp);
             return;
-        }
-        if (target==0)
+        }        
+        for(int i = ind;i<arr.size();i++)
         {
-            result.push_back(temp);
-            return;
-        }
-
-        for (int i = pos; i < nums.size(); i++)
-        {
-            if(i>pos&&nums[i]==nums[i-1])
+            if(i>ind && arr[i]==arr[i-1])
             {
-                continue;
+                continue; 
             }
-            if(nums[i]>target)
+            if(arr[i]>target)
             {
-                break;
+                break; 
             }
-            temp.push_back(nums[i]);
-            solve(nums, i+1,target-nums[i],temp,result);
-            temp.pop_back();
+            temp.push_back(arr[i]);
+            solve(i+1, target - arr[i], arr, ans, temp); 
+            temp.pop_back(); 
         }
     }
-    vector<vector<int>> combinationSum2(vector<int>& nums, int k)
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target)
     {
-        long long sum=0;
-        vector<vector<int>>res;
-        
-        for(int i=0;i<nums.size();i++)
-        {
-            sum=sum+nums[i];
-        }
-        if(k>sum)
-        {
-            return res;
-        }
-        vector<int> temp;
-        sort(nums.begin(),nums.end());
-        solve(nums,0,k,temp,res);
-        return res;  
+        sort(candidates.begin(), candidates.end());
+        vector<vector<int>> ans; 
+        vector<int>temp; 
+        solve(0, target, candidates, ans, temp); 
+        return ans; 
     }
 };
