@@ -1,3 +1,8 @@
+/*  Time Complexity  :- O[9^(n ^ 2)], in the worst case, for each cell in the n^2 board, we have 9 possible numbers.
+
+    Space Complexity :- O(1), since we are refilling the given board itself, there is no extra space required, so constant space complexity.
+*/
+
 class Solution
 {
 public:
