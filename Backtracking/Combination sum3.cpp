@@ -1,8 +1,10 @@
+/* Time :- O[k*(2^n)] Space :- O(k*x) */
+
 class Solution
 {
 public:
-void solve(vector<int>nums, int pos, int k, int target, vector<int>& temp, vector<vector<int>>& ans)
-{
+    void solve(vector<int>nums, int pos, int k, int target, vector<int>& temp, vector<vector<int>>& ans)
+    {
         if (temp.size() == k && target == 0)
         {
             ans.push_back(temp);
@@ -14,7 +16,7 @@ void solve(vector<int>nums, int pos, int k, int target, vector<int>& temp, vecto
             solve(nums, i+1, k, target-nums[i], temp, ans);
             temp.pop_back();
         }
-}
+    }    
     vector<vector<int>> combinationSum3(int k, int target)
     {
         vector<int>nums;
