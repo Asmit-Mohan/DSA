@@ -1,3 +1,8 @@
+/*     
+       Time  Complexity :- O(min(M, N)) where M and N are the sizes of the two trees.
+       Space Complexity :- O(min(H1, H2)) where H1 and H2 are the heights of the two trees.
+*/
+
 class Solution
 {
   public:
