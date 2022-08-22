@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -35,8 +37,8 @@ class Solution
         {
             return root;
         }
-        Node* l =  LCA(root->left,a,b);     //inorder
-        Node* r =  LCA(root->right,a,b);   // inorder
+        Node* l =  LCA(root->left,a,b);     
+        Node* r =  LCA(root->right,a,b);  
     
         if(l==NULL && r!=NULL )
         {
@@ -58,10 +60,9 @@ class Solution
     
     int findDist(Node* root, int a, int b)
     {
-        Node* lca = LCA(root,a,b);
-        
-        int dis1 = distance(lca,a); 
-        int dis2 = distance(lca,b);
+        Node* lca = LCA(root,a,b);   /* O(N) */      
+        int dis1 = distance(lca,a);  /* O(N) */
+        int dis2 = distance(lca,b);  /* O(N) */
         
         return  dis1 + dis2 - 2;
     }
