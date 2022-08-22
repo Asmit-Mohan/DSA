@@ -1,3 +1,5 @@
+/* Time :- O(Nlogn) Space :- O(H) */
+
 void solve(Node* root,vector<int>&v)
 {
     if(root==NULL)
@@ -24,11 +26,11 @@ void solve(Node* root,vector<int>&v)
 vector<int> noSibling(Node* root)
 {
     vector<int>ans;
-    solve(root,ans);
+    solve(root,ans);                 /* O(N) */
     if(ans.size()==0)
     {
         ans.push_back(-1);
     }
-    sort(ans.begin(),ans.end());
+    sort(ans.begin(),ans.end());   /* O(Nlogn) */
     return ans;
 }
