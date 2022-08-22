@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) of both the approaches */
+
 /* Approach 1 Recursion */
 
 void solve(Node* root,vector<int>&v)
