@@ -1,6 +1,8 @@
+/* Time :- O(N) Space :- O(N) */
+
 vector<vector<int>> levelOrder(Node* root)
 {
-      vector<vector<int>>ans;
+       vector<vector<int>>ans;
        if(root==NULL)
        {
           return ans; 
@@ -31,5 +33,3 @@ vector<vector<int>> levelOrder(Node* root)
        }
        return ans;
 }
-
-
