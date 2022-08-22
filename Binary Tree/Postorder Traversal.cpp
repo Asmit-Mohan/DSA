@@ -1,4 +1,7 @@
+/* Time and space of both approaches are :- O(N) and O(N) respectively. */
+
 /* Approach 1 Recursion */
+
 void post(Node* root,vector<int>&v)
 {
     if(root==NULL)
@@ -20,7 +23,8 @@ vector <int> postOrder(Node* root)
     return v;
 }
 
-/* Approach 2 Iterative Using 2 Stack*/
+/* Approach 2 Iterative Using 2 Stack */
+
 class Solution
 {
 public:
