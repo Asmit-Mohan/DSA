@@ -1,44 +1,39 @@
+/* Time :- O(M*N) where M and N are number of nodes in Tree 1 and Tree 2 Space :- O(N) */
+
 class Solution
 {
 public:
-    bool isIdentical(TreeNode *r1, TreeNode *r2)
+    bool isSame(TreeNode* root1,TreeNode* root2)
     {
-          if(r1==NULL&&r2==NULL)
-          {
-              return 1;
-          }
-          if(r1==NULL&&r2!=NULL)
-          {
-              return 0;
-          }
-          if(r1!=NULL&&r2==NULL)
-          {
-              return 0;
-          }
-          if(r1->val!=r2->val)
-          {
-              return 0;
-          }
-          if(isIdentical(r1->left,r2->left)&&isIdentical(r1->right,r2->right))
-          {
-              return 1;
-          }
-          return 0;
-    }
-    bool isSubtree(TreeNode* T, TreeNode* S)
-    {
-        if(S==NULL)  /*Since Null Set is subset of every set*/
+        if(root1==NULL&&root2==NULL)
         {
             return 1;
         }
-        if(T==NULL) /*But parent set is null then no meaning of subset finding*/
+        if(root1==NULL||root2==NULL)
         {
             return 0;
         }
-        if(isIdentical(T,S))
+        if(root1->val!=root2->val)
         {
-            return 1;
+            return 0;
         }
-        return (isSubtree(T->left,S)||isSubtree(T->right,S));
+        return isSame(root1->left,root2->left)&&isSame(root1->right,root2->right);
+    }
+    
+    bool isSubtree(TreeNode* root, TreeNode* subroot)
+    {
+         if(root==NULL)
+         {
+             return 0;
+         }
+         if(subroot==NULL)
+         {
+             return 1;
+         }
+         if(isSame(root,subroot))
+         {
+             return 1;
+         }
+        return isSubtree(root->left,subroot)||isSubtree(root->right,subroot);
     }
 };
