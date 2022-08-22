@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(H) */
+
 /* Convert To Follow Children Sum Property (CSP)  --> Striver */
 
 void changeTree(BinaryTreeNode<int>* root)
