@@ -1,4 +1,5 @@
-/* Question 1 In case only count */
+/* Question 1 In case only count Time :- O(N) Space :- O(H) */
+
 int solve(Node* root, int X, int &ans)
 {
     if(root==NULL)
@@ -8,21 +9,19 @@ int solve(Node* root, int X, int &ans)
     
     int lSum=solve(root->left,X,ans);
     int rSum=solve(root->right,X,ans);
-    
+	
     if(lSum+rSum+root->data==X)
     {
         ans++;
     }
-    
     return lSum+rSum+root->data;
 }
-    
-    
+
 int countSubtreesWithSumX(Node* root, int X)
 {
-	int ans=0;
-	solve(root,X,ans);
-	return ans;
+    int ans=0;
+    solve(root,X,ans);
+    return ans;
 }
 
 /* Question 2 Incase Return subtree also having sum x --> InterviewBit */
@@ -55,8 +54,7 @@ bool solve(TreeNode* root, int currsum, int sum, vector<vector<int>> &ans, vecto
     if(root->right != NULL)
     {
         right = solve(root->right, currsum + root->val, sum, ans, temp);
-    }
-    
+    }   
     temp.pop_back();
     return left or right;
 }
