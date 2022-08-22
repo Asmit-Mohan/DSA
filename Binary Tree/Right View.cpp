@@ -1,40 +1,44 @@
+/* Time :- O(N) Space :- O(H) */
+
 /* Approach 1 */
+
 class Solution
 {
-    public:
-    vector<int> rightView(Node *root)
+public:
+    vector<int> rightSideView(TreeNode* root)
     {
-        vector<int> v;
-        if(root==NULL) 
+        vector<int>vec;
+        if (root==NULL)
         {
-           return v;
+            return vec;
         }
         else
         {
-         queue<Node*>q;
-         q.push(root);
-         while(q.size())
-         {
-             int size=q.size();
-             int res;
-             while(size--)
-             {
-                 Node* temp=q.front();
-                 res=temp->data;
-                 q.pop();
-                 if(temp->left)
-                 {
-                     q.push(temp->left);
-                 }
-                 if(temp->right)
-                 {
-                     q.push(temp->right);
-                 }
-             }
-             v.push_back(res);
-         }
-         return v;
-        }
+            queue<TreeNode*>q;
+            q.push(root);
+            while(!q.empty())
+            {
+                int n=q.size();
+                while(n--)
+                {
+                    TreeNode *temp=q.front();
+                    q.pop();
+                    if(n==0)
+                    {
+                        vec.push_back(temp->val);
+                    }
+                    if(temp->left)
+                    {
+                        q.push(temp->left);
+                    }
+                    if(temp->right)
+                    {
+                        q.push(temp->right);
+                    }
+                }
+            }
+            return vec;
+        }        
     }
 };
 
