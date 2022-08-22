@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -6,6 +8,7 @@ class Solution
         map<int,vector<int>>mp;
         queue<pair<Node*, int>>q;
         q.push({root,0});
+        
         while(!q.empty())
         {
             Node* temp=q.front().first;
