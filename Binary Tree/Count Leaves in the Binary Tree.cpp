@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 void solve(Node* root,int &count)
 {
     if(root==NULL)
