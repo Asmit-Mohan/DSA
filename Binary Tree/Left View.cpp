@@ -1,38 +1,44 @@
+/* Time :- O(N) Space :- O(N) for both the approaches */
+
 /* Approach 1 Iterative */
+
+class Solution
+{
+public:
 vector<int> leftView(Node *root)
 {
-        vector<int> v;
-        if (root==NULL) 
+    vector<int> v;
+    if (root==NULL) 
+    {
+        return v;
+    }
+    
+    queue<Node*>q;
+    q.push(root);
+    while(q.size())
+    {
+        int size=q.size();
+        for(int i=0;i<size;i++)
         {
-           return v;
+            Node* temp=q.front();
+            if(i==0)
+            {
+               v.push_back(temp->data);
+            }
+            q.pop();
+            if(temp->left)
+            {
+                q.push(temp->left);
+            }
+            if(temp->right)
+            {
+                q.push(temp->right);
+            }
         }
-        else
-        {
-         queue<Node*>q;
-         q.push(root);
-         while(q.size())
-         {
-             vector<int>res;
-             int size=q.size();
-             while(size--)
-             {
-                 Node* temp=q.front();
-                 res.push_back(temp->data);
-                 q.pop();
-                 if(temp->left)
-                 {
-                     q.push(temp->left);
-                 }
-                 if(temp->right)
-                 {
-                     q.push(temp->right);
-                 }
-             }
-             v.push_back(res[0]);
-         }
-         return v;
-        }
+    }
+    return v;
 }
+};
 
 /* Approach 2 Recursive */ 
 
