@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
     public:
@@ -13,6 +15,7 @@ class Solution
             Node* temp=q.front().first;
             int placeValue=q.front().second;
             q.pop();
+            
             if(mp.find(placeValue)==mp.end())
             {
                 mp[placeValue]=temp->data;
