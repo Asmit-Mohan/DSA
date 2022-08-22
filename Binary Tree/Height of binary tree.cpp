@@ -1,25 +1,17 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
-    public:
-    int solve(Node* root)
+public:
+    int maxDepth(TreeNode* root)
     {
-        if(root==NULL)
-        {
-            return 0;
-        }
-        int lh=solve(root->left);
-        int rh=solve(root->right);
-        if(lh>rh)
-        {
-            return 1+lh;   /* left height + root */
-        }
-        else
-        {
-            return 1+rh;   /* right height + root */
-        } 
-    }
-    int height(struct Node* root)
-    {
-        return solve(root);       
+       if(root==NULL)
+       {
+           return 0;
+       }
+       
+       int lh = maxDepth(root->left);
+       int rh = maxDepth(root->right);
+       return 1 + max(lh,rh); 
     }
 };
