@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 class Solution
 {
 public:
@@ -6,6 +8,7 @@ vector<int> printCousins(Node* root, Node* find)
     queue<Node*>q;
     int flag=0;
     q.push(root);
+    
     while(q.size())
     {
         int width=q.size();
@@ -40,7 +43,7 @@ vector<int> printCousins(Node* root, Node* find)
             }
             return res;
         }
-    }
+     } 
     return {-1};
-   }
+  }
 };
