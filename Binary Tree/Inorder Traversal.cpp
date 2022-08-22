@@ -1,4 +1,4 @@
-/*Recursion*/
+/* Recursion Time :- O(N) Space :- O(N) */
 
 class Solution
 {
@@ -16,7 +16,7 @@ class Solution
     }
 };
 
-/*Iterative*/
+/* Iterative Time :- O(N) Space :- O(N) */
 
 class Solution
 {
