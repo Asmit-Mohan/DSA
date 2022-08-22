@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 bool findPath(TreeNode* root,int target,vector<int>&ans)
 {
     if(root==NULL)
