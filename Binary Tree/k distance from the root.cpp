@@ -78,7 +78,7 @@ public:
     }
 };
 
-/* GFG Question Recursive */
+/* GFG Question Recursive Time :- O(N) Space :- O(H) */
 
 void kdistance(struct Node *root, int k,vector<int>& v)
 {
@@ -103,7 +103,7 @@ vector<int> Kdistance(struct Node *root, int k)
    return vec;
 }
 
-/* GFG Question Iterative */
+/* GFG Question Iterative Time :- O(N) Space :- O(H) */
 
 vector<int> Kdistance(struct Node *root, int k)
 {
