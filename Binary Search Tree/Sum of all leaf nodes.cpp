@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 void solve(Node *root,int &sum)
 {
     if(root!=NULL)
@@ -10,6 +12,7 @@ void solve(Node *root,int &sum)
         solve(root->right,sum);
     }
 }
+
 int sumOfLeafNodes(Node *r )
 {
      int sum=0;
