@@ -1,4 +1,4 @@
-/* Leetcode Question Iterative --> Striver */
+/* Leetcode Question Iterative --> Striver || Time :- O(N) Space :- O(N) */
 
 class Solution
 {
@@ -28,13 +28,15 @@ public:
     {
        vector<int>ans;
        unordered_map<TreeNode*,TreeNode*>parent;
-       solve(root,parent);
+       solve(root,parent);                               
+        
        unordered_map<TreeNode*,bool>visited;
        queue<TreeNode*>q;
        int curr_level=0;
         
        q.push(target);
        visited[target]=true;
+        
        while(!q.empty())
        {
            int size=q.size();
