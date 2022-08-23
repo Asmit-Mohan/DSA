@@ -23,3 +23,27 @@ public:
         return NULL;
     }
 };
+
+/* Time :- O(logn) [Average Case]  O(N) [Worst Case] Space :- O(N) */
+
+class Solution
+{
+public:
+    TreeNode* searchBST(TreeNode* root, int x)
+    {
+      TreeNode * current;
+      if (root == NULL || root -> val == x)
+      {
+          current = root;
+      }
+      else if (root -> val < x)
+      {
+          current = searchBST(root -> right, x);
+      }
+      else if (root -> val > x)
+      {
+        current = searchBST(root -> left, x);
+      }
+      return current; 
+    }
+};
