@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(H) */
+
 class Solution
 {
 public:
@@ -33,6 +35,9 @@ public:
         {
            return ans;
         }
-        return max(res,ans);
-   }
+        else
+        {
+           return max(res,ans);
+        }
+    }
 };
