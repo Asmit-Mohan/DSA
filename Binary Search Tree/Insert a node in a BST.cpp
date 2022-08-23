@@ -1,37 +1,46 @@
-Node* insert(Node* root, int key)
+/* Time :- O(N) [Worst Case] O(logn) [Average Case] Space :- O(1) */
+
+class Solution
 {
-    if(root==NULL)
+public:
+    TreeNode* insertIntoBST(TreeNode* root, int Key)
     {
-        return root;
-    }
-    
-    Node* prev=NULL;
-    Node* curr=root;
-    Node *temp= new Node(key);
-    
-    while(curr!=NULL)
-    {
-        prev=curr; 
-        if(curr->data>key)
-        {
-            curr=curr->left;
+        if(root==NULL)
+        {  
+            TreeNode* temp =new TreeNode(Key);
+            root=temp;
+            return root;
         }
-        else if(curr->data<key)
+        
+        TreeNode* prev=NULL;
+        TreeNode* curr=root;
+        TreeNode* temp= new  TreeNode(Key);
+        
+        while(curr!=NULL)
         {
-            curr=curr->right;
+            prev=curr;
+            if(curr->val>Key)
+            {
+                curr=curr->left;
+            }
+            else if(curr->val<Key)
+            {
+                curr=curr->right;
+            }
+            else
+            {
+                return root;
+            }
+        }
+        
+        if(prev->val>Key)
+        {
+            prev->left=temp;
         }
         else
         {
-            return root;    /*If K is already present in the BST, don't modify the BST*/
-        }   
+            prev->right=temp;
+        }
+        return root;
     }
-    if(prev->data>key)  
-    {
-        prev->left=temp;
-    }
-    else
-    {
-        prev->right=temp;
-    }
-    return root;
-}
+};
