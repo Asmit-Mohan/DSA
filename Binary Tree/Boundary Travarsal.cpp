@@ -1,4 +1,6 @@
-class Solution  --> Striver
+/* Time :- O(N) Space :- O(N) */
+
+class Solution
 {
 public:
     bool isLeaf(Node* root)
