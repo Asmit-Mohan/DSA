@@ -1,3 +1,5 @@
+/* Time :- O(H) Space :- O(H) */
+
 Node* LCA(Node *root, int n1, int n2)
 {
    while(root!=NULL)
