@@ -1,4 +1,6 @@
-class Solution  /*Strivers Tree Series*/
+/* Time :- O(N) Space :- O(N) */
+
+class Solution
 {
     public:
     
