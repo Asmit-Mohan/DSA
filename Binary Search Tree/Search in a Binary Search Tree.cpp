@@ -1,3 +1,5 @@
+/* Time :- O(logn) [Average Case]  O(N) [Worst Case] Space :- O(1) */
+
 class Solution
 {
 public:
