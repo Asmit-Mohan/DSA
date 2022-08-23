@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 Node* solve(int in[],int inStart,int inEnd,int post[],int postStart,int postEnd,map<int,int> &mp)
 {
         if(inStart>inEnd || postStart>postEnd)
@@ -18,10 +20,10 @@ Node* solve(int in[],int inStart,int inEnd,int post[],int postStart,int postEnd,
     
 Node *buildTree(int in[], int post[], int n)
 {
-         map<int,int>mp;
-         for(int i=0;i<n;i++)
-         {
-             mp[in[i]]=i;
-         }
-         return solve(in, 0, n-1, post, 0, n-1, mp);    
+        map<int,int>mp;
+        for(int i=0;i<n;i++)
+        {
+            mp[in[i]]=i;
+        }
+        return solve(in, 0, n-1, post, 0, n-1, mp);    
 }
