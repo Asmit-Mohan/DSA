@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(N) */
+
 TreeNode *create(TreeNode *root,vector<int> &v,int i)
 {
    if(i>=v.size())
