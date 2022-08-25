@@ -69,3 +69,48 @@ public:
         }
     }
 };
+
+/* Approach 3 Time :- O(Nlogn) Space :- O(1) */
+
+class Solution
+{
+    
+public:
+bool search( TreeNode *root ,int k , int x )
+{
+    while (root != NULL)
+    { 
+        if (k > root->val)
+        {
+            root = root->right; 
+        }
+        else if(k < root->val)
+        {
+            root = root->left; 
+        }
+        else if( root->val == x )
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    return false; 
+}
+    
+bool inOrder( TreeNode *a ,int k , TreeNode *root)
+{
+    return a && (inOrder(a->left,k,root) || search(root,k-a->val,a->val) || inOrder(a->right,k,root));
+}
+
+bool findTarget(TreeNode* root, int k)
+{
+    if(!root || (!root->left && !root->right) )
+    {
+        return false;
+    }
+    return inOrder(root , k , root);
+}
+};
