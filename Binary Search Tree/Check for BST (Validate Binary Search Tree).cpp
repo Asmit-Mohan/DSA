@@ -1,4 +1,5 @@
 /* Brute Force Approach */
+
 class Solution
 {
     public:
@@ -58,7 +59,7 @@ class Solution
     }
 };
 
-/* Optimised Code --> Striver Time :- O(N) Space :- O(1) + Auxiliary Stack Space */
+/* Optimised Code --> Time :- O(N) Space :- O(1) + Auxiliary Stack Space */
 
 class Solution
 {
