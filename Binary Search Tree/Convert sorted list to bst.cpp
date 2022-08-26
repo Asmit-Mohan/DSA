@@ -1,4 +1,4 @@
-/* Approach 1 */
+/* Approach 1 Time :- O(N) Space :- O(N) */
 
 class Solution
 {
@@ -34,7 +34,7 @@ public:
     }
 };
 
-/* Approach 2 */
+/* Approach 2 Time :- O(N) Space :- O(N) + O(N) */
 
 class Solution
 {
