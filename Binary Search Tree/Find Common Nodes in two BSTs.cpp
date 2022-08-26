@@ -1,4 +1,5 @@
-/*Naive Approach Only Time Efficient*/
+/* Naive Approach Only Time Efficient */
+
 class Solution
 {
     public:
