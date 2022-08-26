@@ -31,7 +31,7 @@
 
 int countPalindromicSubseq(string &str)
 {
-	  int n =str.size();
+    int n =str.size();
     memset(dp,-1,sizeof(dp));
     return solve(0,n-1,str)%mod;
 }
