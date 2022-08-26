@@ -1,3 +1,5 @@
+/* Time :- O(N) Space :- O(1) */
+
 class Solution
 {
 public:
@@ -7,11 +9,13 @@ public:
           if(root!=NULL)
           {
                 triverse(root->left,k,res);
+              
                 count++;
                 if(k==count)
                 {
                     res=root->val;
                 }
+              
                 triverse(root->right,k,res);   
           }   
     }
@@ -19,6 +23,7 @@ public:
     {
           int res=INT_MAX;
           triverse(root,k,res);
+          
           if(res==INT_MAX)
           {
               return -1;
