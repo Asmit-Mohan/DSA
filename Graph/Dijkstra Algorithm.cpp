@@ -1,4 +1,4 @@
-/* Approach 1 */
+/* Approach 1 Time :- O(V*E) Space :- O(V) */
 
 class Solution
 {
@@ -36,55 +36,39 @@ class Solution
 };
 
 
-/*Approach 2*/
+/* Approach 2 Time :- O [Vlogv + Elogv] Space :- O(V) */
 
-#include<bits/stdc++.h>
-using namespace std;
-int main()
+#define pair pair<int,int>
+
+class Solution
 {
-	int n,m;
-        int source;
-	cin >> n >> m;
-	vector<pair<int,int> > g[n+1]; 
-	int a,b,wt;
-  
-	for(int i = 0; i<m ; i++)
-        {
-	    cin >> a >> b >> wt;
-	    g[a].push_back(make_pair(b,wt));
-	    g[b].push_back(make_pair(a,wt));
-	}
-	cin >> source;
-  
-	priority_queue<pair<int,int>,vector<pair<int,int> >,greater<pair<int,int> > > pq;
-	vector<int> distTo(n+1,INT_MAX);
-	distTo[source] = 0;
-	pq.push(make_pair(0,source));	
-	
-	while( !pq.empty() )
-	{
-		int dist = pq.top().first;
-		int prev = pq.top().second;
-		pq.pop();
-		
-		vector<pair<int,int> >::iterator it;
-		for( it = g[prev].begin() ; it != g[prev].end() ; it++)
-		{
-			int next = it->first;
-			int nextDist = it->second;
-			if( distTo[next] > distTo[prev] + nextDist)
-			{
-          		    distTo[next] = distTo[prev] + nextDist;
-          		    pq.push(make_pair(distTo[next], next));
-			}
-		}
-	}
-	
-	cout << "The distances from source, " << source << ", are : \n";
-	for(int i = 1 ; i<=n ; i++)
-	{
-	    cout << distTo[i] << " ";
-	}
-	cout << "\n";
-	return 0;
-}
+    public:
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int source)
+    {
+        priority_queue<pair,vector<pair>,greater<pair>> pq;
+        
+    	vector<int> dist(V,INT_MAX);
+    	dist[source] = 0;
+    	pq.push(make_pair(0,source));	
+    	
+    	while( !pq.empty() )
+    	{
+    		int weight = pq.top().first;
+    		int parent = pq.top().second;
+    		pq.pop();
+    		
+    		for(auto it : adj[parent])
+    		{
+    		    int next = it[0];
+    		    int nextDist = it[1];
+    			
+    		    if( dist[next] > dist[parent] + nextDist)
+    		    {
+              		dist[next] = dist[parent] + nextDist;
+              		pq.push(make_pair(dist[next], next));
+    		    }
+    		}
+    	}
+    	return dist;
+    }
+};
