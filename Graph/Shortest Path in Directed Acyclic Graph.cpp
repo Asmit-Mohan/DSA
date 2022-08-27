@@ -1,5 +1,3 @@
-/* Time :- O(V+E) Space :- O(V) + O(V) + O(V) for visibility vector, stack , distance vector */
-
 class Solution
 {
     public:
