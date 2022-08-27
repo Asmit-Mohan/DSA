@@ -1,4 +1,4 @@
-/* Using BFS Time :- O(N+E) Space :- O(N+E) + O(N) + O(N) */
+/* Using BFS */
 
 class Solution
 {
@@ -45,7 +45,7 @@ public:
     }
 };
 
-/* Using DFS Time :- O(N+E) Space :- O(N+E) + O(N) + O(N) */
+/* Using DFS */
 
 class Solution
 {
