@@ -131,7 +131,7 @@ int main()
 	return 0;
 }
 
-/* Approach 3 Striver */
+/* Approach 3 Striver Time :- O(4*Alpha)*/
 
 #include<bits/stdc++.h>
 using namespace std;
