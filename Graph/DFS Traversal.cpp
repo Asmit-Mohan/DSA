@@ -1,11 +1,3 @@
-/* 
-
-Time Complexity : O(N+E) where N = Nodes , E = travelling through adjacent nodes
-
-Space Complexity : O(N+E) + O(N) + O(N) for Space for adjacency list, visited array, Auxiliary Space respectively
-
-*/
-
 #include<bits/stdc++.h>
 using namespace std;
 
