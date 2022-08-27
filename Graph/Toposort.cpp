@@ -1,4 +1,4 @@
-/* Approach 1 (DFS) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) + O(V) */
+/* Approach 1 (DFS) */
 
 class Solution
 {
@@ -38,7 +38,7 @@ class Solution
     }
 };
 
-/* Approach 2 (BFS) --> (kahn's Algorithms) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
+/* Approach 2 (BFS) --> (kahn's Algorithms) */
 
 class Solution
 {
