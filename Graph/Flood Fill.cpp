@@ -1,3 +1,5 @@
+/* Time :- O(V+E) Space :- O(N) [Auxiliary Stack Space] */
+
 class Solution
 {
 public:
@@ -33,5 +35,3 @@ public:
         return image;
     }
 };
-
-/*Similar To Rat In The Maze Problem*/  /*DFS Application*/
