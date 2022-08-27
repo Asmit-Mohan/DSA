@@ -1,5 +1,3 @@
-/* Time :- O(N*N*N) Space :- O(1) */
-
 class Solution
 {
    public:
@@ -42,5 +40,3 @@ class Solution
        }
     }
 };
-
-/* LUV */
