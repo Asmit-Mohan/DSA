@@ -1,4 +1,4 @@
-/*Brute Force :- Time  More Than O(N^2) Space O(N) */  -->  By LUV
+/* Brute Force :- Time More Than O(N^2) && Space O(N) */  
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -7,19 +7,19 @@ int parent[N];
 
 void make(int n)
 {
-	for(int i=0;i<n;i++)
-	{
-		parent[i]=i;
-	}
+    for(int i=0;i<n;i++)
+    {
+	parent[i]=i;
+    }
 }
 
 int findParent(int n)
 {
-	if(n==parent[n])
-	{
-		return n;
-	}
-	return findParent(parent[n]);
+    if(n==parent[n])
+    {
+	return n;
+    }
+    return findParent(parent[n]);
 }
 
 void findUnion(int a,int b)
@@ -28,7 +28,7 @@ void findUnion(int a,int b)
 	b=findParent(b);
 	if(a!=b)
 	{
-		parent[b]=a;
+	    parent[b]=a;
 	}
 }
 
@@ -39,23 +39,23 @@ int main()
 	make(n);
 	while(t--)
 	{
-		int u,v;
-		cin>>u>>v;
-		findUnion(u,v);
+	    int u,v;
+	    cin>>u>>v;
+	    findUnion(u,v);
 	}
 	int connectedComponent=0;
 	for(int i=0;i<n;i++)
 	{
-		if(findParent(i)==i)
-		{
-			connectedComponent++;
-		}
+	    if(findParent(i)==i)
+	    {
+		connectedComponent++;
+	    }
 	}
 	cout<<connectedComponent<<endl;
 	return 0;
 }
 
-/* Approach 2 Efficient Time O(alpha(n)) ~~ constant mathematically proved */   -->  By LUV
+/* Approach 2 Efficient Time O(alpha(n)) ~~ constant mathematically proved Space :- O(N) + O(N) */   
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -131,7 +131,7 @@ int main()
 	return 0;
 }
 
-/*Approach 3 Striver*/
+/* Approach 3 Striver */
 
 #include<bits/stdc++.h>
 using namespace std;
