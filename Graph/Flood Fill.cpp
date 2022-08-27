@@ -1,5 +1,3 @@
-/* Time :- O(V+E) Space :- O(N) [Auxiliary Stack Space] */
-
 class Solution
 {
 public:
