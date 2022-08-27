@@ -1,5 +1,3 @@
-/* Approach [BFS] Time :- O(V+E) Space :- O(V) + O(V) */
-
 class Solution
 {
     public:
