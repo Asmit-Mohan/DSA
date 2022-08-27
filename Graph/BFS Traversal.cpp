@@ -1,27 +1,69 @@
+/* 
+
+Time Complexity : O(N+E) where N = Nodes , E = travelling through adjacent nodes
+
+Space Complexity : O(N+E) + O(N) + O(N) for Space for adjacency list, visited array, queue data structure respectively
+
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution
 {
-public:
-vector<int>bfsOfGraph(int v, vector<int> adj[])
-{
-    vector<int> bfs;
-    vector<int>vis(v,0);
-    queue<int> q;
-    vis[0] = 1;
-    q.push(0);
-    while(!q.empty())
+  public:
+    vector < int > bfsOfGraph(int V, vector < int > adj[])
     {
-        int temp = q.front();
-        bfs.push_back(temp);
-        q.pop();
-        for(auto it : adj[temp])
-        {
-            if(vis[it] == 0)
-            {
-                vis[it] = 1;
+      vector < int > bfs;
+      vector < int > vis(V, 0);
+      queue < int > q;
+      q.push(0);
+      vis[0] = 1;
+      
+      while (!q.empty())
+      {
+          int node = q.front();
+          q.pop();
+          bfs.push_back(node);
+
+          for (auto it: adj[node])
+          {
+              if (!vis[it])
+              {
                 q.push(it);
-            }
-        }
-    }
-    return bfs;
+                vis[it] = 1;
+              }
+          }
+      }
+      return bfs;
     }
 };
+
+void addEdge(vector < int > adj[], int u, int v)
+{
+   adj[u].push_back(v);
+   adj[v].push_back(u);
+}
+
+void printAns(vector < int > & ans)
+{
+   for (int i = 0; i < ans.size(); i++)
+   {
+       cout << ans[i] << " ";
+   }
+}
+
+int main()
+{
+   vector < int > adj[5];
+   addEdge(adj, 0, 1);
+   addEdge(adj, 0, 2);
+   addEdge(adj, 0, 3);
+   addEdge(adj, 2, 4);
+
+   Solution obj;
+   vector < int > ans = obj.bfsOfGraph(5, adj);
+   printAns(ans);
+   cout << endl;
+   return 0;
+}
