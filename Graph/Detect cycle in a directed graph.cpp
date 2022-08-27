@@ -1,5 +1,3 @@
-/*Approach 1 (DFS) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
-
 class Solution
 {
   public:
