@@ -1,4 +1,4 @@
-/* Approach 1 (BFS) Time :- O(V+E) Space :- O(V) + O(V) */
+/* BFS */
 
 class Solution
 {
@@ -40,7 +40,7 @@ public:
       }
 };
 
-/* Approach 2 (DFS) Time :- O(V+E) Space :- O(V) + O(V) */
+/* DFS */
 
 class Solution
 {
