@@ -1,6 +1,8 @@
+/* Time :- O[(N-1)*E] Space :- O(N) */
+
 class Solution
 {
-	public:
+    public:
     vector <int> bellman_ford(int n, vector<vector<int>> adj, int S)
     {
         vector<int>dist(n,100000000);
