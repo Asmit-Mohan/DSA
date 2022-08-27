@@ -1,3 +1,5 @@
+/* Time :- O(V+E) Space :- O(V+E) + O(V) + O(V) */
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -6,7 +8,7 @@ void solve(int src,int v,vector<pair<int,int>>adj[])
 	int dist[v];
 	for (int i=0; i<v; i++)
 	{
-		dist[i] = INT_MAX;
+	    dist[i] = INT_MAX;
 	}
 
 	deque<int>q;
@@ -26,14 +28,14 @@ void solve(int src,int v,vector<pair<int,int>>adj[])
 			if (dist[child]> dist[parent] + weight)
 			{
 			    dist[child] = dist[parent] + weight;
-				if (weight == 0)
-				{
-					q.push_front(child);
-				}
-				else
-				{
-					q.push_back(child);
-				}
+			    if (weight == 0)
+			    {
+				q.push_front(child);
+			    }
+			    else
+			    {
+				q.push_back(child);
+			    }
 			}
 		}
 	}
