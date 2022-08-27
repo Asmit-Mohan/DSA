@@ -1,4 +1,4 @@
-/*Approach 1 (DFS) */
+/*Approach 1 (DFS) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
 
 class Solution
 {
@@ -42,9 +42,9 @@ class Solution
     }
 };
 
-/*Approach 2 (BFS) (kahn's Algorithms)*/
+/*Approach 2 (BFS) (kahn's Algorithms) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
 
-lass Solution
+class Solution
 {
   public:
     bool isCyclic(int V, vector<int> adj[])
@@ -73,6 +73,7 @@ lass Solution
 	        int temp=q.front();
 	        q.pop();
 	        count++;
+		    
 	        for(auto it : adj[temp])
 	        {
 	            indegree[it]--;
@@ -86,4 +87,4 @@ lass Solution
     }
 };
 
-/*Logic:- Topological sort can only be done on DAG (Directed Acyclic graph) so if toposort exists then no cyclic else cyclic*/
+/* Logic:- Topological sort can only be done on DAG (Directed Acyclic graph) so if toposort exists then no cyclic else cyclic */
