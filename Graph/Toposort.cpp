@@ -1,26 +1,27 @@
-/*Approach 1 (DFS)*/
+/* Approach 1 (DFS) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) + O(V) */
 
 class Solution
 {
     public:
     void solve(int node,stack<int>&s,vector<int>&vis,vector<int>adj[])
     {
-      vis[node]=1;
-      for(auto x : adj[node])
-      {
-          if(vis[x]==0)
-          {
-              solve(x,s,vis,adj);
-          }
-      }
-      s.push(node);
+        vis[node]=1;
+        for(auto x : adj[node])
+        {
+           if(vis[x]==0)
+           {
+               solve(x,s,vis,adj);
+           }
+        }
+        s.push(node);
     }
     
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
+    vector<int> topoSort(int V, vector<int> adj[]) 
+    {
 	vector<int>ans;
         vector<int>vis(V,0);
         stack<int>s;
+	    
         for(int i=0;i<V;i++)
         {
             if(vis[i]==0)
@@ -34,10 +35,10 @@ class Solution
             s.pop();
         }
         return ans;
-	}
+    }
 };
 
-/*Approach 2 (BFS) --> (kahn's Algorithms)*/
+/* Approach 2 (BFS) --> (kahn's Algorithms) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
 
 class Solution
 {
