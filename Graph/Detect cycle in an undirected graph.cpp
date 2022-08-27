@@ -1,4 +1,4 @@
-/* Approach 1 (DFS) Time Complexity :- O(N+E) Space Complexity :- O(N) + O(N) */
+/* Approach 1 (DFS) */
 
 class Solution
 {
@@ -40,7 +40,7 @@ class Solution
     }
 };
 
-/* Approach 2 (BFS) Time Complexity :- O(N+E) Space Complexity :- O(N) + O(N) */
+/* Approach 2 (BFS) */
 
 class Solution
 {
