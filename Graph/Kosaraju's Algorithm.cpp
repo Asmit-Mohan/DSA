@@ -1,6 +1,8 @@
+/* Time :- O(N+E) Space :- O(N+E) + O(N) + O(N) */
+
 class Solution
 {
-	public:
+    public:
     void dfs(int node,stack<int>&s,vector<int>&vis,vector<int>adj[],int v)
     {
        vis[node]=1;
@@ -61,4 +63,4 @@ class Solution
             }
        }
        return ans;
-   }
+  }
