@@ -1,4 +1,4 @@
-/*Brute Force*/
+/* Brute Force */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -10,25 +10,25 @@ int main()
 
 	int a,b,wt;
 	for(int i = 0; i<m ; i++)
-  {
-      cin >> a >> b >> wt;
-      adj[a].push_back(make_pair(b,wt));
-      adj[b].push_back(make_pair(a,wt));
-	}	
-	
-	  int parent[N];    
-    int key[N];   
-    bool mstSet[N]; 
+        {
+      	     cin >> a >> b >> wt;
+      	     adj[a].push_back(make_pair(b,wt));
+      	     adj[b].push_back(make_pair(a,wt));
+	}
+        int parent[N];    
+        int key[N];   
+        bool mstSet[N]; 
   
-    for (int i = 0; i < N; i++) 
-    {
-       key[i] = INT_MAX;
-       mstSet[i] = false; 
-    }
+       for (int i = 0; i < N; i++) 
+       {
+          key[i] = INT_MAX;
+          mstSet[i] = false; 
+       }
   
     key[0] = 0; 
     parent[0] = -1; 
     int ansWeight = 0;
+	
     for (int count = 0; count < N - 1; count++)
     {
         int mini = INT_MAX;
@@ -60,10 +60,10 @@ int main()
     {
        cout << parent[i] << " - " << i <<" \n"; 
     }
-	return 0;
+    return 0;
 }
 
-/*Efficient*/
+/* Efficient */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -75,13 +75,13 @@ int main()
 
 	int a,b,wt;
 	for(int i = 0; i<m ; i++)
-  {
-      cin >> a >> b >> wt;
-      adj[a].push_back(make_pair(b,wt));
-      adj[b].push_back(make_pair(a,wt));
+  	{
+           cin >> a >> b >> wt;
+           adj[a].push_back(make_pair(b,wt));
+           adj[b].push_back(make_pair(a,wt));
 	}	
 	
-	  int parent[N];    
+    int parent[N];    
     int key[N];   
     bool mstSet[N]; 
   
@@ -109,7 +109,7 @@ int main()
             if (mstSet[v] == false && weight < key[v])
             {
                 parent[v] = u;
-		            key[v] = weight; 
+		key[v] = weight; 
                 pq.push({key[v], v});    
             }
         }
@@ -119,5 +119,5 @@ int main()
     {
         cout << parent[i] << " - " << i <<" \n"; 
     }
-	return 0;
+    return 0;
 }
