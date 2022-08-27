@@ -1,17 +1,19 @@
+/* Time :- O(V+E) Space :- O(V) + O(V) + O(V) for visibility vector, stack , distance vector */
+
 class Solution
 {
     public:
     void toposort(int node,stack<int>&s,vector<int>&vis,vector<vector<int>> adj[])
     {
-      vis[node]=1;
-      for(auto x : adj[node])
-      {
-          if(vis[x.first]==0)
+          vis[node]=1;
+          for(auto x : adj[node])
           {
-              toposort(x.first,s,vis,adj);
+              if(vis[x.first]==0)
+              {
+                  toposort(x.first,s,vis,adj);
+              }
           }
-      }
-      s.push(node);
+          s.push(node);
     }
     
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
@@ -22,7 +24,7 @@ class Solution
        {
        	   if(vis[i]==0)
        	   {
-    		toposort(i,s,vis,adj);  
+    		   toposort(i,s,vis,adj);  
        	   }
        }
        int dis[V];
@@ -49,6 +51,7 @@ class Solution
        return dis;     /* If any dis[i] == INT_MAX print "Node not accessable else print dis[i]*/
     }
 };
+
 /* Why we have used here Topo Sort ?
 
 Topological sort ensures that we are picking up nodes that come first while travelling from the source, 
