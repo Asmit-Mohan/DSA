@@ -1,3 +1,5 @@
+/* Time :- O(N) + O(|Edges|) Space :- O(N) */
+
 class Solution
 {
 public:
@@ -7,14 +9,14 @@ public:
         {
             return 1;
         }
-       vector<int>hashInDegree(n+1,0);
-       vector<int>hashOutDegree(n+1,0); 
+        vector<int>hashInDegree(n+1,0);
+        vector<int>hashOutDegree(n+1,0); 
         
-       for(int i=0;i<edges.size();i++)
-       {
+        for(int i=0;i<edges.size();i++)
+        {
            hashOutDegree[edges[i][0]]++;
            hashInDegree[edges[i][1]]++;
-       }
+        }
        
         for(int i=0;i<n+1;i++)
         {
