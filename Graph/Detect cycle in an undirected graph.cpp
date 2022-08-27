@@ -1,4 +1,4 @@
-/*Approach 1 (DFS)*/
+/* Approach 1 (DFS) Time Complexity :- O(N+E) Space Complexity :- O(N) + O(N) */
 
 class Solution
 {
@@ -40,7 +40,7 @@ class Solution
     }
 };
 
-/*Approach 2 (BFS)*/
+/* Approach 2 (BFS) Time Complexity :- O(N+E) Space Complexity :- O(N) + O(N) */
 
 class Solution
 {
@@ -55,6 +55,7 @@ class Solution
             int child  = q.front().first;
             int parent = q.front().second;
             q.pop();
+		
             for(auto it : adj[child])
             {
                 if(vis[it] == 0)
@@ -72,9 +73,9 @@ class Solution
     }
     bool isCycle(int n, vector<int> adj[])
     {
-	    vector<int> vis(n, 0); 
-	    for(int i=0;i<n;i++)
-	    {
+	   vector<int> vis(n, 0); 
+	   for(int i=0;i<n;i++)
+	   {
 	        if(vis[i]==0)
 	        {
 	            if(checkForCycle(i, n, adj, vis))
@@ -82,7 +83,7 @@ class Solution
 	                return true; 
 	            }
 	        }
-	    }
-	    return false;
-    }
+	   }
+	   return false;
+     }
 };
