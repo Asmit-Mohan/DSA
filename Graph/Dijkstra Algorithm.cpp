@@ -1,4 +1,4 @@
-/* Approach 1 Time :- O(V*E) Space :- O(V) */
+/* Approach 1 */
 
 class Solution
 {
@@ -36,7 +36,7 @@ class Solution
 };
 
 
-/* Approach 2 Time :- O [Vlogv + Elogv] Space :- O(V) */
+/* Approach 2 */
 
 #define pair pair<int,int>
 
