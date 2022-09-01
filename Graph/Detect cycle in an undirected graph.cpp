@@ -1,4 +1,4 @@
-/* Approach 1 (DFS) */
+/* Approach 1 (DFS) Time :- O(V+E) Space :- O(V) */
 
 class Solution
 {
@@ -40,7 +40,7 @@ class Solution
     }
 };
 
-/* Approach 2 (BFS) */
+/* Approach 2 (BFS) Time :- O(V+E) Space :- O(V) */
 
 class Solution
 {
@@ -50,6 +50,7 @@ class Solution
         queue<pair<int,int>> q;
         vis[node] = 1;
         q.push({node,-1});
+	    
         while(!q.empty())
         {
             int child  = q.front().first;
