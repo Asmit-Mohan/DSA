@@ -1,3 +1,5 @@
+/* Approach 1 Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
+
 class Solution
 {
   public:
@@ -26,6 +28,7 @@ class Solution
     {
         vector<int>vis(V,0);
         vector<int>dfsVis(V,0);
+	    
         for(int i=0;i<V;i++)
         {
             if(vis[i]==0)
@@ -40,7 +43,7 @@ class Solution
     }
 };
 
-/*Approach 2 (BFS) (kahn's Algorithms) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
+/* Approach 2 (BFS) (kahn's Algorithms) Time Complexity :- O(V+E) Space Complexity :- O(V) + O(V) */
 
 class Solution
 {
