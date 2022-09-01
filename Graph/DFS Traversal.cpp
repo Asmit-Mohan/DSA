@@ -1,59 +1,35 @@
-#include<bits/stdc++.h>
-using namespace std;
+/* Time :- O(V+E) Space :- O(V) + O(V) */
 
-void solve(int node,vector<int>&ans,vector<int>&vis,vector<int>adj[])
+class Solution
 {
-      vis[node]=1;
-      ans.push_back(node);
-      for(auto x : adj[node])
-      {
-          if(vis[x]==0)
-          {
-              solve(x,ans,vis,adj);
-          }
-      }
-}
-
-vector<int> dfsOfGraph(int V, vector<int> adj[])
-{
-        vector<int>ans;
-        vector<int>vis(V,0);
-        for(int i=0;i<V;i++)
+  public:
+    
+    void solve(int node,vector<int>&ans,vector<int>&visited,vector<int>adj[])
+    {
+        visited[node]=1;
+        ans.push_back(node);
+        
+        for(auto x : adj[node])
         {
-            if(vis[i]==0)
+            if(visited[x]==0)
             {
-                solve(i,ans,vis,adj);
+                solve(x,ans,visited,adj);
+            }
+        }
+    }
+    
+    vector<int> dfsOfGraph(int v, vector<int> adj[])
+    {
+        vector<int>ans;
+        vector<int>visited(v,0);
+        
+        for(int i=0;i<v;i++)
+        {
+            if(!visited[i])
+            {
+                solve(i,ans,visited,adj);
             }
         }
         return ans;
-}
-    
-int main()
-{
-    int tc;
-    cin >> tc;
-    while (tc--)
-    {
-        int V, E;
-        cin >> V >> E;
-
-        vector<int> adj[V];
-
-        for (int i = 0; i < E; i++)
-        {
-            int u, v;
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-   
-
-        vector<int> ans = dfsOfGraph(V, adj);
-        for (int i = 0; i < ans.size(); i++)
-        {
-            cout << ans[i] << " ";
-        }
-        cout << endl;
     }
-    return 0;
-}
+};
