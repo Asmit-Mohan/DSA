@@ -1,4 +1,4 @@
-/* Approach 1 (DFS) */
+/* Approach 1 (DFS) Time :- O(V+E) Space :- O(V)  */
 
 class Solution
 {
@@ -38,7 +38,7 @@ class Solution
     }
 };
 
-/* Approach 2 (BFS) --> (kahn's Algorithms) */
+/* Approach 2 (BFS) --> (kahn's Algorithms) Time :- O(V+E) Space :- O(V) */
 
 class Solution
 {
