@@ -1,3 +1,5 @@
+/* Time :- O(row*col) Space :- O(row*col) Since TC of solve() is O(1) and it is called for each element of image so total element is row*col */
+
 class Solution
 {
 public:
