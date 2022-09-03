@@ -1,4 +1,4 @@
-/* Time :- O(V+E) Space :- O(V+E) */
+/* Approach 1 Time :- O(V+E) Space :- O(V+E) */
 
 class Solution
 {
@@ -51,5 +51,59 @@ public:
             adj[edges[i][0]].push_back(edges[i][1]);    
         }
         return isCyclic(v, adj)==1?0:1;
+    }
+};
+
+
+/* Approach 2 Kahn's Algorithm */
+
+class Solution
+{
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites)
+    {    
+        vector<int> indegree(numCourses, 0);
+        vector<vector<int>> adj(numCourses);
+        
+        for(auto it : prerequisites)
+        {
+            adj[it[1]].push_back(it[0]);
+            indegree[it[0]]++;
+        }
+        
+        queue<int> q;
+        for (int i=0; i< indegree.size(); i++)
+        {
+            if (indegree[i] == 0)
+            {
+                q.push(i);
+            }
+        }
+        
+        int count=0;
+        while (!q.empty())
+        {
+            int v = q.front();
+            q.pop();
+            count++;
+            
+            for (auto i: adj[v])
+            {
+                indegree[i]--;
+                if (indegree[i] == 0)
+                {
+                    q.push(i);
+                }
+            }
+        }
+        
+        for (int i=0; i< indegree.size(); i++)
+        {
+            if (indegree[i] > 0) 
+            {
+                return false;
+            }
+        }
+        return true;
     }
 };
