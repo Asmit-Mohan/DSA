@@ -1,7 +1,8 @@
+/* Time :- O(M*N) + O(V+E) [DFS] Space :- O(M*N) + O(V) [DFS] */
+
 class Solution
 {
 public:
-    
 void solve(int node,vector<int>&vis,vector<int>adj[])
 {
       vis[node]=1;
@@ -18,7 +19,6 @@ int dfsOfGraph(int V, vector<int> adj[])
 {
         vector<int>vis(V+1,0);
         int ans=0;
-        
         for(int i=1;i<=V;i++)
         {
             if(vis[i]==0)
@@ -33,9 +33,7 @@ int dfsOfGraph(int V, vector<int> adj[])
     int findCircleNum(vector<vector<int>>& arr)
     {
         int n=arr.size();
-        
         vector<int>adj[n+1];
-        
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<n;j++)
