@@ -1,63 +1,49 @@
+/* Time :- O(M*N) Space :- O(1) + Auxiliary Stack Space */
+
 class Solution
 {
 public:
-    
-void dfs(vector<vector<char>>& grid, int x, int y)
-{
-    
-  if(x < 0 || y < 0 || x >= grid.size() || y >=grid[0].size() || grid[x][y]!='O')
-  { 
-       return;
-  }
-    
-    grid[x][y]='#';
-    
-    dfs(grid,x-1,y);  
-    dfs(grid,x,y+1);  
-    dfs(grid,x,y-1); 
-    dfs(grid,x+1,y);
-}
-    
-    void solve(vector<vector<char>>& grid)
+    void dfs(int i,int j,int row,int col,vector<vector<char>>& board)
     {
-        int row = grid.size();
-        int col = grid[0].size();
+        if(i<0||j<0||i>=row||j>=col||board[i][j]!='O')
+        {
+            return;
+        }
         
-        for(int i=0;i<row;i++)
-        {
-            if(grid[i][0]=='O')
-            {
-                dfs(grid,i,0);
-            }
-            if(grid[i][col-1]=='O')
-            {
-                dfs(grid,i,col-1);
-            }
-        }
-
-        for(int i=0;i<col;i++)
-        {
-            if(grid[0][i]=='O')
-            {
-                dfs(grid,0,i);
-            }
-            if(grid[row-1][i]=='O')
-            {
-                dfs(grid,row-1,i);
-            }
-        }
+        board[i][j]='#';
+        
+        dfs(i+1,j,row,col,board);
+        dfs(i,j+1,row,col,board);
+        dfs(i,j-1,row,col,board);
+        dfs(i-1,j,row,col,board);
+    }
+    
+    void solve(vector<vector<char>>& board)
+    {
+        int row=board.size();
+        int col=board[0].size();
         
         for(int i=0;i<row;i++)
         {
             for(int j=0;j<col;j++)
             {
-                if(grid[i][j]=='O')
+                if(i==0||j==0||i==row-1||j==col-1)
                 {
-                    grid[i][j]='X';
+                    dfs(i,j,row,col,board);
                 }
-                if(grid[i][j]=='#')
+            }
+        }
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                if(board[i][j]=='O')
                 {
-                    grid[i][j]='O';
+                    board[i][j]='X';
+                }
+                if(board[i][j]=='#')
+                {
+                    board[i][j]='O';
                 }
             }
         }
