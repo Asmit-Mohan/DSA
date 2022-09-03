@@ -1,3 +1,5 @@
+/* Time :- O(V+E) Space :- O(V+E) */
+
 class Solution
 {
 public:
@@ -48,7 +50,6 @@ public:
         {
             adj[edges[i][0]].push_back(edges[i][1]);    
         }
-        
         return isCyclic(v, adj)==1?0:1;
     }
 };
