@@ -44,41 +44,53 @@ void postorder(Node* root,vector<int>&ans)
 	}
 }
 
-Node* solve(int arr[],int n)
+Node* solve(string arr[],int n)
 {
-	Node* root = new Node(arr[0]);
-	queue<pair<Node*,int>>q;
-	q.push({root,0});
-	
+	int i=0;
+	Node* root = new Node(stoi(arr[i++]));
+	queue<Node*>q;
+	q.push(root);
+ 
 	while(!q.empty())
 	{
-		Node* front = q.front().first;
-		int i = q.front().second;
+		Node* front = q.front();
 		q.pop();
-		
-		int leftIdx = (2*i)+1;
-		int rightIdx = (2*i)+2;
-		
-		if(leftIdx<n&&arr[leftIdx]!=-1)
+ 
+		if(i<n)
 		{
-			Node* temp = new Node(arr[leftIdx]);
-			front->left=temp;
-			q.push({front->left,leftIdx});
+			if(arr[i]=="#")
+			{
+				front->left=NULL;
+			}
+			else
+			{
+				Node* temp = new Node(stoi(arr[i]));
+				front->left=temp;
+				q.push(front->left);
+			}
+			i++;
 		}
-		if(rightIdx<n&&arr[rightIdx]!=-1)
+		if(i<n)
 		{
-			Node* temp = new Node(arr[rightIdx]);
-			front->right=temp;
-			q.push({front->right,rightIdx});
+			if(arr[i]=="#")
+			{
+				front->right=NULL;
+			}
+			else
+			{
+				Node* temp = new Node(stoi(arr[i]));
+				front->right=temp;
+				q.push(front->right);
+			}
+			i++;
 		}
 	}
 	return root;
 }
-
 int main()
 {
-    int arr[7] = {1,2,3,4,-1,6,7}; /* Level order traversal*/
-    Node* root = solve(arr,7);
+    string levelOrder[13] = {{"1"},{"2"},{"3"},{"4"},{"#"},{"6"},{"7"},{"#"},{"8"},{"9"},{"#"},{"#"},{"10"}};
+    Node* root = solve(levelOrder,13);
     vector<int>ans;
     
     preorder(root,ans);
