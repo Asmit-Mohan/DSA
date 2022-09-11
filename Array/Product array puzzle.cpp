@@ -1,3 +1,5 @@
+/* Time :- O(N*N) Space O(1) */
+
 class Solution
 {
   public:
@@ -38,3 +40,36 @@ class Solution
         return v;
     }
 }
+
+/* Time :- O(N) Space :- O(1) */
+
+class Solution
+{
+public:
+    vector<int> productExceptSelf(vector<int>& nums)
+    {
+        int n = nums.size();
+        vector<int>right(n,1);
+        right[n-1]=nums[n-1];
+        
+        for(int i=n-2;i>=0;i--)
+        {
+            right[i] = nums[i]*right[i+1];
+        }
+        
+        int left=1;
+        for(int i=0;i<n;i++)
+        {
+            if(i==n-1)
+            {
+                right[i] = left;
+            }
+            else
+            {
+                right[i] = right[i+1]*left;
+                left = left * nums[i];
+            }
+        }
+        return right;
+    }
+};
