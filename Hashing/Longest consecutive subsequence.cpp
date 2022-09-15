@@ -1,30 +1,31 @@
-/* Approach 1  --> Efficient Approach Time :- O(N) Space :- O( Maximum of arr[i] ) */
+/* Approach 1  --> Efficient Approach Time :- O(N) Space :- O(N) */
 
 class Solution
 {
-    public:
-    int findLongestConseqSubseq(int arr[], int n)
+public:
+    int longestConsecutive(vector<int>& nums)
     {
-      int x[100001]={0};
-      for(int i=0;i<n;i++)
-      {
-          x[arr[i]]++;
-      }
-      int ans=0;
-      int maxi=INT_MIN;
-      for(int i=0;i<100001;i++)
-      {
-          if(x[i]>0)
-          {
-              ans++;
-          }
-          else
-          {
-              ans=0;
-          }
-          maxi=max(maxi,ans);
-      }
-      return maxi;
+        int ans=0;
+        unordered_set<int>s;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            s.insert(nums[i]);
+        }
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            if(s.find(nums[i]-1)==s.end())
+            {
+                int temp = nums[i];
+                while(s.find(temp)!=s.end())
+                {
+                    temp++;
+                }
+                ans=max(ans,temp-nums[i]);        
+            }
+        }
+        return ans;
     }
 };
 
