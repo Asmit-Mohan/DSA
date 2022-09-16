@@ -1,3 +1,5 @@
+/* Approach 1 */
+
 /* Time Complexity :- O( (2^n) *k*(n/2) )
 
    Reason: O(2^n) to generate every substring and O(n/2)  to check if the substring generated is a palindrome.
@@ -48,6 +50,59 @@ public:
         vector<vector<string>> ans;
         vector<string> temp;
         solve(0, s, temp, ans);
+        return ans;
+    }
+};
+
+/* Approach 2 */
+
+class Solution
+{
+public:
+    bool isPalin(string &str)
+    {
+        int i=0;
+        int j=str.length()-1;
+        
+        while(i<=j)
+        {
+            if(str[i]!=str[j])
+            {
+                return 0;
+            }
+            i++;
+            j--;
+        }
+        return 1;
+    }
+    
+    void solve(string &str,vector<string>&temp,vector<vector<string>>&ans)
+    {
+        if(str.length()==0)
+        {
+            ans.push_back(temp);
+            return;
+        }
+        for(int i=0;i<str.length();i++)
+        {
+            string left = str.substr(0,i+1);
+            string right = str.substr(i+1);
+            
+            if(isPalin(left))
+            {
+                temp.push_back(left);
+                solve(right,temp,ans);
+                temp.pop_back();
+            }
+        }
+    }
+    
+    vector<vector<string>> partition(string s)
+    {
+        vector<string>temp;
+        vector<vector<string>>ans;
+        
+        solve(s,temp,ans);
         return ans;
     }
 };
