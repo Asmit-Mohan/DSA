@@ -36,15 +36,8 @@ public:
                       long long data = nums[low]+nums[high];
                       if(data==sum)
                       {
-                            vector<int>temp;
-                            temp.push_back(nums[i]);
-                            temp.push_back(nums[j]);
-                            temp.push_back(nums[low]);
-                            temp.push_back(nums[high]);
-                            ans.push_back(temp);
-                            temp.clear();
+                            ans.push_back({nums[i] , nums[j] , nums[low] , nums[high]});
                             low++;
-                          
                             while (low < n && nums[low] == nums[low - 1])
                             {
                                 low++;
