@@ -1,3 +1,72 @@
+/* Approach 1 */
+
+class Solution
+{
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) 
+    {
+        vector<vector<int>>ans;
+        int n=nums.size();
+        
+        if (n < 4)
+        {
+            return {};
+        }
+        
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<n-2;i++)
+        {
+            if(i>0&&nums[i]==nums[i-1])
+            {
+                continue;
+            }
+            for(int j=i+1;j<n-1;j++)
+            {
+                if(j>(i+1)&&nums[j]==nums[j-1])
+                {
+                    continue;
+                }
+
+                int low = j+1;
+                int high = n-1;
+                long long sum = (long long)target - (long long)nums[i] - (long long)nums[j];
+                
+                while(low<high)
+                {
+                      long long data = nums[low]+nums[high];
+                      if(data==sum)
+                      {
+                            vector<int>temp;
+                            temp.push_back(nums[i]);
+                            temp.push_back(nums[j]);
+                            temp.push_back(nums[low]);
+                            temp.push_back(nums[high]);
+                            ans.push_back(temp);
+                            temp.clear();
+                            low++;
+                          
+                            while (low < n && nums[low] == nums[low - 1])
+                            {
+                                low++;
+                            }
+                      }
+                      else if(data>sum)
+                      {
+                         high--;
+                      }
+                      else
+                      {
+                         low++;
+                      }
+                 }
+            }
+        }
+        return ans;
+    }
+};
+
+/* Approach 2 */
+
 /* Time :- O(N*N*N) Space :- O(1) --> No extra space instead of answer vector */
 
 class Solution
