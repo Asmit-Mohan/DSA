@@ -46,32 +46,29 @@ void sort012(int a[], int n)
 
 class Solution
 {
-    public static void sort012(int a[], int n)
+public:
+    void sortColors(vector<int>& nums)
     {
-        int low=0;
-        int high=n-1;
-        int mid=0;
+        int i=0;
+        int j=0;
+        int k=nums.size()-1;
         
-        while(mid<=high)
+        while(i<=k)
         {
-            if(a[mid] ==0)
+            if(nums[i]==0)
             {
-                int temp = a[mid];
-                a[mid] = a[low];
-                a[low] = temp;
-                low++;
-                mid++;
+                swap(nums[i],nums[j]);
+                i++;
+                j++;
             }
-            else if(a[mid] ==1)
+            else if(nums[i]==2)
             {
-                mid++;
+                swap(nums[i],nums[k]);
+                k--;
             }
-            else if(a[mid] ==2)
+            else
             {
-                int temp = a[mid];
-                a[mid] = a[high];
-                a[high] = temp;
-                high--;
+                i++;
             }
         }
     }
