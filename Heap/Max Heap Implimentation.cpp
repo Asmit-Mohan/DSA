@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class maxheap
 {
-	  private:
+	private:
 		vector<int>node;
-	  
-    public:
+	public:
 		maxheap()
 		{
-			 node.push_back(-1);
+			node.push_back(-1);
 		}
 		
 		void push(int data)
@@ -25,19 +25,16 @@ class maxheap
 					swap(node[parent],node[i]);
 					i=parent;
 				}
-				else
-        {
-           break;
-        }
+				else break;
 			}
+			
 		}
 		
 		int top()
 		{
 			if(node.size()<2)
-			{
-         return -1;
-			}
+			return -1;
+			
 			return node[1];
 		}
 		
@@ -45,9 +42,7 @@ class maxheap
 		{
 			int n=node.size();
 			if(n==1)
-			{
-         return ;
-			}
+			return ;
 			
 			int ans= node[1];
 			node[1]=node[n-1];
@@ -56,38 +51,40 @@ class maxheap
 			
 			while(i<n-1)
 			{
-				 int left_child = 2*i;
-				 int right_child = 2*i + 1;
-				 int largest = node[left_child] > node[right_child] ? left_child : right_child;
+				int left_child = 2*i;
+				int right_child = 2*i + 1;
+				int largest = node[left_child] > node[right_child] ? left_child : right_child;
 				
-				 if(node[largest] > node[i])
-				 {
-					 swap(node[largest],node[i]);
-					 i=largest;
-				 }
-				 else 
-				 {
-           break;
-         }
+				if(node[largest] > node[i])
+				{
+					swap(node[largest],node[i]);
+					i=largest;
+				}
+				else 
+				{
+					break;
+				}
 			}
-	 }
+			
+		}
+	
+	
 };
-
 int main()
 {
-	 maxheap mx;
-	 mx.push(10);
-	 mx.push(20);
-	 mx.push(30);
-	 mx.push(3);
-	 cout<<mx.top()<<" ";
-	 mx.pop();
-	 cout<<mx.top()<<" ";
-	 mx.pop();
-	 cout<<mx.top()<<" ";
-	 mx.pop();
-	 cout<<mx.top()<<" ";
-	 mx.pop();
-	 cout<<mx.top();
-	 return 0;
+	maxheap mx;
+	mx.push(10);
+	mx.push(20);
+	mx.push(30);
+	mx.push(3);
+	cout<<mx.top()<<" ";
+	mx.pop();
+	cout<<mx.top()<<" ";
+	mx.pop();
+	cout<<mx.top()<<" ";
+	mx.pop();
+	cout<<mx.top()<<" ";
+	mx.pop();
+	cout<<mx.top();
+	return 0;
 }
