@@ -1,3 +1,5 @@
+/* Total 4 Approaches are mentioned below */
+
 /* Approach 1 --> Time O(N) Space O(N) */
 
 class Solution
@@ -30,7 +32,46 @@ public:
     }
 };
 
-/* Approach 2 Time :- O(Nlogk) Space :- O(K) */
+/* Approach 2 */
+
+class Solution
+{
+public:
+	vector<int> maxSlidingWindow(vector<int>& nums, int k)
+    {
+		map<int,int,greater<int>>mp;
+        int i=0;
+        int j=0;
+        vector<int>ans;
+        
+        while(j<nums.size())
+        {
+            mp[nums[j]]++;
+            if(j-i+1==k)
+            {
+                int temp = mp.begin()->first;
+                ans.push_back(temp);
+                if(mp[nums[i]]==1)
+                {
+                    mp.erase(nums[i]);
+                }
+                else
+                {
+                    mp[nums[i]]--;
+                }
+                i++;
+                j++;
+            }
+            else
+            {
+                j++;
+            }
+        }
+        return ans;
+	}
+};
+
+/* Approach 3 Time :- O(Nlogk) Space :- O(K) */
 
 class Solution
 {
@@ -62,7 +103,7 @@ public:
     }
 };
 
-/* Approach 3 */
+/* Approach 4 */
 
 class Solution
 {
