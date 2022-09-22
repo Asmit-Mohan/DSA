@@ -12,11 +12,13 @@ class Solution
         }
         
         /* Inorder Technique */
+        
         bToDLL(root->left);
         
         if(prev==NULL)
         {
             head=root;
+            head->left=NULL;
         }
         else
         {
