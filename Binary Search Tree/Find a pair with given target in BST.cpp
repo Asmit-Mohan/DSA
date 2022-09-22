@@ -29,7 +29,7 @@ void find(Node* root,int target ,unordered_set<int> &s,bool &ans)
     }
 };
 
-/* Approach 2 Time :- O(N) Space:- O(N) */
+/* Approach 2 Time :- O(2*N) Space:- O(N) */
 
 class Solution
 {
@@ -113,4 +113,67 @@ bool findTarget(TreeNode* root, int k)
     }
     return inOrder(root , k , root);
 }
+};
+
+/* Approach 4 [Optimal BST Iterator] Time :- O(N) Space :- O(2*H) */
+
+class Solution
+{
+public:
+    stack<TreeNode*>sLeft;
+    stack<TreeNode*>sRight;
+    
+    TreeNode* front = NULL;
+    TreeNode* rear = NULL;
+    
+    int next_left()
+    {    
+        while(front)
+        {
+            sLeft.push(front);
+            front = front->left;
+        }
+        int ans = sLeft.top()->val;
+        front =  sLeft.top()->right;
+        sLeft.pop();
+        return ans;
+    }
+    
+    int next_right()
+    {
+        while(rear)
+        {
+            sRight.push(rear);
+            rear = rear->right;
+        }
+        int ans = sRight.top()->val;
+        rear = sRight.top()->left;
+        sRight.pop();
+        return ans;
+    }
+    
+    bool findTarget(TreeNode* root, int k)
+    {
+        front = root;
+        rear = root;
+        int l = next_left();
+        int r = next_right();
+        
+        while(l<r)   /* This is taking O(N) time */
+        {
+            if(l+r == k)
+            {
+                return true;
+            }
+            else if(l+r<k)
+            {
+                l = next_left();
+            }
+            else
+            {
+                r = next_right();
+            }
+        }
+        return false;
+    }
 };
