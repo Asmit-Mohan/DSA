@@ -60,44 +60,63 @@ public:
 class Solution
 {
 public:
+    vector<int> check(int index,string s,int flag)
+    {
+        int i=0;
+        int j=0;
+        
+        if(flag%2==0&&index>0)
+        { 
+            i=index-1;
+            j=index;
+        }
+        else
+        {
+            i=index;
+            j=index;
+        }
+        while(i>=0&&j<s.length())
+        {
+            if(s[i]!=s[j])
+            {
+                break;
+            }
+            i--;
+            j++;
+        }
+        return {i+1,j-1};
+    }
+    
     string longestPalindrome(string s)
     {
-        int dp[1000][1000]={0};
-        dp[0][0] = 1;
-        string res = "";
-        int maxL = INT_MIN;
+        int a=0;
+        int b=0;
+        int ans=-1;
         
-        for(int i = 1; i < s.size(); i++)
+        for(int i=0;i<s.length();i++)
         {
-            dp[i][i] = 1;
-            if(s[i] == s[i-1])
+            vector<int> v1=check(i,s,1);  /* ODD */
+            vector<int> v2=check(i,s,0);  /* EVEN */
+
+            if(v1[1]-v1[0]>ans)
             {
-                dp[i-1][i] = 1;
+                a=v1[0];
+                b=v1[1];
+                ans=v1[1]-v1[0];
+            }
+            if(v2[1]-v2[0]>ans)
+            {
+                a=v2[0];
+                b=v2[1];
+                ans=v2[1]-v2[0];
             }
         }
         
-        for(int i = s.size()-1; i>=0; i--)
+        string t;
+        for(int i=a;i<=b;i++)
         {
-            for(int j = i+1; j < s.size(); j++)
-            {
-                if(s[i] == s[j] && dp[i+1][j-1])
-                {
-                    dp[i][j] = 1;
-                }
-            }
+            t+=s[i];
         }
-        
-        for(int i = 0; i< s.size(); i++)
-        {
-            for(int j = 0; j < s.size(); j++)
-            {
-                    if(j-i+1 > maxL && dp[i][j] )
-                    {
-                        maxL = j-i+1;
-                        res = s.substr(i, j-i+1);
-                    }
-            }
-        }
-        return res;
+        return t;
     }
 };
