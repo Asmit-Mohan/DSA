@@ -49,39 +49,32 @@ class Solution
     public:
     int celebrity(vector<vector<int> >& arr, int n) 
     {
-        int can=0;
-        for (int i=1;i<n;i++)
-        {
-            if (arr[can][i]==1)
-            {
-                arr[can][can]=1;
-                can=i;
-            }
-            else
-            {
-                arr[i][i]=1;
-            }
-        }
-        
-        for (int i=0;i<n;i++)
-        {
-            if (arr[i][i]==0)
-            {
-                int flag=0;
-                for (int j=0;j<n;j++)
+          int i = 0;
+          int j = n - 1;
+
+          while (i < j)
+          {
+                if (M[j][i] == 1) 
                 {
-                    if (j!=i && arr[j][i]==0)
+                    j--;              /* That means j cannot be the candidate for celebrity */
+                }
+                else
+                {
+                    i++;            /* That means i cannot be the candidate for celebrity */
+                }
+          }
+
+          int candidate = i;   /* At last i will be the celebrity but cross-check is necessary */
+          for (i = 0; i < n; i++)
+          {
+                if (i != candidate)
+                {        
+                    if (M[i][candidate] == 0 || M[candidate][i] == 1)
                     {
-                        flag=1;
-                        break;
+                        return -1;
                     }
                 }
-                if (flag==0)
-                {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
+          }
+          return candidate;
+     }
 };
