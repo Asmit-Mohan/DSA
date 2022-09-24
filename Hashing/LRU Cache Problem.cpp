@@ -4,7 +4,7 @@ class LRUCache
 {
   public:
   class node
-	{
+  {
       public:
       int key;
       int val;
