@@ -2,50 +2,68 @@
 
 /* Approach 2 --> Using Binary Search Time :- O(logn) Space :- O(1) */
 
+/* Time :- O(logn) Space :- O(1) */
+
 class Solution
 {
-public:	
-	int count(int arr[], int n, int x)
-	{
-	    int low=0;
-	    int high=n-1;
-	    int flag=0;
-	    int mid=0;
-	    
-	    while(low<=high)
-	    {
-	        mid=low+(high-low)/2;
-	        if(arr[mid]==x)
-	        {
-	            flag=1;
-	            break;
-	        }
-	        else if(arr[mid]>x)
-	        {
-	            high=mid-1;
-	        }
-	        else 
-	        {
-	            low=mid+1;
-	        }
-	    }
-	    if(flag==0)
-	    {
-	        return 0;
-	    }
-	    else
-	    {
-	        low=mid;
-	        high=mid;
-	        while(arr[low]==x)
-	        {
-	            low--;
-	        }
-	        while(arr[high]==x)
-	        {
-	            high++;
-	        }
-	        return high-low-1;
-	    }
-       }
-  };
+public:
+    int firstOccurance(vector<int>& arr, int n, int key)
+    {
+        int low=0;
+        int high=n-1;
+        int ans=-1;
+        
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            if(arr[mid]==key)
+            {
+                ans = mid;
+                high = mid-1;
+            }
+            else if(key>arr[mid])
+            {
+                low = mid+1;
+            }
+            else if(key<arr[mid])
+            {
+                high = mid-1;
+            }
+        }
+        return ans;
+    }
+    
+    int lastOccurance(vector<int>& arr, int n, int key)
+    {
+        int low=0;
+        int high=n-1;
+        int ans=-1;
+        
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            if(arr[mid]==key)
+            {
+                ans = mid;
+                low = mid+1;
+            }
+            else if(key>arr[mid])
+            {
+                low = mid+1;
+            }
+            else if(key<arr[mid])
+            {
+                high = mid-1;
+            }
+        }
+        return ans;
+    }
+    
+    vector<int> numOfOccurrences(vector<int>& nums, int target)
+    {
+        int n = nums.size();
+        int first = firstOccurance(nums,n,target);
+        int last =  lastOccurance(nums,n,target);    
+        return last-first-1;
+    }
+};
