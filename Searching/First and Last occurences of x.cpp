@@ -2,51 +2,64 @@
 
 class Solution
 {
-  public:
-    vector<int> firstAndLast(vector<int> &arr, int n, int x)
+public:
+    int firstOccurance(vector<int>& arr, int n, int key)
     {
-        int l=0;
-        int r=n-1;
-        int flag=0;
-        int mid;
-        while(l<=r)
+        int low=0;
+        int high=n-1;
+        int ans=-1;
+        
+        while(low<=high)
         {
-            mid=l+(r-l)/2;
-            if(arr[mid]==x)
+            int mid=low+(high-low)/2;
+            if(arr[mid]==key)
             {
-                flag=1;
-                break;
+                ans = mid;
+                high = mid-1;
             }
-            else if(arr[mid]>x)
+            else if(key>arr[mid])
             {
-                r=mid-1;
+                low = mid+1;
             }
-            else
+            else if(key<arr[mid])
             {
-                l=mid+1;
+                high = mid-1;
             }
         }
-        vector<int>v;
-        if(flag==0)
+        return ans;
+    }
+    
+    int lastOccurance(vector<int>& arr, int n, int key)
+    {
+        int low=0;
+        int high=n-1;
+        int ans=-1;
+        
+        while(low<=high)
         {
-            v.push_back(-1);
-            return v;
-        }
-        else
-        {
-            l=mid;
-            r=mid;
-            while(l>=0&&arr[l]==x)
+            int mid=low+(high-low)/2;
+            if(arr[mid]==key)
             {
-                l--;
+                ans = mid;
+                low = mid+1;
             }
-            while(r<n&&arr[r]==x)
+            else if(key>arr[mid])
             {
-                r++;
+                low = mid+1;
             }
-            v.push_back(l+1);
-            v.push_back(r-1);
-            return v;
+            else if(key<arr[mid])
+            {
+                high = mid-1;
+            }
         }
+        return ans;
+    }
+    
+    vector<int> searchRange(vector<int>& nums, int target)
+    {
+        int n = nums.size();
+        int first = firstOccurance(nums,n,target);
+        int last =  lastOccurance(nums,n,target);    
+        return {first, last};
     }
 };
