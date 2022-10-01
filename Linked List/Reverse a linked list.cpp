@@ -12,8 +12,7 @@ class Solution
         
         struct Node* newHead = reverseList(head->next);  /*newHead Will Remain Contant ie. always point to end of list*/
         
-        struct Node* headNext = head->next;
-        headNext->next=head;
+        head->next->next=head;
         head->next=NULL;
         return newHead;
     }
