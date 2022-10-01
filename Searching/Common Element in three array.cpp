@@ -34,7 +34,7 @@ class Solution
         }
 };
 
-/*Approach 2 (Binary Search) --> Time :- suppose min of n1,n2,n3 is n1 -->  O(n1*[log(n2)+log(n3)]) Space :- O(min(n1,n2,n3)) */
+/*Approach 2 (Binary Search) --> Time :- suppose min of n1,n2,n3 is n1 -->  O[N1*log(N2*N3)] Space :- O(1) */
 
 class Solution
 {
@@ -64,49 +64,30 @@ class Solution
     vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
     {
         vector<int>ans;
-        set<int>s;
-        int range=min(min(n1,n2),n3);
         
-        if(range==n1)
+        if(n2<n1&&n1<n3)
+        {
+           return commonElements(B,A,C,n2,n1,n3);
+        }
+        else if(n3<n2&&n2<n1)
+        {
+           return commonElements(C,A,B,n3,n1,n2);
+        }
+        else
         {
             for(int i=0;i<n1;i++)
             {
+                if (i != 0 && A[i] == A[i - 1])
+                {
+                    continue;
+                }
                 int flag1=bSearch(A[i],n2,B);
                 int flag2=bSearch(A[i],n3,C);
                 if(flag1&&flag2)
                 {
-                    s.insert(A[i]);
+                    ans.push_back(A[i]);
                 }
             }
-        }
-        else if(range==n2)
-        {
-            for(int i=0;i<n2;i++)
-            {
-                int flag1=bSearch(B[i],n1,A);
-                int flag2=bSearch(B[i],n3,C);
-                if(flag1&&flag2)
-                {
-                    s.insert(B[i]);
-                }
-            }
-        }
-        else
-        {
-            for(int i=0;i<n3;i++)
-            {
-                int flag1=bSearch(C[i],n1,A);
-                int flag2=bSearch(C[i],n2,B);
-                if(flag1&&flag2)
-                {
-                    s.insert(C[i]);
-                }
-            }
-        }
-        
-        for(auto x : s)
-        {
-            ans.push_back(x);
         }
         if(ans.size()==0)
         {
