@@ -1,5 +1,4 @@
 #include<iostream>
-#define SIZE 5
 using namespace std;
 
 class Node
@@ -8,8 +7,9 @@ class Node
     int data;
     Node *next;
 
-    Node()
+    Node(int value)
     {
+        data=value;
         next = NULL;
     }
 };
@@ -23,7 +23,7 @@ Node *temp1;
 class cqueue
 {
     public:
-    void insertion();
+    void insertion(int);
     void deletion();
     void display();
 };
@@ -42,8 +42,11 @@ int main()
      cin>>ch;
      switch(ch)
      {
+        int temp;
         case 1:
-          cqobj.insertion();
+          cout<<"Enter the element here:-";
+          cin>>temp;
+          cqobj.insertion(temp);
           break;
 
         case 2:
@@ -65,11 +68,9 @@ int main()
   return 0;
 }
 
-void cqueue::insertion()
+void cqueue::insertion(int temp)
 {
-      n=new Node[sizeof(Node)];
-      cout<<"\nEnter the Element: ";
-      cin>>n->data;
+      n=new Node(temp);
 
       if(front==NULL)
       {
