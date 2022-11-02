@@ -12,6 +12,13 @@ int gcd(int a, int b)
     }    
 }
 
+/* One Liner Recursive */
+
+int gcd(int a, int b)
+{
+    return B==0?A:gcd(B,A%B);    
+}
+
 /* Approach 2 [Iterative] */
 
 int gcd(int a, int b)
