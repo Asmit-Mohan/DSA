@@ -41,7 +41,6 @@ int dfsOfGraph(int V, vector<int> adj[])
                 if(arr[i][j]==1&&i!=j)
                 {
                     adj[i+1].push_back(j+1);
-                    adj[j+1].push_back(i+1);
                 }
             }
         }
