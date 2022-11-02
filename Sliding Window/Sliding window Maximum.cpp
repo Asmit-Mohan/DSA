@@ -1,45 +1,13 @@
 /* Total 4 Approaches are mentioned below */
 
-/* Approach 1 --> Time O(N) Space O(N) */
+/* Approach 1 */
 
 class Solution
 {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k)
     {
-        deque<int> dq;
-        vector<int> ans;
-        int j=0;
-        
-        while(j<nums.size())
-        {
-            if (!dq.empty() && dq.front() == j-k) 
-            {
-                dq.pop_front();
-            }
-            while (!dq.empty() && nums[dq.back()] < nums[j])
-            {
-                dq.pop_back();  
-            }
-            dq.push_back(j);
-            if (j>=k-1)        /* Greater than for next such window */
-            {
-                ans.push_back(nums[dq.front()]);
-            }
-            j++;
-        }
-        return ans;
-    }
-};
-
-/* Approach 2 */
-
-class Solution
-{
-public:
-	vector<int> maxSlidingWindow(vector<int>& nums, int k)
-    {
-		map<int,int,greater<int>>mp;
+	map<int,int,greater<int>>mp;
         int i=0;
         int j=0;
         vector<int>ans;
@@ -68,10 +36,10 @@ public:
             }
         }
         return ans;
-	}
+    }
 };
 
-/* Approach 3 Time :- O(Nlogk) Space :- O(K) */
+/* Approach 2 Time :- O(Nlogk) Space :- O(K) */
 
 class Solution
 {
@@ -100,6 +68,38 @@ public:
              j++;
 	}
 	return ans;
+    }
+};
+
+/* Approach 3 --> Time O(N) Space O(N) */
+
+class Solution
+{
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k)
+    {
+        deque<int> dq;
+        vector<int> ans;
+        int j=0;
+        
+        while(j<nums.size())
+        {
+            if (!dq.empty() && dq.front() == j-k) 
+            {
+                dq.pop_front();
+            }
+            while (!dq.empty() && nums[dq.back()] < nums[j])
+            {
+                dq.pop_back();  
+            }
+            dq.push_back(j);
+            if (j>=k-1)        /* Greater than for next such window */
+            {
+                ans.push_back(nums[dq.front()]);
+            }
+            j++;
+        }
+        return ans;
     }
 };
 
