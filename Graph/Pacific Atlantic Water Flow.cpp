@@ -7,7 +7,7 @@ public:
         {
             return;
         }
-        if(oceans[i][j]==0)
+        if(oceans[i][j]==0) /* Checking for visited places */
         {
             oceans[i][j]=1;
             
