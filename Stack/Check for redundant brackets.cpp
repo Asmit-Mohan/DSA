@@ -1,5 +1,3 @@
-#include <stack>
-
 bool findRedundantBrackets(string &s)
 {
     stack<char>st;
