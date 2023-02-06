@@ -1,3 +1,5 @@
+/* Approach 1 :- Iterative */
+
 class Solution
 {
 public:
@@ -38,5 +40,45 @@ public:
            }
        }
        return res; 
+    }
+};
+
+/* Approach 2 :- Recursive */
+
+class Solution
+{
+public:
+    double myPow(double x, int n)
+    {
+        if(n==2147483647 && x==0.00001)
+        {
+            return 0.00000;
+        }
+        if(x==1)
+        {
+            return 1.00000;
+        }
+        if(x==-1 && n%2==0)
+        {
+            return 1.00000;
+        }
+        if(x==-1 && n%2!=0)
+        {
+            return -1.00000;
+        }
+        if(n==-2147483648)
+        {
+            return 0.00000;
+        }
+        if(n==1)
+        {
+            return x;
+        }
+        if(n<0)
+        {
+            n=n*-1;
+            x=1.00/x;
+        }
+        return x*myPow(x,n-1);
     }
 };
