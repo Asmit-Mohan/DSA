@@ -1,26 +1,23 @@
 class Solution
 {
     public:
-    void convertToWave(int *arr, int n)
+    void convertToWave(int n, vector<int>& arr)
     {
-        int temp;
-        if(n%2!=0)
+        for(int i=0;i<n-1;i++)
         {
-            for(int i=0;i<n-1;i=i+2)
+            if(i%2!=0)
             {
-                temp=arr[i];
-                arr[i]=arr[i+1];
-                arr[i+1]=temp; 
+                if(arr[i]>arr[i+1])
+                {
+                    swap(arr[i],arr[i+1]);
+                }
             }
-            
-        }
-        else
-        {
-            for(int i=0;i<n;i=i+2)
+            else
             {
-                temp=arr[i];
-                arr[i]=arr[i+1];
-                arr[i+1]=temp;
+                if(arr[i]<arr[i+1])
+                {
+                    swap(arr[i],arr[i+1]);
+                }
             }
         }
     }
