@@ -1,4 +1,5 @@
-/*Approach 1 :- Accepted but not efficient (Brute Force)*/
+/* Approach 1 :- Accepted but not efficient (Brute Force) */
+
 class Solution
 {
 public:
@@ -45,54 +46,32 @@ public:
 class Solution
 {
 public:
-vector<int>solve(vector<int>arr,int n)
-{
-stack <int >s;
-vector<int>v;
-for(int i=n-1;i>=0;i--)
-{
-if(s.empty())
-{
-    v.push_back(-1);
-}
-else if(s.size()>0&&s.top()>arr[i])
-{
-    v.push_back(s.top());
-}
-else if(s.size()>0 && s.top()<=arr[i])
-{
-while(s.size()>0 && s.top()<=arr[i])
-{
-    s.pop();
-}
-if(s.size()==0)
-{
-    v.push_back(-1);
-}
-else
-{
-v.push_back(s.top());
-}
-}
-s.push(arr[i]);
-}
-reverse(v.begin(),v.end());
-return v;
-}
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2)
     {
-        vector<int>NGR;
-        vector<int>ans;
-        NGR=solve(nums2,nums2.size());
-        unordered_map<int,int>mp;
-        for(int i=0;i<nums2.size();i++)
+        stack<int>s;
+        int n=nums2.size();
+        unordered_map<int,int> mp;
+        
+        for(int i=n-1;i>=0;i--)
         {
-            mp[nums2[i]]=NGR[i];
+            while(s.size()>0 && s.top()<=nums2[i])
+            {
+                s.pop();
+            }
+            if(s.empty())
+            {
+                mp[nums2[i]]=-1;
+            }
+            else
+            {
+                mp[nums2[i]]=s.top();
+            }
+            s.push(nums2[i]);
         }
         for(int i=0;i<nums1.size();i++)
         {
-            ans.push_back(mp[nums1[i]]);
+            nums1[i]=mp[nums1[i]];
         }
-        return ans;
+        return nums1;    
     }
 };
