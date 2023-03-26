@@ -1,3 +1,18 @@
+/* Recursive Approach */
+
+void reverse(queue < int > & q)
+{
+    if (q.empty())
+    {
+    	return;
+    }
+    
+    int data = q.front();
+    q.pop();
+    reverse(q);
+    q.push(data);
+}
+
 /* Time :- O(N) Space :- O(N) [ Auxiliary Stack Space ] */
 
 void reverse(queue < int > & q)
