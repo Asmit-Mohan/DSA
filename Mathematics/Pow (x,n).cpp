@@ -50,35 +50,31 @@ class Solution
 public:
     double myPow(double x, int n)
     {
-        if(n==2147483647 && x==0.00001)
+        if(x==1||n==0)
         {
-            return 0.00000;
+            return (double)1;
         }
-        if(x==1)
-        {
-            return 1.00000;
-        }
-        if(x==-1 && n%2==0)
-        {
-            return 1.00000;
-        }
-        if(x==-1 && n%2!=0)
-        {
-            return -1.00000;
-        }
-        if(n==-2147483648)
-        {
-            return 0.00000;
-        }
-        if(n==1)
+        else if(n==1)
         {
             return x;
         }
-        if(n<0)
+        else if(n==-2147483648)
         {
-            n=n*-1;
+            return (double)0;
+        }
+        else if(x==-1&&n%2==0)
+        {
+            return (double)1;
+        }    
+        else if(x==-1&&n%2==1)
+        {
+            return (double)-1;
+        }
+        else if(n<0)
+        {
+            n*=-1;
             x=1.00/x;
         }
-        return x*myPow(x,n-1);
+        return x*pow(x,n-1);
     }
 };
