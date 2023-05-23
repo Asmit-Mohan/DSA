@@ -1,33 +1,22 @@
-void rotateArr(int arr[], int d, int n)
+class Solution
 {
-    int l=0;
-    int r=d-1;
-    while (l<r)   /*Reversing first d elements*/   /*2 1*/
+public:
+    void revFunc(vector<int>& arr, int l, int r)
     {
-        int temp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = temp;
-        l++;
-        r--;
+        while(l<=r)
+        {
+            swap(arr[l],arr[r]);
+            l++;
+            r--;
+        }
     }
-    l=d;
-    r=n-1;
-    while (l<r)  /*Reversing all the elements after d*/  /*5 4 3*/
+
+    void rotate(vector<int>& arr, int k)
     {
-        int temp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = temp;
-        l++;
-        r--;
-    }
-    l=0;
-    r=n-1;
-    while (l<r)  /*Reversing whole array*/  /*Fron 2 1 5 4 3*/  /*to 3 4 5 1 2*/
-    {
-        int temp = arr[l];
-        arr[l] = arr[r];
-        arr[r] = temp;
-        l++;
-        r--;
-    }
-}
+        int n = size(arr);
+        k = k%n;
+        revFunc(arr,n-k,n-1);
+        revFunc(arr,0,n-k-1);
+        revFunc(arr,0,n-1);
+	} 
+};
