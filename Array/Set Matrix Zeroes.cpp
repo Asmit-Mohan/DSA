@@ -1,4 +1,4 @@
-/*Approach :- 1*/
+/* Approach :- 1 Using Queue DS */
 
 class Solution
 {
@@ -37,51 +37,45 @@ public:
     }
 };
 
-/*Approach :- 2 --> in constant approach (but takes time alot --> Not TLE*/
+/* Approach :- 2 --> Using Array */
 
 class Solution
 {
 public:
-    void setZeroes(vector<vector<int>>& matrix)
+    void setZeroes(vector<vector<int>>& arr)
     {
-        int MODIFIED = -2150000000;  /*Take any number less than (-2^31)*/
-        int R = matrix.size();
-        int C = matrix[0].size();
+        int row[200]={0};
+        int col[200]={0};
 
-        for (int r = 0; r < R; r++)
+        for(int i=0;i<arr.size();i++)
         {
-          for (int c = 0; c < C; c++)
-          {
-            if (matrix[r][c] == 0)
+            for(int j=0;j<arr[0].size();j++)
             {
-              for (int k = 0; k < C; k++)
-              {
-                    if (matrix[r][k] != 0) 
-                    {
-                        matrix[r][k] = MODIFIED;
-                    }
-              }
-              for (int k = 0; k < R; k++)
-              {
-                    if (matrix[k][c] != 0)
-                    {
-                        matrix[k][c] = MODIFIED;
-                    }
-              }
+                if(arr[i][j]==0)
+                {
+                    row[i]=1;
+                    col[j]=1;
+                }
             }
-          }
         }
 
-        for (int r = 0; r < R; r++)
+        for(int i=0;i<200;i++)
         {
-          for (int c = 0; c < C; c++)
-          {
-            if (matrix[r][c] == MODIFIED)
+            if(row[i]==1)
             {
-               matrix[r][c] = 0;
+                for(int j=0;j<arr[0].size();j++)
+                {
+                    arr[i][j]=0;
+                }
             }
-          }
-        }
+            if(col[i]==1)
+            {
+                for(int j=0;j<arr.size();j++)
+                {
+                    arr[j][i]=0;
+                }
+            }
+        }  
     }
 };
 
