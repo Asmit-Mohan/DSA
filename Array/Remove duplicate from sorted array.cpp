@@ -1,3 +1,5 @@
+/* Approach 1 */
+
 class Solution
 {
 public:
@@ -16,5 +18,26 @@ public:
             nums[count++]=temp;
         }
         return count;    
+    }
+};
+
+/* Approach 2 */
+
+class Solution
+{
+public:
+    int removeDuplicates(vector<int>& arr)
+    {
+        int idx=0;
+        int n=arr.size();
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]!=arr[idx])
+            {
+                idx++;
+                arr[idx]=arr[i];
+            }
+        }
+        return idx+1;
     }
 };
