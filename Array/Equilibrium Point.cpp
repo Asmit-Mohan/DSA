@@ -1,4 +1,5 @@
-/*Time Efficient But Not Space Efficient*/
+/* Time :- 3 * O(N) and Space :- 2 * O(N) */
+
 class Solution
 {
 public:
@@ -28,32 +29,33 @@ public:
     }
 };
 
-/*Time and space effifcient*/
+/* Time :- 2 * O(N) and Space :- O(1) */
+
 class Solution
 {
 public:
     int pivotIndex(vector<int>& nums)
     {
-       int sum=0;
-        
-       for(int i=0;i<nums.size();i++)
-       {
-           sum=sum+nums[i];
-       }
-       
-       int temp=0;
-        
-       for(int i=0;i<nums.size();i++)
-       {
-           if(temp==sum-temp-nums[i])
-           {
-               return i;
-           }
-           else
-           {
-               temp=temp+nums[i];
-           }
-       }
-       return -1;
+        int sum=0;
+        int temp=0;
+
+        for(auto x : nums)
+        {
+            sum=sum+x;
+        }    
+
+        for(int i=0;i<nums.size();i++)
+        {
+            sum=sum-nums[i];
+            if(sum==temp)
+            {
+                return i;
+            }
+            else
+            {
+                temp=temp+nums[i];
+            }
+        }
+        return-1;
     }
 };
