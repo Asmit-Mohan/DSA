@@ -3,33 +3,25 @@
 class Solution
 {
 public:
-    vector<vector<int>> diagonalSort(vector<vector<int>>& arr)
+    vector<vector<int>> diagonalSort(vector<vector<int>>& mat)
     {
-        int row = arr.size();
-        int col = arr[0].size();
-        
         unordered_map<int,priority_queue<int,vector<int>,greater<int>>>mp;
-        
-        for(int i=0;i<arr.size();i++)
+
+        for(int i=0;i<mat.size();i++)
         {
-            for(int j=0;j<arr[0].size();j++)
+            for(int j=0;j<mat[0].size();j++)
             {
-                int diff = i-j;
-                mp[diff].push(arr[i][j]);
-            }
-        } 
-        
-        vector<vector<int>>ans(row,vector<int>(col,0));
-     
-        for(int i=0;i<arr.size();i++)
-        {
-            for(int j=0;j<arr[0].size();j++)
-            {
-                int diff = i-j;
-                ans[i][j] = mp[diff].top();
-                mp[diff].pop();
+                mp[j-i].push(mat[i][j]);
             }
         }
-        return ans;
+        for(int i=0;i<mat.size();i++)
+        {
+            for(int j=0;j<mat[0].size();j++)
+            {
+                mat[i][j]=mp[j-i].top();
+                mp[j-i].pop();
+            }
+        }
+        return mat;
     }
 };
